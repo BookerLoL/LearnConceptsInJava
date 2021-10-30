@@ -1,2 +1,2 @@
 # LearnConceptsInJava
-An on-going project develop concepts in Java
+An on-going library where concepts are implemented in Java
