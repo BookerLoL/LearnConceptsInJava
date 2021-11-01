@@ -5,7 +5,7 @@
 Construct complex objects step by step
 
 Variations
-- [Faceted](./faceted/notes.md)
-- [Fluent](./fluent/notes.md)
-- [Generic](./generic/notes.md)
-- [Normal / Standard](./normal/notes.md)
+- [Faceted](./faceted/readme.md)
+- [Fluent](./fluent/readme.md)
+- [Generic](./generic/readme.md)
+- [Normal / Standard](./normal/readme.md)

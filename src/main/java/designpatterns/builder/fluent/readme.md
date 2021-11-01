@@ -21,7 +21,7 @@ public class WebRequest {
     }
 
     interface MethodInfo {
-        OptionalInfo method(String method);
+        Finish method(String method);
     }
 
     interface Finish {
@@ -29,6 +29,13 @@ public class WebRequest {
     }
 
     public static class RequestBuilder implements UriInfo, MethodInfo, Finish {
+        private RequestBuilder() {
+        }
+
+        public static UriInfo from() {
+            return new RequestBuilder();
+        }
+
         @Override
         public MethodInfo url(String url) {
             //do sth
@@ -48,7 +55,13 @@ public class WebRequest {
     }
 }
 
-
-
-
+public class Example {
+    public static void main(String[] args) {
+        //Forcing users to build in a specific manner
+        WebRequest request = WebRequest.RequestBuilder.from()
+                .url("www.website.com")
+                .method("POST")
+                .build();
+    }
+}
 ```

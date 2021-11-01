@@ -30,4 +30,10 @@ public class Person {
         }
     }
 }
+
+public class Example {
+    public static void main(String[] args) {
+        Person person = new Person.PersonBuilder().name("Bob").age(21).build();
+    }
+}
 ```

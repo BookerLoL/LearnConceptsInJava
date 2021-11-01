@@ -1,5 +1,10 @@
-package designpatterns.template;
+# Template Design Pattern
 
+**Behavioral** Design Pattern
+
+Defines an example of an algorithm that subclasses can override
+
+```java
 public abstract class Game {
 	abstract void setup();
 
@@ -13,3 +18,4 @@ public abstract class Game {
 		end();
 	}
 }
+```
