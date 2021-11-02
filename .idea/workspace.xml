@@ -5,34 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b42b4d-235e-4bc2-b7ff-143773c0cac4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/callback/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/combinator/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/composite/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/converter/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/dataaccessobject/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/decorator/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/facade/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factorymethod/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/fluentinterface/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/lazyevaluation/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/nullobject/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servant/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/specification/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/template/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/transferobject/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/twin/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/collectionpipeline/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/monad/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/monad/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/builder/faceted/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/faceted/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/builder/fluent/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/fluent/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/builder/generic/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/generic/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/builder/normal/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/normal/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/builder/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/iterator/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/iterator/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/mediator/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/mediator/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/memento/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/memento/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/monostate/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/monostate/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/template/Game.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,20 +96,7 @@
       <recent name="designpatterns.builder.faceted" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RailFenceCipher">
-    <configuration name="AtbashCipher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ciphers.AtbashCipher" />
-      <module name="LearnConceptsInJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ciphers.AtbashCipher" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Test">
     <configuration name="CaesarCipher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ciphers.CaesarCipher" />
       <module name="LearnConceptsInJava" />
@@ -180,13 +143,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="designpatterns.monad.Test" />
+      <module name="LearnConceptsInJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="designpatterns.monad.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.RailFenceCipher" />
         <item itemvalue="Application.CharacterUtil$AsciiHelper" />
         <item itemvalue="Application.CaesarCipher" />
-        <item itemvalue="Application.AtbashCipher" />
       </list>
     </recent_temporary>
   </component>
