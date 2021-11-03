@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b42b4d-235e-4bc2-b7ff-143773c0cac4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/collectionpipeline/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/monad/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/monad/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/optimizing/code_optimizations.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/optimizing/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/lazyevaluation/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/lazyevaluation/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/AccessingVariables.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/BufferingStreams.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/CommonSubexpressionExlimination.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/Iterative.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/NullingVariables.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/Packages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/Primitives.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/StringConcatenation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/SwitchCases.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/UnrollingLoops.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
