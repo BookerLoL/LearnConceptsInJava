@@ -2,3 +2,9 @@
 [Java Code Optimizations](code_optimizations.md)
 
 Other Java Optimizations - Still to do
+
+# Notes about Optimization in general
+- Never prematurely optimize code
+- Always design good code first then can optimize later
+- Always profile code when optimizing to find true bottlenecks
+- Algorithms are often the main culprit to non-performant code
