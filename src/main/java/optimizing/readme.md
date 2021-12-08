@@ -8,3 +8,4 @@ Other Java Optimizations - Still to do
 - Always design good code first then can optimize later
 - Always profile code when optimizing to find true bottlenecks
 - Algorithms are often the main culprit to non-performant code
+- IO operations are very expensive compared to code optimizations
