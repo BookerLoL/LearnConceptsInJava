@@ -2,6 +2,8 @@
 
 **Behavioral** Design Pattern
 
+Is a special case of the Special Case Pattern
+
 Replaces the need for null checking by providing a class that does nothing
 
 ```java

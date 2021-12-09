@@ -22,7 +22,7 @@ public class AndSelector<T> extends AbstractSelector<T> {
     AndSelector(AbstractSelector<T>... selectors) {
         this.selectors = List.of(selectors);
     }
-    
+
     @Override
     public boolean test(T t) {
         return selectors.stream().allMatch(selector -> selector.test(t));
@@ -34,10 +34,10 @@ public class GreaterThan extends AbstractSelector<Integer> {
     public GreaterThan(Integer i) {
         number = i;
     }
-    
+
     @Override
     public boolean test(Integer i) {
         return i.compareTo(number) > 0;
     }
-} 
+}
 ```
