@@ -1,4 +1,5 @@
-package datastructures.tree;
+package data_structures.tree;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -37,7 +38,8 @@ public class BPlusTree<T extends Comparable<? super T>> {
 			String leafMsg = isLeaf() ? "leaf: " : "non-leaf: ";
 			String hasNext = next != null ? "has next" : "no next";
 			String hasPrev = prev != null ? "has prev" : "no prev";
-			return leafMsg + "total keys = " + totalKeys + "\t" + Arrays.toString(keys) + "\t total children: " + totalChildren + " " + hasPrev + " " + hasNext;
+			return leafMsg + "total keys = " + totalKeys + "\t" + Arrays.toString(keys) + "\t total children: "
+					+ totalChildren + " " + hasPrev + " " + hasNext;
 		}
 
 		public boolean isFull() {
@@ -76,13 +78,15 @@ public class BPlusTree<T extends Comparable<? super T>> {
 
 	private int searchKeyIndex(Node curr, T data) {
 		int index;
-		for (index = 0; index < curr.totalKeys && comp.compare(data, curr.keys[index]) > 0; index++);
+		for (index = 0; index < curr.totalKeys && comp.compare(data, curr.keys[index]) > 0; index++)
+			;
 		return index;
 	}
 
 	private int searchDeleteKeyIndexInternal(Node curr, T data) {
 		int index;
-		for (index = 0; index < curr.totalKeys && comp.compare(data, curr.keys[index]) >= 0; index++);
+		for (index = 0; index < curr.totalKeys && comp.compare(data, curr.keys[index]) >= 0; index++)
+			;
 		return index;
 	}
 
@@ -159,7 +163,8 @@ public class BPlusTree<T extends Comparable<? super T>> {
 		parent.children[parent.totalChildren++] = rightChild;
 
 		System.arraycopy(internal.keys, startRightPos, rightChild.keys, 0, internal.totalKeys - startRightPos);
-		System.arraycopy(internal.children, startRightPos, rightChild.children, 0, internal.totalChildren - startRightPos);
+		System.arraycopy(internal.children, startRightPos, rightChild.children, 0,
+				internal.totalChildren - startRightPos);
 
 		parent.keys[parent.totalKeys++] = internal.keys[totalLeftKeys];
 		parent.totalChildren = 2;
@@ -337,7 +342,8 @@ public class BPlusTree<T extends Comparable<? super T>> {
 		merge(leftChild, rightChild);
 
 		if (chosenIndex + 1 < parent.totalChildren) {
-			System.arraycopy(parent.children, chosenIndex + 1, parent.children, chosenIndex, parent.totalChildren - (chosenIndex + 1));
+			System.arraycopy(parent.children, chosenIndex + 1, parent.children, chosenIndex,
+					parent.totalChildren - (chosenIndex + 1));
 			System.arraycopy(parent.keys, chosenIndex, parent.keys, chosenIndex - 1, parent.totalKeys - chosenIndex);
 		}
 
@@ -363,7 +369,8 @@ public class BPlusTree<T extends Comparable<? super T>> {
 
 	public void printLeftToRight() {
 		Node current = root;
-		for (; !current.isLeaf(); current = current.children[0]);
+		for (; !current.isLeaf(); current = current.children[0])
+			;
 		for (; current != null; current = current.next) {
 			System.out.println(Arrays.toString(current.keys));
 		}
@@ -371,7 +378,8 @@ public class BPlusTree<T extends Comparable<? super T>> {
 
 	public void printRightToLeft() {
 		Node current = root;
-		for (; !current.isLeaf(); current = current.children[current.totalChildren - 1]);
+		for (; !current.isLeaf(); current = current.children[current.totalChildren - 1])
+			;
 		for (; current != null; current = current.prev) {
 			System.out.println(Arrays.toString(current.keys));
 		}
