@@ -1,5 +1,28 @@
 # Best Practices in Java
 
+## Best Overall techniques
+
+- Should read guides / read books / watch vidoes / etc from experts to learn whats best practice
+- Abstract classes are harmful, inheritance tree propagated changes
+- Composition over inheritance
+
+```java
+public interface Logger {
+  void log(String message);
+
+  default Logger filter(Predicate<String> filter) {
+    return message -> {
+      if (filter.test(message)) {
+        log(message);
+      }
+    };
+  }
+}
+
+Logger logger = msg -> System.out::println;
+Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
+```
+
 ## TODO organize the notes
 
 - algorithm-heavy, micro optimised library code, code that really performs well usually more important than code that doesn't need comments
@@ -67,3 +90,20 @@
   - If long streams, extract them into explanatory variables
 
 - [Memory calculation](https://stackoverflow.com/questions/37916136/how-to-calculate-memory-usage-of-a-java-program)
+
+## Best Testing Practices
+
+- Arrange/Act/Assert
+  - Given/When/Then
+- Test Design Goals
+  - Sensitive (fail for any bugs)
+    - High coverage %
+    - correct tests
+  - Specific (precise failures)
+    - expressive
+    - isolated and robust
+    - low overlap
+  - Fast
+  - Few
+    - small, DRY tests
+- More test codes than production code

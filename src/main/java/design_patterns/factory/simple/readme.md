@@ -32,6 +32,9 @@ public class ShapeFactory {
 
 Functional Approach
 
+- Also known as **Factory Kit Design Pattern**
+  - A map of factories
+
 ```java
 
 public interface Shape {}
@@ -46,6 +49,10 @@ public class ShapeFactory {
         shapes.put("circle", Circle::new);
         shapes.put("square", Square::new);
         return shapes;
+    }
+
+    public void register(String shape, Supplier<Shape> supplier) {
+        map.put(shape, supplier);
     }
 
     public Optional<Shape> getShape(String shape) {

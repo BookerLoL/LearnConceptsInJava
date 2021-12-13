@@ -110,7 +110,7 @@ new Date(date.getTime() + 24 * state.oneHour);
 - ### Check if collection is random access to have better performance for get
 - ### Consider using Set with a List to determine if something exists for constant contains
 - ### Use collection.isEmpty over Collection.size to check if empty
-  - Can't be sure that Collection.size is constant
+  - `Collection.size()` may not be constant time
 - ### Try to limit instantiating objects
   - Prefer to clear content or reuse objects
 
@@ -169,4 +169,23 @@ for (String s : strings) {
   - Java 9, almost equal performance
   - Java 13, faster
 - ### Try upgrading Java versions
+
   - Newer Java versions tend to have better optimized code changes
+
+- ### toArray(new T[0])
+
+  - This is more optimal in all regards at least for Java 8+
+  - Due to no zero initialized, 2 native calls optimized together
+
+- ### There are type checks for String and other Object arrays
+
+  - `Object[] faster = new Object[size]` does not go through type checks, thus faster
+
+- ### Preallocate the exact space you need if it exceeds default size of collections
+  - Many buffers come in with default small sizes
+    - every single type it grows larger, has to realloc, this adds up
+- ## Hardware matters
+  - hitting cache vs not hitting cache most of the time can cause poor performance
+  - This is why linked list is not as performance as array lists in practice due to memory when reading sequentially
+    - **Contiguous compact memory**
+      - easier to pre-fetch next memory
