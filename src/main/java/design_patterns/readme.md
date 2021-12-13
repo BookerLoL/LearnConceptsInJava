@@ -17,7 +17,9 @@ Good for refactoring but use only when appropriate.
 - [Filter](./filter)
 - [Flyweight](./flyweight)
 
-  To read
+  ## Section is personal for me as these are things I need to read
+
+  [John Mcclean](https://medium.com/@johnmcclean)
   [Fluent](https://blog.jooq.org/the-java-fluent-api-designer-crash-course/)
   [laziness](https://www.slideshare.net/mariofusco/lazine)
   [monad](https://www.slideshare.net/mariofusco/monadic-java)
