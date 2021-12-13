@@ -26,7 +26,7 @@ Good for refactoring but use only when appropriate.
   [trampoline doc](https://medium.com/@johnmcclean/trampolining-a-practical-guide-for-awesome-java-developers-4b657d9c3076)
 
 [totallylazy](https://github.com/bodar/totallylazy/blob/master/src/com/googlecode/totallylazy/Trampoline.java)
-
+[Functional Java](https://github.com/functionaljava/functionaljava)
 [Cyclops](https://github.com/aol/cyclops)
 [Truth](https://github.com/google/truth)
 [AssertJ](https://github.com/assertj/assertj-core/tree/main/src/main/java/org/assertj/core)
