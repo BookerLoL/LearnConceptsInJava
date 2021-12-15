@@ -1,6 +1,8 @@
 # Monad Design Pattern
 
-Functional design pattern to allow chaining operations 
+Functional design pattern to allow chaining operations
+
+- Is able to represent 2 or more states as a unified values
 
 ```java
 import java.util.function.Function;
@@ -44,4 +46,20 @@ public class Tester {
         System.out.println(Test.of(1).test(doubleF, pred).get());
     }
 }
+```
+
+Better approach
+
+```java
+public class Vaidator<T> {
+    public Validator<T> validate(Predicate<T> validation, String message) {
+        //...
+    }
+
+    public <U> Validator<T> validate(Function<? extends T, ? super U> valueToCheck, Predicate<? super U> validation, String message) {
+        return validate(valueToCheck.andThen(validation::test)::apply, message);
+    }
+}
+
+//validate(Object::getName, Objects::nonNull, "name was null!")
 ```
