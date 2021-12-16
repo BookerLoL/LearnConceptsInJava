@@ -1,4 +1,4 @@
-package datastructures.queue;
+package data_structures.queue;
 import java.util.Arrays;
 import java.util.Comparator;
 
