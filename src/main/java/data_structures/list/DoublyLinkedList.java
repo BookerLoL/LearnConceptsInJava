@@ -1,4 +1,5 @@
-package datastructures.list;
+package data_structures.list;
+
 public class DoublyLinkedList<T> {
 	protected class Node {
 		private T data;
@@ -45,7 +46,7 @@ public class DoublyLinkedList<T> {
 	private Node head;
 	private Node tail;
 	private int size;
-	
+
 	public DoublyLinkedList() {
 		clear();
 	}

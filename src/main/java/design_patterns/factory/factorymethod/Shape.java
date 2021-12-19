@@ -1,4 +1,4 @@
-package designpatterns.factorymethod;
+package design_patterns.factory.factorymethod;
 
 public abstract class Shape {
 	protected String name;

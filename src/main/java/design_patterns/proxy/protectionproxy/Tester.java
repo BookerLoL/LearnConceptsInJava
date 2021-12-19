@@ -1,4 +1,4 @@
-package designpatterns.proxy.protectionproxy;
+package design_patterns.proxy.protectionproxy;
 
 public class Tester {
 

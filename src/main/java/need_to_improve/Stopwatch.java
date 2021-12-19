@@ -1,4 +1,4 @@
-package needtoimprove;
+package need_to_improve;
 
 /**
  * A class to help with keep track of elapsed time like a stopwatch. The class
@@ -107,6 +107,7 @@ public class Stopwatch {
 	 * need to be stopped in order to get the updated elapsed time.
 	 * <p>
 	 * <i>If time exceeds the Long.MAX_VALUE, an overflow error will occur.</i>
+	 * 
 	 * @since 1.0
 	 */
 	public void stop() {
@@ -122,6 +123,7 @@ public class Stopwatch {
 	/**
 	 * The stopwatch will stop running and the accumulated elapsed time will be
 	 * reset to 0.
+	 * 
 	 * @since 1.0
 	 */
 	public void clear() {
@@ -200,8 +202,10 @@ public class Stopwatch {
 	 * assigned.
 	 * 
 	 * <p>
-	 * The method {@code setMillisecondsDecimals(int numDecimals)} will interally call
-	 * {@code getValidMillisecondsDecimal(int numDecimals)} to set the formatted milliseconds decimals.
+	 * The method {@code setMillisecondsDecimals(int numDecimals)} will interally
+	 * call
+	 * {@code getValidMillisecondsDecimal(int numDecimals)} to set the formatted
+	 * milliseconds decimals.
 	 * 
 	 * @param numDecimals the number of decimal digits that should appear
 	 * @since 1.0
@@ -216,7 +220,8 @@ public class Stopwatch {
 	 * 
 	 * <p>
 	 * The method {@code setSecondsDecimals(int numDecimals)} will interally call
-	 * {@code getValidSecondsDecimal(int numDecimals)} to set the formatted seconds decimals.
+	 * {@code getValidSecondsDecimal(int numDecimals)} to set the formatted seconds
+	 * decimals.
 	 * 
 	 * @param numDecimals the number of decimal digits that should appear
 	 * @since 1.0
@@ -255,7 +260,7 @@ public class Stopwatch {
 	 * set to the given {@code number} input.
 	 * 
 	 * @param number the expected input value
-	 * @param max  the max value that {@code number} can be
+	 * @param max    the max value that {@code number} can be
 	 * @return a valid number within the range of 0 and {@code max} given the input
 	 *         {@code number}
 	 * @since 1.0

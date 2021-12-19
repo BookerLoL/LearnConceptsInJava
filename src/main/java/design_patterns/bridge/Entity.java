@@ -1,4 +1,4 @@
-package designpatterns.bridge;
+package design_patterns.bridge;
 
 public abstract class Entity {
 	private long id;

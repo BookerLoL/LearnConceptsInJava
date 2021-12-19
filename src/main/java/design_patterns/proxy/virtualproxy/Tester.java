@@ -1,4 +1,4 @@
-package designpatterns.proxy.virtualproxy;
+package design_patterns.proxy.virtualproxy;
 
 public class Tester {
 

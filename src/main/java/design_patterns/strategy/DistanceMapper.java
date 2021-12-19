@@ -1,4 +1,4 @@
-package designpatterns.strategy;
+package design_patterns.strategy;
 
 import java.util.Collection;
 import java.util.Collections;

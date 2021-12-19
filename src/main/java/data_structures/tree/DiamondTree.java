@@ -1,7 +1,7 @@
-package datastructures.tree;
 
+package data_structures.tree;
 
-import datastructures.queue.LinkedListQueue;
+import data_structures.queue.LinkedListQueue;
 
 public class DiamondTree {
 	public static class Node {
@@ -29,7 +29,6 @@ public class DiamondTree {
 		int num = 1;
 		Node newRoot = new Node(num);
 		root = newRoot;
-		
 
 		LinkedListQueue<Node> q = new LinkedListQueue<>(true);
 		q.add(newRoot);
@@ -94,7 +93,7 @@ public class DiamondTree {
 			sb.append("\n");
 			upperLevel--;
 		}
-		
+
 		while (q.size() > 1) {
 			size = q.size();
 			while (size > 0) {

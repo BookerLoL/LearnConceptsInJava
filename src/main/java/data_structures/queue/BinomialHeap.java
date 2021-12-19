@@ -1,10 +1,11 @@
-package datastructures.queue;
+package data_structures.queue;
 
 import java.util.Comparator;
 
 public class BinomialHeap<T extends Comparable<T>> {
     /*
-     * I'm unsure what the purpose of parent link is used for but will keep it in there just in case
+     * I'm unsure what the purpose of parent link is used for but will keep it in
+     * there just in case
      *
      */
     private class Node {

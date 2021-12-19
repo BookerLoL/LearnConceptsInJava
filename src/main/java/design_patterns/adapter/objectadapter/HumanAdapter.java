@@ -1,4 +1,4 @@
-package designpatterns.adapter.objectadapter;
+package design_patterns.adapter.objectadapter;
 
 public class HumanAdapter implements Robot {
 	Human human;

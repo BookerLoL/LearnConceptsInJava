@@ -1,4 +1,5 @@
-package datastructures.tree;
+package data_structures.tree;
+
 import java.util.*;
 
 /*
@@ -37,7 +38,6 @@ public class TournamentTree<T extends Comparable<T>> {
 	private Player[] players;
 	private List<List<T>> teams;
 	private Comparator<T> comp;
-	
 
 	public TournamentTree() {
 		this(Comparator.naturalOrder());
@@ -47,7 +47,7 @@ public class TournamentTree<T extends Comparable<T>> {
 		this.comp = comp;
 	}
 
-	//The power of 2 that can hold all the players
+	// The power of 2 that can hold all the players
 	private static int computeHighestPowerOf2(int numberOfPlayers) {
 		int b = 1;
 		while (b < numberOfPlayers) {

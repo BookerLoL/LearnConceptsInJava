@@ -1,4 +1,5 @@
-package datastructures.list;
+package data_structures.list;
+
 import java.util.AbstractList;
 import java.util.Deque;
 import java.util.Iterator;

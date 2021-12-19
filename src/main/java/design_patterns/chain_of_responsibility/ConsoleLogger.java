@@ -1,4 +1,4 @@
-package designpatterns.chainofresponsibility;
+package design_patterns.chain_of_responsibility;
 
 public class ConsoleLogger extends Logger {
 

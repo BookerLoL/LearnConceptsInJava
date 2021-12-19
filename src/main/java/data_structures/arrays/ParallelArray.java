@@ -1,4 +1,4 @@
-package datastructures.arrays;
+package data_structures.arrays;
 
 public class ParallelArray {
 	Object[][] arrays;

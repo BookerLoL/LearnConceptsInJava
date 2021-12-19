@@ -1,4 +1,4 @@
-package designpatterns.servicelocator;
+package design_patterns.service_locator;
 
 public class ServiceLocator {
 	private static Cache cache = new Cache();

@@ -1,4 +1,5 @@
-package designpatterns.composite;
+
+package design_patterns.composite;
 
 public interface Summable {
 	int sum();

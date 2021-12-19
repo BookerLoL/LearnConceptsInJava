@@ -1,4 +1,4 @@
-package designpatterns.factorymethod;
+package design_patterns.factory.factorymethod;
 
 public class ShapeFactory {
 	public static Shape create(String name) {

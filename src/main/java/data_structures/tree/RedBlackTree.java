@@ -1,4 +1,5 @@
-package datastructures.tree;
+package data_structures.tree;
+
 import java.util.Comparator;
 
 /*
@@ -110,20 +111,20 @@ public class RedBlackTree<T extends Comparable<? super T>> {
 	}
 
 	private void insertRepair(Node newNode) {
-		if (newNode.parent == null) { //at root, needs to be black
+		if (newNode.parent == null) { // at root, needs to be black
 			newNode.color = Color.BLACK;
-		} else if (newNode.parent.color == Color.BLACK) { 
-			return; //parent is black, current node is red, rule is satisfied
+		} else if (newNode.parent.color == Color.BLACK) {
+			return; // parent is black, current node is red, rule is satisfied
 		} else {
 			Node uncle = newNode.uncle();
-			if (uncle != null && uncle.color == Color.RED) { 
-				//red child, red parent, red uncle, needs to fix
+			if (uncle != null && uncle.color == Color.RED) {
+				// red child, red parent, red uncle, needs to fix
 				newNode.parent.color = Color.BLACK;
 				uncle.color = Color.BLACK;
 				newNode.grandparent().color = Color.RED;
-				insertRepair(newNode.grandparent()); //go up and fix
+				insertRepair(newNode.grandparent()); // go up and fix
 			} else {
-				//parent is red, uncle is black
+				// parent is red, uncle is black
 				Node parent = newNode.parent;
 				Node grandParent = parent.grandparent();
 				if (parent.right == newNode && grandParent.left == parent) {
@@ -133,11 +134,11 @@ public class RedBlackTree<T extends Comparable<? super T>> {
 					rightRotate(parent);
 					newNode = newNode.right;
 				}
-				
-				//Fixing position of grandparent and parent after rotation
+
+				// Fixing position of grandparent and parent after rotation
 				parent = newNode.parent;
 				grandParent = newNode.grandparent();
-				
+
 				if (newNode == parent.left) {
 					rightRotate(grandParent);
 				} else {
@@ -169,8 +170,6 @@ public class RedBlackTree<T extends Comparable<? super T>> {
 
 		newNode.parent = currRoot;
 	}
-	
-	
 
 	public void preorder() {
 		preorderHelper(root);

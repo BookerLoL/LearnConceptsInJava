@@ -1,4 +1,4 @@
-package designpatterns.mediator;
+package design_patterns.mediator;
 
 public class BooleanValue implements Value<Boolean> {
 	Boolean value;

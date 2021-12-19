@@ -1,4 +1,4 @@
-package nocategoryyet;
+package no_category_yet;
 
 import java.awt.Color;
 import java.util.Collections;
@@ -41,10 +41,11 @@ public class PaintersBuffer {
 		this.reversePainter = reversePainter;
 	}
 
-	//Return the current state of the matrix after adding the polygons, will not clear the buffer until clear is called
+	// Return the current state of the matrix after adding the polygons, will not
+	// clear the buffer until clear is called
 	public Color[][] add(List<Polygon> visiblePolygons) {
 		if (!reversePainter) {
-			//furthest depth first
+			// furthest depth first
 			Collections.sort(visiblePolygons, (p1, p2) -> p2.zDepth - p1.zDepth);
 			for (Polygon p : visiblePolygons) {
 				for (int row = 0; row < viewMatrix.length; row++) {
@@ -56,23 +57,24 @@ public class PaintersBuffer {
 				}
 			}
 		} else {
-			//closest depth first
+			// closest depth first
 			Collections.sort(visiblePolygons, (p1, p2) -> p1.zDepth - p2.zDepth);
 			for (Polygon p : visiblePolygons) {
 				for (int row = 0; row < viewMatrix.length; row++) {
 					for (int col = 0; col < viewMatrix[0].length; col++) {
-						//Only update if it's the default color and the polygon has a different value
-						if (viewMatrix[row][col] == defaultBackgroundColor && p.pixels[row][col] != defaultBackgroundColor) {
+						// Only update if it's the default color and the polygon has a different value
+						if (viewMatrix[row][col] == defaultBackgroundColor
+								&& p.pixels[row][col] != defaultBackgroundColor) {
 							viewMatrix[row][col] = p.pixels[row][col];
 						}
 					}
 				}
 			}
 		}
-		
+
 		return viewMatrix;
 	}
-	
+
 	public void clear() {
 		for (int row = 0; row < viewMatrix.length; row++) {
 			for (int col = 0; col < viewMatrix[0].length; col++) {

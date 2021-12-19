@@ -1,4 +1,4 @@
-package designpatterns.command;
+package design_patterns.command;
 
 public class JumpCommand implements Command {
 	private Player player;

@@ -1,4 +1,6 @@
-package nocategoryyet;
+
+package no_category_yet;
+
 import java.util.Comparator;
 
 //Reference: Java 9 Data Structures and Algorithms, Debasish Ray Chawdhuri

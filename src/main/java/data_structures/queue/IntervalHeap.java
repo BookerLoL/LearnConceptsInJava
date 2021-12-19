@@ -1,4 +1,4 @@
-package datastructures.queue;
+package data_structures.queue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -347,7 +347,7 @@ public class IntervalHeap<T extends Comparable<? super T>> {
 	}
 
 	public static void main(String[] args) {
-		//testIntervalHeap();
-		//testComplementaryRangeSearch()
+		// testIntervalHeap();
+		// testComplementaryRangeSearch()
 	}
 }

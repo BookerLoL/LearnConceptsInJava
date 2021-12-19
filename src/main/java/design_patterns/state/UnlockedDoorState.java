@@ -1,4 +1,4 @@
-package designpatterns.state;
+package design_patterns.state;
 
 public class UnlockedDoorState extends AbstractDoorState {
 
