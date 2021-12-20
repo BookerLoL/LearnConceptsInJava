@@ -16,3 +16,22 @@ public class Timer {
     }
 }
 ```
+
+```java
+public interface Consumer<T extends Closeable, X extends Throwable> {
+    void consume(T instance) throws X;
+}
+
+//Similar to what JUnit 5 does
+public static <X extends Throwable> Throwable assertThrows(Class<X> expectedExceptionClass, Runnable block) {
+    try {
+        block.run();
+    } catch (Throwable ex) {
+        if (expectedExceptionClass.isInstance(ex)) {
+            return ex;
+        }
+    }
+    fail("Didn't throw expected exception");
+    return null;
+}
+```

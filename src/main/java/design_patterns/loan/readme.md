@@ -1,8 +1,10 @@
 # Loan Design Pattern
 
+- Functional Design Pattern
 - Lender Lendee Pattern
+
 - Ensures resource has been disposed of once out of scope
-  - Caller can passing their objects method to manage state
+  - Caller can pass their objects method to manage state
 
 ```java
 public interface InputStreamConsumer {

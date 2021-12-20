@@ -2,7 +2,6 @@
 
 Provides an easy, readable, and flowing interface read like human language
 
-
 ```java
 public interface Fluent<T> {
     Fluent<T> filter(Predicate<? super T> predicate);

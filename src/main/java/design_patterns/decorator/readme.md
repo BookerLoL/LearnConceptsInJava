@@ -46,3 +46,17 @@ public class Example {
 }
 ```
 
+Functional Approach
+
+```java
+//Decorator pattern
+public void setFilters(final Function<Color, Color>... filters) {
+        Function<Color, Color> f =
+                Stream.of(filters)
+                        .reduce(Function::compose)
+                        .orElse(color -> color);
+}
+
+
+setFilters(Color::brighter, Color::darker);
+```

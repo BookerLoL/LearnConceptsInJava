@@ -29,7 +29,7 @@ public static Optional<Expr> parseBinaryOperation(String token, Supplier<Expr> s
     return Opterator.parse(token).map(op -> new BinaryOp(op, supplier.get(), supplier.get()))
 }
 
-public static Optiona<Expr> parsevalue(String token) {
+public static Optional<Expr> parsevalue(String token) {
     //try parsing value
 }
 
