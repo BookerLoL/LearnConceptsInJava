@@ -95,6 +95,8 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
 - Many small functions with long descriptive names
 - Less tabs is easier to read
 - Early returns
+- Write simplest code that works
+-
 
 ## Best Testing Practices
 
