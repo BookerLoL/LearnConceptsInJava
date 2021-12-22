@@ -6,7 +6,7 @@
 - [Source](https://stackoverflow.com/questions/9978477/difference-between-object-adapter-pattern-and-class-adapter-pattern)
 
 - Types
-  - [Class Adapter](/class)
+  - [Class Adapter](./class)
     - inheritance appraoch
-  - [Object Adapter](/object)
+  - [Object Adapter](./object)
     - composition appraoch

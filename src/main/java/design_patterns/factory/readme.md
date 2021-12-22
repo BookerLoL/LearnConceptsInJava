@@ -6,7 +6,7 @@
 
 Variations
 
-- [Abstract Factory Pattern](./abstract/readme.md)
-- [Factory Method](./factorymethod/readme.md)
-- [Simple Factory](./simple/readme.md)
-- [Static Factory Method](./staticmethod/readme.md)
+- [Abstract Factory Pattern](./abstract)
+- [Factory Method](./factorymethod)
+- [Simple Factory](./simple)
+- [Static Factory Method](./staticmethod)
