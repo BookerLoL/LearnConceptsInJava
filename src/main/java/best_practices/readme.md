@@ -92,6 +92,10 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
 
 - [Memory calculation](https://stackoverflow.com/questions/37916136/how-to-calculate-memory-usage-of-a-java-program)
 
+- Many small functions with long descriptive names
+- Less tabs is easier to read
+- Early returns
+
 ## Best Testing Practices
 
 - Arrange/Act/Assert
@@ -122,4 +126,3 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
 - Just use peek for printing / seeing progress
   - can introduce side effects
 - Java8 flat map is not lazily evaluated
--

@@ -1,6 +1,8 @@
 # Monostate Design Pattern
+
 Maintains a shared state across all instances.
-- Often confused with Singleton which cares only about maintain one instance
+
+- Often confused with Singleton which cares only about maintaining one instance
 
 ```java
 import java.util.Collections;

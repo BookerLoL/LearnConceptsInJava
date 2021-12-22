@@ -1,5 +1,8 @@
 # Chain of Responsibility Design Pattern
 
+- Behavioral Design Pattern
+- Pass work onto handlers and they decide to handle it or pass it
+
 Functional Appraoch
 
 ```java

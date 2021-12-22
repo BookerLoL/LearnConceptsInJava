@@ -1,6 +1,8 @@
-# Monostate Design Pattern
+# Mute Design Pattern
 
 Runs code and ignores all exceptions but continues running
+
+- Useful for functional code
 
 ```java
 public interface Muter {

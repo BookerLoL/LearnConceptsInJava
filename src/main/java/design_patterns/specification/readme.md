@@ -1,8 +1,8 @@
 # Specification Design Pattern
 
-**Architectural** Design Pattern
-
 **Behavioral** Design Pattern
+
+- **This approach is not recommended anymore, use the Filter/Creteria approach**
 
 Reusable expression specifications and combine them for validation
 

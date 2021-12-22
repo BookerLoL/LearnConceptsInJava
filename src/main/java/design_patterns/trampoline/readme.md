@@ -6,7 +6,7 @@
 - Helps to implement recursive functions without stack issues
 
 ```java
-@FunctionalInterface
+    @FunctionalInterface
     public interface Trampoline<T> {
         Trampoline<T> apply();
 

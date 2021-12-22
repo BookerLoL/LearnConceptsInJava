@@ -11,7 +11,7 @@ public interface LeveledLogger {
     void log(Level level, String message);
 
     default Logger level(Level level) {
-        //
+        return msg -> System.out.println("Level: " + level + " " + msg);
     }
 }
 ```

@@ -19,3 +19,32 @@ public abstract class Game {
 	}
 }
 ```
+
+Functional Appraoch (Avoids inheritance)
+
+```java
+interface GameAction {
+	void play();
+}
+
+public class GameActionUtil {
+	public static void playUtil(GameAction gameAction) {
+		//Time before
+		gameAction.play();
+		//Time after
+	}
+}
+
+public class Tester {
+	void test() {
+		Game game = new Game();
+		GameActionUtil.playUtil(
+			() -> {
+				game.setup();
+				game.start();
+				game.end();
+			}
+		)
+	}
+}
+```
