@@ -1,7 +1,9 @@
 # Combinator Design Pattern
 
 Functional programming style to combine functions
+
 - Function.andThen and Function.compose do this
+- [Source](https://dzone.com/articles/introducing-combinators-part-1)
 
 ```java
 import java.util.Objects;
@@ -103,4 +105,82 @@ public class Example {
         result.getReason().ifPresent(System.out::println);
     }
 }
+```
+
+Other examples
+
+```java
+@FunctionalInterface
+    public interface Before<T, R> extends Function<Consumer<T>, Function<Function<T, R>, Function<T, R>>> {
+        static <T, R> Before<T, R> create() {
+            return before -> function -> argument -> {
+                before.accept(argument);
+                return function.apply(argument);
+            };
+        }
+
+        static <T, R> Function<T, R> decorate(Consumer<T> before, Function<T, R> function) {
+            return Before.<T, R>create().apply(before).apply(function);
+        }
+    }
+
+    @FunctionalInterface
+    public interface After<T, R> extends Function<Function<T, R>, Function<BiConsumer<T, R>, Function<T, R>>> {
+        static <T, R> After<T, R> create() {
+            return function -> after -> argument -> {
+                R result = function.apply(argument);
+                after.accept(argument, result);
+                return result;
+            };
+        }
+
+        static <T, R> Function<T, R> decorate(Function<T, R> function, BiConsumer<T, R> after) {
+            return After.<T, R>create().apply(function).apply(after);
+        }
+    }
+
+    @FunctionalInterface
+    public interface Provided<T, R> extends Function<Predicate<T>, Function<Function<T, R>, Function<Function<T, R>, Function<T, R>>>> {
+        static <T, R> Provided<T, R> create() {
+            return condition -> function -> fallback -> arg ->
+                    (condition.test(arg) ? function : fallback).apply(arg);
+        }
+
+        static <T, R> Function<T, R> decorate(Predicate<T> condition, Function<T, R> function, Function<T, R> fallback) {
+            return Provided.<T, R>create().apply(condition).apply(function).apply(fallback);
+        }
+    }
+
+    @FunctionalInterface
+    public interface Precondition<T, R, X extends RuntimeException> extends Function<Predicate<T>, Function<Function<T, R>, Function<Function<T, X>, Function<T, R>>>> {
+        static <T, R, X extends RuntimeException> Precondition<T, R, X> create() {
+            return condition -> function -> error -> Provided.decorate(
+                    condition, function,
+                    arg -> {
+                        throw error.apply(arg);
+                    });
+        }
+
+        static <T, R, X extends RuntimeException> Function<T, R> decorate(Predicate<T> condition, Function<T, R> function, Function<T, X> error) {
+            return Precondition.<T, R, X>create().apply(condition).apply(function).apply(error);
+        }
+    }
+
+    @FunctionalInterface
+    public interface Postcondition<T, R, X extends RuntimeException> extends Function<Function<T, R>, Function<BiPredicate<T, R>, Function<BiFunction<T, R, X>, Function<T, R>>>> {
+        static <T, R, X extends RuntimeException> Postcondition<T, R, X> create() {
+            return function -> condition -> error -> After.decorate(
+                    function,
+                    (argument, result) -> {
+                        if (!condition.test(argument, result)) {
+                            throw error.apply(argument, result);
+                        }
+                    });
+        }
+
+        static <T, R, X extends RuntimeException> Function<T, R> decorate(Function<T, R> function, BiPredicate<T, R> condition, BiFunction<T, R, X> error) {
+            return Postcondition.<T, R, X>create().apply(function).apply(condition).apply(error);
+        }
+    }
+
 ```
