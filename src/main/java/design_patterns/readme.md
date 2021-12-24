@@ -28,9 +28,14 @@ Good for refactoring but use only when appropriate.
 
   - Functional
 
+- [Currying Functions](./currying_functions)
+
+  - Functional
+
 - [Data Access Object (DAO)](./data_access_object)
 - [Decorator](./decorator)
   - Functional
+- [Default Values](./default_values)
 - [Double Checked Locking](./double_checked_locking)
 - [Double Dispatch](./double_dispatch)
 - [Execute Around](./execute_around)

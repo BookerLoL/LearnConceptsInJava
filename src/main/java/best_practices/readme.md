@@ -51,6 +51,7 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
 - Streams
 
   - **filter/limit, map, collect order**
+    - if can't filter, map the least heavy processing first, filter, then process heavy near the end
   - Flatmap may not be lazy dependign on jdk8 version
 
 - Some design patterns can be applied using lambdas
@@ -96,7 +97,10 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
 - Less tabs is easier to read
 - Early returns
 - Write simplest code that works
--
+- Implement equals and hash code for classes
+  - Use `equals` for equality checking
+  - `==` if same object reference
+- Big Decimal if need more exact precision
 
 ## Best Testing Practices
 
