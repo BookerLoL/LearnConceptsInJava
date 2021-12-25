@@ -48,3 +48,28 @@ public class Tester {
 	}
 }
 ```
+
+Other examples
+
+```java
+public class Application {
+	GameAction setup;
+	GameAction start;
+	GameAction end;
+
+	public Application(GameAction setup, GameAction start, GameAction end) {
+		this.setup = setup;
+		this.start = start;
+		this.end = end;
+	}
+
+	public void template() {
+		setup.play();
+		start.play();
+		end.play();
+	}
+}
+
+Game game = new Game();
+new Application(game::setup, game:;start, game::end);
+```

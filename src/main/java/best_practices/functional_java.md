@@ -81,5 +81,10 @@ public class Calculator {
   - don't prematurely optimize
 
 - Stream terminal operations
+
   - allMatch, anyMatch, collect, count, findAny, findFirst, forEach, forEachOrdered, max, min, noneMatch, reduce, toArray
   - flatmap in java 8
+
+- **A lot of behavioral design patterns can be replaced with Functional code**
+  - May still want class approach if logic is not simple
+- Event-driven architectures are easy to implement using lambda callbacks

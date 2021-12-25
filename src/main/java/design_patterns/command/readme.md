@@ -58,3 +58,28 @@ public static void main(String[] args) {
     quitCommand.doSomething();
 }
 ```
+
+Other examples
+
+```java
+public interface Action {
+    public void do();
+}
+
+public class ActionRecorder {
+    private List<Action> actions = new ArrayList<>();
+
+    public void record(Action action) {
+        actions.add(action);
+    }
+
+    public void run() {
+        actions.forEach(Action::do);
+    }
+}
+
+ActionRecorder actions = new ActionRecorder();
+actions.record(x::doSomething1);
+actions.record((x::doSomething2);
+actions.run();
+```

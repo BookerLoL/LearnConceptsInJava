@@ -47,3 +47,22 @@ public class CalculatorOperation {
     }
 }
 ```
+
+Other examples
+
+```java
+public class StrategyOperation {
+    private final Strategy strategy;
+
+    public StategyOpeartion(Strategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void doSomething(String input) {
+        //...
+        strategy.do(input);
+    }
+}
+
+StategyOperation operation = new StrategyOperation(SomeClassImplementsStrategy::new);
+```
