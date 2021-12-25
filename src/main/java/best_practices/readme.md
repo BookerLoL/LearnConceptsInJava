@@ -100,7 +100,6 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
 - Implement equals and hash code for classes
   - Use `equals` for equality checking
   - `==` if same object reference
-- Big Decimal if need more exact precision
 
 ## Best Testing Practices
 
