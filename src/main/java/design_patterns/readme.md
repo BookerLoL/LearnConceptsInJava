@@ -53,6 +53,7 @@ Good for refactoring but use only when appropriate.
 - [Intercepting Filter](./intercepting_filter)
 - [Interpreter](./interpreter)
 - [Iterator](./iterator)
+  - Functional
 - [Lazy Evaluation](./lazy_evaluation)
   - Functional
 - [Loan](./loan)

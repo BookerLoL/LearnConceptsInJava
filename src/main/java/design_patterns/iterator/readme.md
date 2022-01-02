@@ -50,3 +50,20 @@ public class Example {
     }
 }
 ```
+
+Functional Approach
+
+```java
+//No need to implement iterator, but can't be used for for-enhanced loops anymore
+public class Container {
+    private int size;
+    private Object[] elements;
+    //...
+
+    public void forEach(Consumer<Object> action) {
+        for (int i = 0; i < size; i++) {
+            action.accept(elements[i]);
+        }
+    }
+}
+```

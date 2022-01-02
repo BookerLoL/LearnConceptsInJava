@@ -59,4 +59,16 @@ public void setFilters(final Function<Color, Color>... filters) {
 
 
 setFilters(Color::brighter, Color::darker);
+
+
+
+//Class appraoch
+public class Decorator implements Color {
+    private Color color;
+    private List<Function<Color, Color>> decorators;
+
+    //pass in Color and Decorators
+
+    //Method that uses these decorators
+}
 ```

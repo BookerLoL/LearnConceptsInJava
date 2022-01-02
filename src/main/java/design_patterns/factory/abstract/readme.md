@@ -15,7 +15,7 @@ public interface PartsFactory {
 //Omitted classes that implement Material and Model
 ```
 
-More Functional Appraoch
+Functional Appraoch
 
 ```java
 public interface Animal {}

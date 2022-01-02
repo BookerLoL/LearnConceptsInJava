@@ -51,3 +51,15 @@ private static Expr create(Iterator<String> it) {
     .or(() -> parseVariable(token)));
 }
 ```
+
+Another example
+
+```java
+//abitrary object
+Obj o = new Obj();
+Function<Obj, Obj> init = c -> new Obj();
+
+Function<Obj, Obj> chain = init.andThen(...).andThen(...);
+
+chain.apply(o);
+```

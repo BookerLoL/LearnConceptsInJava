@@ -88,3 +88,54 @@ public class Calculator {
 - **A lot of behavioral design patterns can be replaced with Functional code**
   - May still want class approach if logic is not simple
 - Event-driven architectures are easy to implement using lambda callbacks
+
+- **Prefer named functions ove ranonymous lambdas**
+
+  - Always extract complex lambda functions into functions
+    - try to avoid complex `-> { }`
+
+- Large stream statements
+  - avoid excessive method chaining -> use explanatory variables
+    - Like temp local stream variables
+- Don't take optional parameters
+- Return opt9onal if signify that there might be no return value
+
+- Avoiding Switch statements
+  - [Source](https://dzone.com/articles/functional-programming-patterns-with-java-8)
+
+```java
+ public static class Movie {
+        public enum Type {
+            REGULAR(PriceService::computeNew);
+
+            public final BiFunction<PriceService, Integer, Integer> algo;
+
+            private Type(BiFunction<PriceService, Integer, Integer> algo) {
+                this.algo = algo;
+            }
+        }
+    }
+
+    public static class PriceService {
+        public int computeNew(int days) {
+            return days * 0;
+        }
+
+        public int computeRegular(int days) {
+            return days * 1;
+        }
+
+        public int computePrice(Movie.Type type, int days) {
+            return type.algo.apply(this, days);
+        }
+    }
+```
+
+- Better to store functional implementations in interfaces
+  - Avoid having enums implement interface or adding abstract method
+
+```java
+public interface DoSomething {
+  BinaryOperator<Integer> ADDER = (a, b) -> a + b;
+}
+```

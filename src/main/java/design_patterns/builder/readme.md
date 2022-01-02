@@ -9,4 +9,6 @@ Variations
 - [Faceted](./faceted)
 - [Fluent](./fluent)
 - [Generic](./generic)
+- [Lambda](./lambda)
+  - Functional
 - [Normal / Standard](./normal)

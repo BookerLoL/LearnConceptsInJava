@@ -55,6 +55,7 @@ public class Person {
 public class PersonBuilder {
     public String firstName;
     public String lastName;
+    //other fields
 
     public PersonBuilder with(Consumer<PersonBuilder> c) {
         c.accept(this);

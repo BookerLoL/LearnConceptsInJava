@@ -54,3 +54,19 @@ public class ResourceLender {
     }
 }
 ```
+
+Another Functional Example
+
+```java
+public class FileExporter {
+    public File export(String fileName, consumer<Writer> contentWriter) throws Exception {
+        File file = new File("export/" + fileName);
+        try (Writer writer = new FileWriter(file)) {
+            contentWriter.accept(writer);
+            return file;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+}
+```

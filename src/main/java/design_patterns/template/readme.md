@@ -22,6 +22,8 @@ public abstract class Game {
 
 Functional Appraoch (Avoids inheritance)
 
+- Consider default methods as well
+
 ```java
 interface GameAction {
 	void play();

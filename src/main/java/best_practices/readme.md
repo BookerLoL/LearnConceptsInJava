@@ -131,3 +131,72 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
 - Just use peek for printing / seeing progress
   - can introduce side effects
 - Java8 flat map is not lazily evaluated
+
+## NullPointerException handling
+
+- Self-validate before
+  - if check -> throw exception
+  - `Objects.requireNonNull(var)`
+  - `@NonNull` Lombok
+- If must return null
+
+  - return Optional instead
+  - consider changing `get` methods to return Optional
+
+- Don't use optionals for DTO/API model
+  - Use optional for domain model
+- Always initialize collection fields with empty one
+
+## SneakThrows Lombok
+
+- Great if don't intend to selectiviely catch
+- otherwise, wrap checked exceptions in runtime exceptions that you throw
+
+## Exceptions
+
+- Use the exception message to report any technical details about the error that might be useful for developers investigating the exception.
+- **catch-rethrow-with-debug-message pattern**
+  `throw new RuntimeException("For id: " + keyDebugId, e);`
+- Keep your exception messages concise and meaningful. Just like comments.
+- Only create a new exception type E1 if you need to catch(E1) and selectively handle that particular exception type, to work-around or recover from it.
+- Developers should never be afraid to let go of a runtime exception.
+- translate the error codes on the backend.
+- Avoid displaying the exact error cause to your users unless they can do something to fix it.
+
+## Code Review
+
+- Have person sitting down to review code
+  - give suggestions and see what they think
+    - "what do you think fo extracting this part into a separate function?"
+- Before commiting changes, **revert all improvements and them make those changes themselves**
+  - **So they learn to do it themselves**
+- It's fine to allow flawed code to pass reviews
+  - encourage people to do their best and make conscious decisions
+  - Look for **their best designs**
+  - **if obvious error or bug**, fix it and explain problem
+  - **If design changes elaborate**, use code style above
+  - If subtle / nuanced coding practices, **leave it your way**
+    - don't argue over small semantics
+- **Not all design flaws grow into real issues**
+- Learn, don't blame
+  - **Be vareful with words, tones, and attitude you have in reviews**
+  - Put effort into understanding the chosen solution, big picture
+    - **Don't aim for apparent flaws and bugs**
+- Senior needs to learn **kindness, empathy, and teaching**
+- Consider team meeting if some issues arise in multiple code reviews
+- If inexperienced / unsure / poor day
+  - Use more 'guided' teaching method and gently walk them through the significant issues, correcting and deeply explaining each one
+- Help the reviewer, If more experienced, must mind their time
+  - break them into separate steps
+  - create many little commits
+  - commit massive refactoring separately
+  - sketch diagram for more complex design
+  - offer to provide walkthrough to reviewer to explain idea
+- Conclusion
+  - be kind and humble
+  - discuss code constructively
+  - author of code should have final word
+  - concentrate on facts, not opinions or style
+  - accept imperfect solutions to preserve team spirit
+  - submit reviewer friendly pull requests with explanatory, fine-grained commits
+- Pair programming is good alternative to code reviews
