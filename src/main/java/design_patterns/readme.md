@@ -21,9 +21,6 @@ Good for refactoring but use only when appropriate.
 - [Command](./command)
   - Functional
 - [Composite](./composite)
-
-  - Functional
-
 - [Converter](./converter)
 
   - Functional
@@ -36,6 +33,7 @@ Good for refactoring but use only when appropriate.
 - [Decorator](./decorator)
   - Functional
 - [Default Values](./default_values)
+  - Functional
 - [Double Checked Locking](./double_checked_locking)
 - [Double Dispatch](./double_dispatch)
 - [Execute Around](./execute_around)
@@ -57,6 +55,7 @@ Good for refactoring but use only when appropriate.
 - [Lazy Evaluation](./lazy_evaluation)
   - Functional
 - [Loan](./loan)
+  - Functional
 - [Mediator](./mediator)
 - [Memento](./momento)
 - [Memoization](./memoization)
@@ -71,6 +70,7 @@ Good for refactoring but use only when appropriate.
   - Functional
 - [Null Object](./null_object)
 - [Observer](./observer)
+  - Functional
 - [Page Object](./page_object)
 - [Paramter Object](./parameter_object)
 - [Partial Application](./partial_application)

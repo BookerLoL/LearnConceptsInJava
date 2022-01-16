@@ -39,3 +39,21 @@ Function<String, Supplier<Vehicle>> factory = factoryKit(builder -> {
     builder.accept("bike", Bike::new);
 }, name -> {throw new NoSuchElementException("Unknown vehicle name: " + name); });
 ```
+
+- Other functional example
+
+```java
+public class PersonBuilder {
+    public String name;
+    public int age;
+    //more fields
+    public PersonBuilder with(Consumer<PersonBuilder> builder) {
+        builder.accept(this);
+        return this;
+    }
+
+    public PersonBuilder() {
+        return new PersonBuilder(name, age);
+    }
+}
+```

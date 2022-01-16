@@ -3,6 +3,7 @@
 Functional design pattern to allow chaining operations
 
 - Is able to represent 2 or more states as a unified values
+  - Optional, Stream, CompletableFuture, Future,
 
 ```java
 import java.util.function.Function;
