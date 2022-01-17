@@ -1,9 +1,14 @@
 # Mazes
 
-## Sources
+## Sources (Code and Information from these sources)
 
 - Mazes for Programmers by Jamis Buck
   - Most of the code and notes are from his book
+- https://www.astrolog.org/labyrnth/algrithm.htm
+- https://www.reddit.com/r/mazes/
+- https://en.wikipedia.org/wiki/Maze_generation_algorithm
+- https://github.com/armin-reichert/mazes/tree/master/mazes-algorithms/src/main/java/de/amr/maze/alg
+- https://github.com/jamis/csmazes/blob/master/src/algorithms/houston.coffee
 
 ## Notes
 
@@ -117,6 +122,8 @@
     - divide the board horizontally & vertically until width/height less than or equal to 1
       - Every division, add a wall to all the cells except for 1
       - repeat subdividing horizontally & vertically until reaching base case
+  - Other algorithms
+    - Cellular automata, good with bitmasking but may not create a complete maze
 
 - Masking mazes
   - Great for creating ASCII mazes or even creating areas that can't be accessed
@@ -194,8 +201,6 @@
     - Will need a wrap function to determine the correct face
   - Sphere mazes
     - Hemistphere grid and cell (hemisphere)
-
-- Metrics on mazes
 
 ## Questions
 

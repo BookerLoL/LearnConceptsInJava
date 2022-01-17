@@ -8,10 +8,12 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
@@ -54,9 +56,7 @@ public class Grid implements Iterable<Cell> {
     }
 
     protected void configureCells() {
-        for (Cell[] row : grid) {
-            Arrays.asList(row).forEach(this::setCellNeighbors);
-        }
+        iterator().forEachRemaining(this::setCellNeighbors);
     }
 
     protected void setCellNeighbors(Cell cell) {
@@ -147,8 +147,24 @@ public class Grid implements Iterable<Cell> {
     }
 
     public static void aldousBroderMaze(Grid grid) {
-        Cell cell = grid.randomCell();
-        int unvisited = grid.size() - 1;
+        aldousBroderMaze(grid, grid.randomCell(), 1.0);
+    }
+
+    public static void aldousBroderMaze(Grid grid, Cell startingCell) {
+        aldousBroderMaze(grid, startingCell, 1.0);
+    }
+
+    /**
+     * Performs the aldous broder algorithm and processes the percentage of cells
+     * based on how many cells are left that don't have links.
+     *
+     * @param startingCell               The cell to start the processing at
+     * @param percentageOfCellsToProcess 0.5 = 50%, 0.25 = 25%, 1.0 >= 100%
+     */
+    public static void aldousBroderMaze(Grid grid, Cell startingCell, double percentageOfCellsToProcess) {
+        Cell cell = startingCell;
+        long unvisited = grid.cells().stream().filter(Cell::hasNoLinks).count() - 1;
+        unvisited = percentOf(unvisited, getValidPercent(percentageOfCellsToProcess));
 
         while (unvisited > 0) {
             List<Cell> neighbors = cell.neighbors();
@@ -162,9 +178,27 @@ public class Grid implements Iterable<Cell> {
         }
     }
 
+    private static long percentOf(long total, double percentage) {
+        double percent = percentage * 100.0;
+        return (long) ((total * percent) / 100.0);
+    }
+
+    private static double getValidPercent(double percentage) {
+        if (percentage >= 1.0)
+            return 1.0;
+        else if (percentage <= 0.0)
+            return 0.0;
+        else
+            return percentage;
+    }
+
     public static void wilsonsMaze(Grid grid) {
-        Set<Cell> unvisited = new HashSet<>(grid.cells());
-        Cell cell = grid.randomCell();
+        wilsonsMaze(grid, grid.randomCell(), 1.0);
+    }
+
+    public static void wilsonsMaze(Grid grid, Cell startingCell) {
+        Set<Cell> unvisited = grid.cells().stream().filter(Cell::hasNoLinks).collect(Collectors.toSet());
+        Cell cell = startingCell;
         unvisited.remove(cell);
 
         while (!unvisited.isEmpty()) {
@@ -174,12 +208,34 @@ public class Grid implements Iterable<Cell> {
 
             while (unvisited.contains(cell)) {
                 cell = random(cell.neighbors()).get();
-
-                if (path.contains(cell)) {
+                if (path.contains(cell))
                     path.clear();
-                } else {
+                else
                     path.add(cell);
-                }
+            }
+
+            link(path);
+            unvisited.removeAll(path);
+        }
+    }
+
+    public static void wilsonsMaze(Grid grid, Cell startingCell, double percentageOfCellsToProcess) {
+        Set<Cell> unvisited = grid.cells().stream().filter(Cell::hasNoLinks).collect(Collectors.toSet());
+        long unvisitedThreshold = percentOf(unvisited.size(), 1.0 - percentageOfCellsToProcess);
+        Cell cell = startingCell;
+        unvisited.remove(cell);
+
+        while (!unvisited.isEmpty() && unvisited.size() >= unvisitedThreshold) {
+            cell = random(unvisited).get();
+            List<Cell> path = new ArrayList<>();
+            path.add(cell);
+
+            while (unvisited.contains(cell)) {
+                cell = random(cell.neighbors()).get();
+                if (path.contains(cell))
+                    path.clear();
+                else
+                    path.add(cell);
             }
 
             link(path);
@@ -193,6 +249,15 @@ public class Grid implements Iterable<Cell> {
             Cell after = pathOfCells.get(i + 1);
             before.link(after);
         }
+    }
+
+    public static void houstonsMaze(Grid grid) {
+        houstonsMaze(grid, 1.0 / 3);
+    }
+
+    public static void houstonsMaze(Grid grid, double aldousBroaderMazeCompletionPercentage) {
+        aldousBroderMaze(grid, grid.randomCell(), aldousBroaderMazeCompletionPercentage);
+        wilsonsMaze(grid);
     }
 
     public static void huntAndKillMaze(Grid grid) {
@@ -221,11 +286,79 @@ public class Grid implements Iterable<Cell> {
         }
     }
 
+    public static final Function<List<Cell>, Cell> SELECT_RANDOM = list -> random(list).get();
+    public static final Function<List<Cell>, Cell> SELECT_MOST_OLDEST = list -> list.get(list.size() / 2);
+    public static final Function<List<Cell>, Cell> SELECT_MIDDLE = list -> list.get(list.size() / 2);
+    public static final Function<List<Cell>, Cell> SELECT_MOST_RECENT = list -> list.get(list.size() - 1);
+
+    public static final Function<List<Cell>, Cell> SAME_CELL_UNTIL_NO_MORE_NEIGHBOR_UNLINKED_SELECTOR(
+            Function<List<Cell>, Cell> selectingFunction) {
+        // Need to use object to main state in a Functional object, will only have size
+        // 1 at most
+        List<Cell> previousCells = new ArrayList<>();
+        return list -> {
+            if (!previousCells.isEmpty()) {
+                Cell previousCell = previousCells.get(0);
+                if (!previousCell.neighborsWithoutLinks().isEmpty())
+                    return previousCell;
+                previousCells.remove(previousCell);
+            }
+            Cell cell = selectingFunction.apply(list);
+            previousCells.add(cell);
+            return cell;
+        };
+    }
+
+    public static class SelectorItem {
+        public final Function<List<Cell>, Cell> selectorFunction;
+        public final double oddsOfPicking;
+
+        public SelectorItem(Function<List<Cell>, Cell> selectorFunction, double oddsOfPicking) {
+            this.selectorFunction = selectorFunction;
+            this.oddsOfPicking = oddsOfPicking;
+        }
+    }
+
+    public static final Function<List<Cell>, Cell> MIX_OF_SELECTORS(SelectorItem... selectors) {
+        return list -> {
+            Random random = new Random(System.nanoTime());
+            double chance = random.nextDouble();
+
+            for (SelectorItem selectionItem : selectors) {
+                if (chance <= selectionItem.oddsOfPicking) {
+                    return selectionItem.selectorFunction.apply(list);
+                }
+                chance -= selectionItem.oddsOfPicking;
+            }
+
+            System.out.println("Selecting last: " + chance);
+            // Select last given list if none odds are not satisfied
+            return selectors[selectors.length - 1].selectorFunction.apply(list);
+        };
+    }
+
     // Using last which mimics the stack appraoch
     public static void recursiveBacktrackerMaze(Grid grid) {
-        for (Cell cell : grid)
-            System.out.println(cell + "\t" + cell.neighbors());
-        growingTreeMaze(grid, list -> list.get(list.size() - 1));
+        growingTreeMaze(grid, SELECT_MOST_RECENT);
+    }
+
+    // The recursive version of recursive backtracker appraoch
+    public static void depthFirstSearchMaze(Grid grid) {
+        depthFirstSearchMazeHelper(grid.randomCell(), new HashSet<>());
+    }
+
+    private static void depthFirstSearchMazeHelper(Cell cell, Set<Cell> visitedCells) {
+        visitedCells.add(cell);
+
+        List<Cell> unlinkedNeighbors = cell.neighborsWithoutLinks();
+        while (!unlinkedNeighbors.isEmpty()) {
+            Cell neighbor = random(unlinkedNeighbors).get();
+            if (!visitedCells.contains(neighbor)) {
+                cell.link(neighbor);
+                depthFirstSearchMazeHelper(neighbor, visitedCells);
+            }
+            unlinkedNeighbors.remove(neighbor);
+        }
     }
 
     private static class CellPair implements Comparable<CellPair> {
@@ -279,7 +412,6 @@ public class Grid implements Iterable<Cell> {
         mergeCellGroups(cellGroups, cellGroups.get(pair.left), cellGroups.get(pair.right));
     }
 
-    // This can be used for other cell grouping algorithms that follow similar logic
     private static void mergeCellGroups(Map<Cell, Set<Cell>> cellGroups, Set<Cell> winners, Set<Cell> losers) {
         winners.addAll(losers);
         losers.forEach(loser -> cellGroups.put(loser, winners));
@@ -297,10 +429,12 @@ public class Grid implements Iterable<Cell> {
         return pairsToGroup;
     }
 
-    private static final Function<List<Cell>, Cell> RANDOM_SELECTOR = list -> random(list).get();
+    public static void randomizedPrimsMaze(Grid grid) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 
-    public static void simpliedPrimMaze(Grid grid) {
-        growingTreeMaze(grid, RANDOM_SELECTOR);
+    public static void simpliedPrimsMaze(Grid grid) {
+        growingTreeMaze(grid, SELECT_RANDOM);
     }
 
     // Cheaper but still effective as True Prim's algorithm
@@ -355,32 +489,22 @@ public class Grid implements Iterable<Cell> {
     // Always selects first cell in list, creates very long straight paths much like
     // a corn field
     public static void selectingOldestCellGrowingMaze(Grid grid) {
-        growingTreeMaze(grid, list -> list.get(0));
+        growingTreeMaze(grid, SELECT_MOST_OLDEST);
     }
 
-    // Always select middle cell in list
     public static void selectingMedianCellGrowingMaze(Grid grid) {
-        growingTreeMaze(grid, list -> list.get(list.size() / 2));
+        growingTreeMaze(grid, SELECT_MIDDLE);
     }
 
     public static void selectingMostDistanceCellGrowingMaze(Grid grid) {
-        growingTreeMaze(grid, SAME_CELL_UNTIL_NO_MORE_NEIGHBOR_UNLINKED_SELECTOR(RANDOM_SELECTOR));
+        growingTreeMaze(grid, SAME_CELL_UNTIL_NO_MORE_NEIGHBOR_UNLINKED_SELECTOR(SELECT_RANDOM));
     }
 
-    private static final Function<List<Cell>, Cell> SAME_CELL_UNTIL_NO_MORE_NEIGHBOR_UNLINKED_SELECTOR(
-            Function<List<Cell>, Cell> selectingFunction) {
-        List<Cell> previousCells = new ArrayList<>();
-        return list -> {
-            if (!previousCells.isEmpty()) {
-                Cell previousCell = previousCells.get(0);
-                if (!previousCell.neighborsWithoutLinks().isEmpty())
-                    return previousCell;
-                previousCells.remove(previousCell);
-            }
-            Cell cell = selectingFunction.apply(list);
-            previousCells.add(cell);
-            return cell;
-        };
+    public static void mixOfSelectorsMaze(Grid grid, SelectorItem... selectors) {
+        if (selectors == null || selectors.length == 0)
+            growingTreeMaze(grid, SELECT_RANDOM);
+        else
+            growingTreeMaze(grid, MIX_OF_SELECTORS(selectors));
     }
 
     private static void growingTreeMaze(Grid grid, Function<List<Cell>, Cell> selectingFunction) {
@@ -452,7 +576,7 @@ public class Grid implements Iterable<Cell> {
 
     private static void recursiveDivide(DividingComponents gridInfo) {
         // || (gridInfo.height() < 5 && gridInfo.width() < 5 && gridInfo.rand.nextInt(4)
-        // == 0) creates potential rooms
+        // == 0) creates potential rooms of those dimensions
         if (gridInfo.height() <= 1 || gridInfo.width() <= 1)
             return;
         if (gridInfo.height() > gridInfo.width())
@@ -468,7 +592,6 @@ public class Grid implements Iterable<Cell> {
         for (int col = 0; col < gridInfo.width(); col++) {
             if (col == passageAt)
                 continue;
-
             Cell cell = gridInfo.grid.get(gridInfo.row() + divideSouth, gridInfo.col() + col);
             cell.unlinkNeighbor(Direction.SOUTH);
         }
@@ -478,7 +601,6 @@ public class Grid implements Iterable<Cell> {
                 gridInfo.rand));
         recursiveDivide(new DividingComponents(gridInfo.grid, new DividingCoordinates(gridInfo.row() + divideSouth + 1,
                 gridInfo.col(), gridInfo.height() - divideSouth - 1, gridInfo.width()), gridInfo.rand));
-
     }
 
     private static void recursiveDivideVertically(DividingComponents gridInfo) {
@@ -581,6 +703,23 @@ public class Grid implements Iterable<Cell> {
         }
 
         return Optional.ofNullable(randomElement);
+    }
+
+    public long countUnreachableCells() {
+        return countUnreachableCells(randomCell());
+    }
+
+    public long countUnreachableCells(Cell startingPoint) {
+        Set<Cell> seen = new HashSet<>();
+        Queue<Cell> queue = new LinkedList<>();
+        queue.add(startingPoint);
+        while (!queue.isEmpty()) {
+            Cell cell = queue.poll();
+            List<Cell> unvisitedLinks = cell.links().stream().filter(c -> !seen.contains(c)).collect(toList());
+            seen.addAll(unvisitedLinks);
+            queue.addAll(unvisitedLinks);
+        }
+        return size() - seen.size();
     }
 
     public long countUnlinkedCells() {
@@ -714,10 +853,11 @@ public class Grid implements Iterable<Cell> {
     }
 
     public static void main(String[] args) {
-        CylinderGrid grid = new CylinderGrid(4, 6);
-        Grid.recursiveBacktrackerMaze(grid);
+        Grid grid = new Grid(100, 100);
+        Grid.houstonsMaze(grid);
         System.out.println(grid.gridString());
-
+        System.out.println(grid.countDeadEnds());
+        System.out.println(grid.countUnlinkedCells());
         // Grid.recursiveBacktrackerMaze(grid);
         // Grid.braid(grid, 1);
         // System.out.println(grid.gridString());
@@ -738,7 +878,7 @@ public class Grid implements Iterable<Cell> {
          * Grid.aldousBroderMaze(grid);
          * System.out.println(grid.gridString());
          * grid.clear();
-         * Grid.simpliedPrimMaze(grid);
+         * Grid.simpliedPrimsMaze(grid);
          * System.out.println(grid.gridString());
          * grid.clear();
          * Grid.threeSetPrimsMaze(grid);
