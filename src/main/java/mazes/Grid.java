@@ -3,18 +3,35 @@ package mazes;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Set;
-import java.util.Stack;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toList;
 
-public class Grid {
+/**
+ * The Grid class is synonymous to a Graph for graph theory.
+ * <p>
+ * The underlying body of what a 2D maze is composed of.
+ * <p>
+ * Despite being a 2D maze, the maze can be manipulated for visual usage and be
+ * made into 3D maze art.
+ *
+ * @author Ethan Booker
+ * @see <a href="https://weblog.jamisbuck.org/">Source of inspiration - Jamis
+ *      Buck</a>
+ */
+public class Grid implements Iterable<Cell> {
     protected Cell[][] grid;
     protected int rows;
     protected int columns;
@@ -50,7 +67,7 @@ public class Grid {
         int row = cell.row + direction.yDir;
         int col = cell.col + direction.xDir;
 
-        Cell neighbor = getHelper(row, col);
+        Cell neighbor = get(row, col);
         cell.setNeighbor(neighbor, direction);
     }
 
@@ -98,35 +115,9 @@ public class Grid {
         return get(cell.row, cell.col) == cell;
     }
 
-    public String gridString() {
-        StringBuilder output = new StringBuilder("+").append(repeat("---+", columns)).append("\n");
-        final Cell emptyCell = new Cell(-1, -1);
-        for (Cell[] row : grid) {
-            StringBuilder top = new StringBuilder("|");
-            StringBuilder bottom = new StringBuilder("+");
-
-            for (Cell cell : row) {
-                cell = cell != null ? cell : emptyCell;
-                String body = "   ";
-
-                String eastBoundary = cell.hasLink(cell.getNeighbor(Direction.EAST).orElse(emptyCell)) ? " " : "|";
-                top.append(body).append(eastBoundary);
-
-                String southBoundary = cell.hasLink(cell.getNeighbor(Direction.SOUTH).orElse(emptyCell)) ? "   "
-                        : "---";
-                bottom.append(southBoundary).append("+");
-            }
-            output.append(top).append("\n");
-            output.append(bottom).append("\n");
-        }
-        return output.toString();
-    }
-
     public static void binaryTreeMaze(Grid grid) {
-        final EnumSet<Direction> allowedDirections = EnumSet.of(Direction.NORTH, Direction.EAST);
-        for (Cell cell : grid.cells()) {
-            List<Cell> neighbors = cell.neighbors(allowedDirections);
-            System.out.println(cell + "\tNeighbors: " + neighbors);
+        for (Cell cell : grid) {
+            List<Cell> neighbors = cell.neighbors(Direction.RIGHT_UP_ELBOW);
             random(neighbors).ifPresent(cell::link);
         }
     }
@@ -230,27 +221,337 @@ public class Grid {
         }
     }
 
+    // Using last which mimics the stack appraoch
     public static void recursiveBacktrackerMaze(Grid grid) {
-        recursiveBacktrackerMaze(grid, grid.randomCell());
+        for (Cell cell : grid)
+            System.out.println(cell + "\t" + cell.neighbors());
+        growingTreeMaze(grid, list -> list.get(list.size() - 1));
     }
 
-    public static void recursiveBacktrackerMaze(Grid grid, Cell start) {
-        Cell cell = start;
-        Stack<Cell> stack = new Stack<>();
-        stack.add(cell);
+    private static class CellPair implements Comparable<CellPair> {
+        final long weight;
+        final Cell left, right;
 
-        while (!stack.isEmpty()) {
-            cell = stack.peek();
+        public CellPair(long weight, Cell left, Cell right) {
+            this.weight = weight;
+            this.left = left;
+            this.right = right;
+        }
 
-            Optional<Cell> unvisitedCell = random(cell.neighborsWithoutLinks());
-            if (unvisitedCell.isPresent()) {
-                Cell next = unvisitedCell.get();
-                cell.link(next);
-                stack.add(next);
+        @Override
+        public int compareTo(CellPair o) {
+            return Long.compare(weight, o.weight);
+        }
+
+        public String toString() {
+            return "Weight: " + weight + "\tLeft: " + left + "\t" + right;
+        }
+    }
+
+    public static void randomizedKruskalsMaze(Grid grid) {
+        List<Cell> cells = grid.cells();
+
+        Map<Cell, Set<Cell>> cellGroups = cells.stream()
+                .collect(Collectors.toMap(Function.identity(), c -> new HashSet<>(Arrays.asList(c))));
+        PriorityQueue<CellPair> neighborPairs = generateKruskalPairs(cells);
+
+        while (!neighborPairs.isEmpty()) {
+            CellPair pair = neighborPairs.remove();
+            if (canMergeKruskalPair(cellGroups, pair))
+                mergeKruskalPair(cellGroups, pair);
+        }
+    }
+
+    private static boolean canMergeKruskalPair(Map<Cell, Set<Cell>> cellGroups, CellPair pair) {
+        Set<Cell> leftGroup = cellGroups.get(pair.left), rightGroup = cellGroups.get(pair.right);
+        return canMergeCellGroups(leftGroup, rightGroup);
+    }
+
+    // This can be used for other cell grouping algorithms that follow similar logic
+    private static boolean canMergeCellGroups(Set<Cell> leftGroup, Set<Cell> rightGroup) {
+        if (leftGroup == rightGroup)
+            return false;
+        return leftGroup.stream().noneMatch(rightGroup::contains);
+    }
+
+    private static void mergeKruskalPair(Map<Cell, Set<Cell>> cellGroups, CellPair pair) {
+        pair.left.link(pair.right);
+        mergeCellGroups(cellGroups, cellGroups.get(pair.left), cellGroups.get(pair.right));
+    }
+
+    // This can be used for other cell grouping algorithms that follow similar logic
+    private static void mergeCellGroups(Map<Cell, Set<Cell>> cellGroups, Set<Cell> winners, Set<Cell> losers) {
+        winners.addAll(losers);
+        losers.forEach(loser -> cellGroups.put(loser, winners));
+    }
+
+    private static PriorityQueue<CellPair> generateKruskalPairs(List<Cell> gridCells) {
+        Random random = new Random(System.nanoTime());
+        PriorityQueue<CellPair> pairsToGroup = new PriorityQueue<>();
+        for (Cell cell : gridCells) {
+            cell.getNeighbor(Direction.SOUTH)
+                    .ifPresent(neighbor -> pairsToGroup.add(new CellPair(random.nextInt(), cell, neighbor)));
+            cell.getNeighbor(Direction.EAST)
+                    .ifPresent(neighbor -> pairsToGroup.add(new CellPair(random.nextInt(), cell, neighbor)));
+        }
+        return pairsToGroup;
+    }
+
+    private static final Function<List<Cell>, Cell> RANDOM_SELECTOR = list -> random(list).get();
+
+    public static void simpliedPrimMaze(Grid grid) {
+        growingTreeMaze(grid, RANDOM_SELECTOR);
+    }
+
+    // Cheaper but still effective as True Prim's algorithm
+    public static void weightedPrimsMaze(Grid grid) {
+        Random random = new Random(System.nanoTime());
+        Map<Cell, Integer> weights = new HashMap<>();
+        grid.cells().forEach(cell -> weights.put(cell, random.nextInt()));
+        PriorityQueue<Cell> cellsWithNeighborsUnlinked = new PriorityQueue<>(Comparator.comparingInt(weights::get));
+        cellsWithNeighborsUnlinked.add(grid.randomCell());
+
+        while (!cellsWithNeighborsUnlinked.isEmpty()) {
+            Cell cell = cellsWithNeighborsUnlinked.peek();
+            Optional<Cell> unlinkedNeighborCell = random(cell.neighborsWithoutLinks());
+            if (unlinkedNeighborCell.isPresent()) {
+                cell.link(unlinkedNeighborCell.get());
+                cellsWithNeighborsUnlinked.add(unlinkedNeighborCell.get());
             } else {
-                stack.pop();
+                cellsWithNeighborsUnlinked.remove(cell);
             }
         }
+    }
+
+    public static void threeSetPrimsMaze(Grid grid) {
+        Set<Cell> in = new HashSet<>(), frontier = new HashSet<>(), out = new HashSet<>();
+        Cell cell = grid.randomCell();
+        in.add(cell);
+        frontier.addAll(cell.neighbors());
+        out.addAll(grid.cells());
+        out.removeAll(frontier);
+        out.removeAll(in);
+
+        while (!frontier.isEmpty()) {
+            // Remove from frontier at random
+            cell = random(frontier).get();
+            frontier.remove(cell);
+
+            // Add to in set, link this cell to a random in neighbor
+            in.add(cell);
+            List<Cell> inNeighbors = cell.neighbors();
+            inNeighbors.retainAll(in);
+            Cell inCellNeighbor = random(inNeighbors).get();
+            cell.link(inCellNeighbor);
+
+            // Move out neighbors to frontier set
+            List<Cell> remainingNeighbors = cell.neighbors();
+            remainingNeighbors.retainAll(out);
+            out.removeAll(remainingNeighbors);
+            frontier.addAll(remainingNeighbors);
+        }
+    }
+
+    // Always selects first cell in list, creates very long straight paths much like
+    // a corn field
+    public static void selectingOldestCellGrowingMaze(Grid grid) {
+        growingTreeMaze(grid, list -> list.get(0));
+    }
+
+    // Always select middle cell in list
+    public static void selectingMedianCellGrowingMaze(Grid grid) {
+        growingTreeMaze(grid, list -> list.get(list.size() / 2));
+    }
+
+    public static void selectingMostDistanceCellGrowingMaze(Grid grid) {
+        growingTreeMaze(grid, SAME_CELL_UNTIL_NO_MORE_NEIGHBOR_UNLINKED_SELECTOR(RANDOM_SELECTOR));
+    }
+
+    private static final Function<List<Cell>, Cell> SAME_CELL_UNTIL_NO_MORE_NEIGHBOR_UNLINKED_SELECTOR(
+            Function<List<Cell>, Cell> selectingFunction) {
+        List<Cell> previousCells = new ArrayList<>();
+        return list -> {
+            if (!previousCells.isEmpty()) {
+                Cell previousCell = previousCells.get(0);
+                if (!previousCell.neighborsWithoutLinks().isEmpty())
+                    return previousCell;
+                previousCells.remove(previousCell);
+            }
+            Cell cell = selectingFunction.apply(list);
+            previousCells.add(cell);
+            return cell;
+        };
+    }
+
+    private static void growingTreeMaze(Grid grid, Function<List<Cell>, Cell> selectingFunction) {
+        List<Cell> cellsWithNeighborsUnlinked = new ArrayList<>();
+        cellsWithNeighborsUnlinked.add(grid.randomCell());
+
+        while (!cellsWithNeighborsUnlinked.isEmpty()) {
+            Cell cell = selectingFunction.apply(cellsWithNeighborsUnlinked);
+            Optional<Cell> unlinkedNeighborCell = random(cell.neighborsWithoutLinks());
+            if (unlinkedNeighborCell.isPresent()) {
+                cell.link(unlinkedNeighborCell.get());
+                cellsWithNeighborsUnlinked.add(unlinkedNeighborCell.get());
+            } else {
+                cellsWithNeighborsUnlinked.remove(cell);
+            }
+        }
+    }
+
+    public static void ellersMaze(Grid grid) {
+        Random random = new Random(System.nanoTime());
+        Map<Cell, Set<Cell>> cellGroups = new HashMap<>();
+        for (Cell[] row : grid.grid) {
+            for (Cell cell : row) {
+                // Create single cell group if not in group already
+                cellGroups.computeIfAbsent(cell, c -> new HashSet<>(Arrays.asList(c)));
+
+                // Attempting to merge groups horizontally
+                Optional<Cell> westNeighbor = cell.getNeighbor(Direction.WEST);
+                if (westNeighbor.isPresent()) {
+                    Set<Cell> westNeighborGroup = cellGroups.get(westNeighbor.get());
+                    Set<Cell> cellGroup = cellGroups.get(cell);
+
+                    // Ensure cell groups are different before linking and merging, and the last row
+                    // to ensure the those cell groups can be reached
+                    if (cellGroup != westNeighborGroup
+                            && (!cell.hasNeighbor(Direction.SOUTH) || random.nextInt(2) == 0)) {
+                        cell.link(westNeighbor.get());
+                        mergeCellGroups(cellGroups, cellGroup, westNeighborGroup);
+                    }
+                }
+            }
+
+            // Each group on this row must have a south cell linked unless last row
+            int rowIndex = row[0].row;
+            Set<Set<Cell>> rowCellGroups = Arrays.asList(row).stream().map(cellGroups::get)
+                    .map(cellGroup -> getCellsInRow(cellGroup, rowIndex)).collect(Collectors.toSet());
+            for (Set<Cell> rowCellGroup : rowCellGroups) {
+                Cell groupCell = random(rowCellGroup).get();
+                Optional<Cell> southCellOption = groupCell.getNeighbor(Direction.SOUTH);
+                southCellOption.ifPresent(southCell -> {
+                    groupCell.link(southCell);
+                    rowCellGroup.add(southCell);
+                    cellGroups.put(southCell, rowCellGroup);
+                });
+            }
+        }
+    }
+
+    private static Set<Cell> getCellsInRow(Set<Cell> group, int row) {
+        return group.stream().filter(cell -> cell.row == row).collect(Collectors.toSet());
+    }
+
+    public static void recursiveDivision(Grid grid) {
+        for (Cell cell : grid)
+            cell.neighbors().forEach(neighbor -> cell.link(neighbor, false));
+        recursiveDivide(new DividingComponents(grid, new DividingCoordinates(0, 0, grid.rows, grid.columns),
+                new Random(System.nanoTime())));
+    }
+
+    private static void recursiveDivide(DividingComponents gridInfo) {
+        // || (gridInfo.height() < 5 && gridInfo.width() < 5 && gridInfo.rand.nextInt(4)
+        // == 0) creates potential rooms
+        if (gridInfo.height() <= 1 || gridInfo.width() <= 1)
+            return;
+        if (gridInfo.height() > gridInfo.width())
+            recursiveDivideHorizontally(gridInfo);
+        else
+            recursiveDivideVertically(gridInfo);
+    }
+
+    private static void recursiveDivideHorizontally(DividingComponents gridInfo) {
+        int divideSouth = gridInfo.rand.nextInt(gridInfo.height() - 1);
+        int passageAt = gridInfo.rand.nextInt(gridInfo.width());
+
+        for (int col = 0; col < gridInfo.width(); col++) {
+            if (col == passageAt)
+                continue;
+
+            Cell cell = gridInfo.grid.get(gridInfo.row() + divideSouth, gridInfo.col() + col);
+            cell.unlinkNeighbor(Direction.SOUTH);
+        }
+
+        recursiveDivide(new DividingComponents(gridInfo.grid,
+                new DividingCoordinates(gridInfo.row(), gridInfo.col(), divideSouth + 1, gridInfo.width()),
+                gridInfo.rand));
+        recursiveDivide(new DividingComponents(gridInfo.grid, new DividingCoordinates(gridInfo.row() + divideSouth + 1,
+                gridInfo.col(), gridInfo.height() - divideSouth - 1, gridInfo.width()), gridInfo.rand));
+
+    }
+
+    private static void recursiveDivideVertically(DividingComponents gridInfo) {
+        int divideEast = gridInfo.rand.nextInt(gridInfo.width() - 1);
+        int passageAt = gridInfo.rand.nextInt(gridInfo.height());
+
+        for (int row = 0; row < gridInfo.height(); row++) {
+            if (passageAt == row)
+                continue;
+            Cell cell = gridInfo.grid.get(gridInfo.row() + row, gridInfo.col() + divideEast);
+            cell.unlinkNeighbor(Direction.EAST);
+        }
+
+        recursiveDivide(new DividingComponents(gridInfo.grid,
+                new DividingCoordinates(gridInfo.row(), gridInfo.col(), gridInfo.height(), divideEast + 1),
+                gridInfo.rand));
+        recursiveDivide(new DividingComponents(gridInfo.grid, new DividingCoordinates(gridInfo.row(),
+                gridInfo.col() + divideEast + 1, gridInfo.height(), gridInfo.width() - divideEast - 1), gridInfo.rand));
+    }
+
+    private static class DividingComponents {
+        final Grid grid;
+        final DividingCoordinates coordinates;
+        final Random rand;
+
+        public DividingComponents(Grid grid, DividingCoordinates coordinates, Random rand) {
+            this.grid = grid;
+            this.coordinates = coordinates;
+            this.rand = rand;
+        }
+
+        public int width() {
+            return coordinates.width;
+        }
+
+        public int height() {
+            return coordinates.height;
+        }
+
+        public int row() {
+            return coordinates.row;
+        }
+
+        public int col() {
+            return coordinates.col;
+        }
+
+        public String toString() {
+            return coordinates.toString();
+        }
+    }
+
+    private static class DividingCoordinates {
+        final int row, col, height, width;
+
+        public DividingCoordinates(int row, int col, int height, int width) {
+            this.row = row;
+            this.col = col;
+            this.height = height;
+            this.width = width;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("[Row: %d, Col: %d, Height: %d, Width: %d]", row, col, height, width);
+        }
+    }
+
+    public static <T> Optional<Integer> randomIndex(List<? extends T> list) {
+        if (list == null || list.isEmpty())
+            return Optional.empty();
+        Random random = new Random(System.nanoTime());
+        return Optional.of(random.nextInt(list.size()));
     }
 
     public static <T> Optional<T> random(List<? extends T> list) {
@@ -355,26 +656,96 @@ public class Grid {
         return String.join("", Collections.nCopies(amount, str));
     }
 
+    @Override
+    public Iterator<Cell> iterator() {
+        return new GridIterator(0, 0);
+    }
+
+    private class GridIterator implements Iterator<Cell> {
+        private int row, col;
+
+        public GridIterator(int row, int col) {
+            this.row = row;
+            this.col = col;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return row < rows && col < columns;
+        }
+
+        @Override
+        public Cell next() {
+            if (!hasNext())
+                return null;
+
+            Cell cell = grid[row][col];
+            col++;
+            if (col >= columns) {
+                col = 0;
+                row++;
+            }
+            return cell;
+        }
+    }
+
+    public String gridString() {
+        StringBuilder output = new StringBuilder("+").append(repeat("---+", columns)).append("\n");
+        final Cell emptyCell = new Cell(-1, -1);
+        for (Cell[] row : grid) {
+            StringBuilder top = new StringBuilder("|");
+            StringBuilder bottom = new StringBuilder("+");
+
+            for (Cell cell : row) {
+                cell = cell != null ? cell : emptyCell;
+                String body = "   ";
+
+                String eastBoundary = cell.hasLink(cell.getNeighbor(Direction.EAST).orElse(emptyCell)) ? " " : "|";
+                top.append(body).append(eastBoundary);
+
+                String southBoundary = cell.hasLink(cell.getNeighbor(Direction.SOUTH).orElse(emptyCell)) ? "   "
+                        : "---";
+                bottom.append(southBoundary).append("+");
+            }
+            output.append(top).append("\n");
+            output.append(bottom).append("\n");
+        }
+        return output.toString();
+    }
+
     public static void main(String[] args) {
-        Grid grid = new Grid(8, 8);
+        CylinderGrid grid = new CylinderGrid(4, 6);
+        Grid.recursiveBacktrackerMaze(grid);
+        System.out.println(grid.gridString());
+
         // Grid.recursiveBacktrackerMaze(grid);
         // Grid.braid(grid, 1);
         // System.out.println(grid.gridString());
 
-        Grid.recursiveBacktrackerMaze(grid);
-        System.out.println(grid.gridString());
-        grid.clear();
-        Grid.huntAndKillMaze(grid);
-        System.out.println(grid.gridString());
-        grid.clear();
-        Grid.binaryTreeMaze(grid);
-        System.out.println(grid.gridString());
-        grid.clear();
-        Grid.wilsonsMaze(grid);
-        System.out.println(grid.gridString());
-        grid.clear();
-        Grid.aldousBroderMaze(grid);
-        System.out.println(grid.gridString());
-
+        /*
+         * Grid.recursiveBacktrackerMaze(grid);
+         * System.out.println(grid.gridString());
+         * grid.clear();
+         * Grid.huntAndKillMaze(grid);
+         * System.out.println(grid.gridString());
+         * grid.clear();
+         * Grid.binaryTreeMaze(grid);
+         * System.out.println(grid.gridString());
+         * grid.clear();
+         * Grid.wilsonsMaze(grid);
+         * System.out.println(grid.gridString());
+         * grid.clear();
+         * Grid.aldousBroderMaze(grid);
+         * System.out.println(grid.gridString());
+         * grid.clear();
+         * Grid.simpliedPrimMaze(grid);
+         * System.out.println(grid.gridString());
+         * grid.clear();
+         * Grid.threeSetPrimsMaze(grid);
+         * System.out.println(grid.gridString());
+         * grid.clear();
+         * Grid.ellersMaze(grid);
+         * System.out.println(grid.gridString());
+         */
     }
 }

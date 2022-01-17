@@ -3,6 +3,7 @@
 ## Sources
 
 - Mazes for Programmers by Jamis Buck
+  - Most of the code and notes are from his book
 
 ## Notes
 
@@ -98,6 +99,24 @@
     - faster than hunt and kill but requires more memory
     - Maintain stack of visited nodes, only pop if no unlinked neighbors
     - Similar maze as hunt and kill
+  - **Randomized Kruskals**
+    - Despite being a graph algorithm, can randomly generate pairs / create custom pairs to supply
+    - Very useful if you want more crosses in weaved mazes
+  - **Simplified Prims**
+    - Similar to growing tree, selects random cell from active list
+  - **Prims**
+    - Gives random weights to all cells, sort them on priority queue, process each cell until empty queue
+  - **Growing Tree**
+    - Essentially a generalized approach that other algorithms tend to do
+      - The differece is hwo it choose which cell to process in the active list of cells to process
+  - **Ellers**
+    - Essentially a mix of sidewinder and kruskals algorithm
+  - **Recursive division**
+    - Wall adder algorithm
+    - Start with empty grid
+    - divide the board horizontally & vertically until width/height less than or equal to 1
+      - Every division, add a wall to all the cells except for 1
+      - repeat subdividing horizontally & vertically until reaching base case
 
 - Masking mazes
   - Great for creating ASCII mazes or even creating areas that can't be accessed
@@ -146,6 +165,36 @@
       - can repeat this process until satisfied
   - Obstacles in paths
 
+- Templates
+
+  - shapes inside mazes: zig-zags, spirals, open rooms, and other types of corridors
+    - This can easily by set up by kruskals algorithm by preconfiguring certain styles
+      - Aldous-broder, recursive backtracker can be adpated to support templates
+
+- Multidimensional Mazes
+  - Can mimic dungeons, time traveling, portal jumping, office blocks, cave systems, etc
+  - Can't add multiple ladders between 2 floors, results in loops
+  - 3D mazes: rows, columns, levels
+    - 3D cell with level, up, and down fields
+    - Need to modify methods a bit to handle extra logic of levels
+      - Some algorithms may need a slight fix
+        - Kruskal, Binary Tree, Sidewinder, etc
+  - 4D mazes: grids, levels, rows, columns
+    - hither/yon dimension
+- Bending and Folding mazes
+
+  - Planair mazes
+    - Cylinders, cubes, cones, pyramids, spheres, etc
+  - Cylinder mazes
+    - Print out rectangular mazes, wrap around cylinder object
+  - Moebius strip mazes
+    - Essentially double the maze columns and find mid point then print with inset
+  - Cube mazes
+    - Create cube cell with Face and cube grid with 6 Faces attribute
+    - Will need a wrap function to determine the correct face
+  - Sphere mazes
+    - Hemistphere grid and cell (hemisphere)
+
 - Metrics on mazes
 
 ## Questions
@@ -164,3 +213,47 @@
 - Questions
   - How might you remove dead-ends? What effects would it have?
   - Weaving, some algorithms will need to tuned to handle weaving logic
+  - Insets for hex/triangle/polar grids?
+  - How to create super dense weaves?
+- Questions
+  - How to change neighbor selection critera for kruskals algorithm twith visually obvious textures?
+- Questions
+  - How to make ellers algorithm arbitrarily infinite if never given last row?
+  - How to make Ellers algorithm work with hexes and circle grid?
+  - Irregular divisions, how to divide to have non-rectangular regions?
+  - How to run other algorithms inside the empty rooms in recursive division
+  - Which algorithms could you make it being a wall adder / passage carvers (some can be both but may not perform well in some cases)
+- Questions
+  - How to support different types of stacked grids?
+  - Forcing level bias, prefer cells on smae floor over up/down
+  - Polyhedra, rhombic doecahedrons, might want to use first person perspective to visual maze
+- Questions
+  - Rendering cylinder mazes
+    - Consider using POV-ray for rendering
+  - Rectangular prisms?
+  - Cone mazes?
+  - How to add real walls to mazes?
+  - Rendering 4D mazes onto objects: Tesseracts, duo-cylinders, glomes
+
+## Implementation Examples
+
+```java
+public static void recursiveBacktrackerMaze(Grid grid) {
+    Cell cell = start;
+    Stack<Cell> stack = new Stack<>();
+    stack.add(cell);
+
+    while (!stack.isEmpty()) {
+        cell = stack.peek();
+
+        Optional<Cell> unvisitedCell = random(cell.neighborsWithoutLinks());
+        if (unvisitedCell.isPresent()) {
+            Cell next = unvisitedCell.get();
+            cell.link(next);
+            stack.add(next);
+        } else {
+            stack.pop();
+        }
+    }
+}
+```

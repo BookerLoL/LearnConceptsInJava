@@ -11,7 +11,7 @@ import java.util.Set;
 import static java.util.stream.Collectors.toList;
 
 /**
- * The cell class is synonymous to a node for graph theory.
+ * The cell class is synonymous to a Node for graph theory.
  * <p>
  * Links indicate which cells the cell may traverse to.
  * <p>
@@ -128,6 +128,14 @@ public class Cell {
     }
 
     /**
+     * @param direction Direction to check for link.
+     * @return true if there is a cell link in the given direction, else false.
+     */
+    public boolean hasLink(Direction direction) {
+        return links.contains(getNeighbor(direction).get());
+    }
+
+    /**
      * @param cells The cells to check if there is a link.
      * @return true if there is a link for any of the given cells, else false.
      */
@@ -183,15 +191,16 @@ public class Cell {
     }
 
     public void unlinkNeighbor(Direction direction) {
+     *         
         unlink(neighbors.get(direction));
     }
 
     /**
      * @param allowedDirections All directions we want neighbors from
-     * @return Non-null list of cells that come from the given
-     *         {@code allowedDirections}.
+     * @return Non-null list of cells that come from the given {@code allowedDirections}.
      */
     public List<Cell> neighbors(Collection<Direction> allowedDirections) {
+     *         
         return allowedDirections.stream().filter(neighbors::containsKey).map(neighbors::get).collect(toList());
     }
 
@@ -217,8 +226,8 @@ public class Cell {
      * @param direction The direction to set for neighbor
      */
     public void setNeighbor(Cell neighbor, Direction direction) {
-        if (neighbor == null)
-            return;
+     *                  
+        if (neighbor == null) return;
         neighbors.put(direction, neighbor);
     }
 
@@ -232,21 +241,20 @@ public class Cell {
 
     /**
      * @param cell The neighbor cell to remove.
-     */
-    public void removeNeighbor(Cell cell) {
-        if (cell == null)
-            return;
-        neighbors.entrySet().stream().filter(e -> e.getValue() == cell).findAny()
-                .ifPresent(e -> neighbors.remove(e.getKey()));
-    }
-
-    // TODO: Javadocs
-    public void removeNeighbors() {
-        neighbors.values().forEach(n -> n.removeNeighbor(this));
-        neighbors.clear();
-    }
-
-    /**
+     *             /
+     *             public void removeNeighbor(Cell cell) {
+     *             if (cell == null) return;
+     *             neighbors.entrySet().stream().filter(e -> e.getValue() ==
+     *             cell).findAny().ifPresent(e -> neighbors.remove(e.getKey()));
+     *             }
+     * 
+     *             //TODO: Javadocs
+     *             public void removeNeighbors() {
+     *             neighbors.values().forEach(n -> n.removeNeighbor(this));
+     *             neighbors.clear();
+     *             }
+     * 
+     *             /**
      * @return All neighbor cells.
      */
     public List<Cell> neighbors() {
@@ -270,6 +278,8 @@ public class Cell {
     /**
      * @return True if has West and East links, else false.
      */
+    *
+
     public boolean hasHorizontalPassage() {
         return hasLinksWithAllDirection(Direction.HORIZONTAL_DIRECTIONS);
     }
@@ -278,6 +288,8 @@ public class Cell {
      * @return True if has only 2 links and they are North and South links, else
      *         false.
      */
+    *
+
     public boolean hasOnlyVerticalPassage() {
         return hasLinksWithAllDirection(Direction.VERTICAL_DIRECTIONS)
                 && !hasLinksWithAnyDirection(Direction.HORIZONTAL_DIRECTIONS);
