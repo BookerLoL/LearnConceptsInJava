@@ -11,12 +11,14 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
@@ -67,7 +69,7 @@ public class Grid implements Iterable<Cell> {
         int row = cell.row + direction.yDir;
         int col = cell.col + direction.xDir;
 
-        Cell neighbor = get(row, col);
+        Cell neighbor = getHelper(row, col);
         cell.setNeighbor(neighbor, direction);
     }
 
@@ -727,39 +729,62 @@ public class Grid implements Iterable<Cell> {
     }
 
     public long countDeadEnds() {
-        return cells().stream().filter(c -> c.totalLinks() == 1).count();
+        return cells().stream().filter(Grid::isDeadEnd).count();
     }
 
     public List<Cell> getDeadEnds() {
-        return cells().stream().filter(c -> c.totalLinks() == 1).collect(toList());
+        return cells().stream().filter(Grid::isDeadEnd).collect(toList());
     }
 
-    // No longer a perfect maze when using this
+    // No longer a perfect maze when using this, creates potential loops
     public static void braid(Grid grid, double braidingThreshold) {
         Random random = new Random(System.nanoTime());
         List<Cell> deadEnds = grid.getDeadEnds();
         Collections.shuffle(deadEnds, random);
 
         for (Cell deadEnd : deadEnds) {
-            if (deadEnd.totalLinks() != 1 || random.nextDouble() > braidingThreshold)
+            if (random.nextDouble() > braidingThreshold)
                 continue;
-
-            List<Cell> neighbors = deadEnd.neighbors();
-            neighbors.removeAll(deadEnd.links());
-            List<Cell> otherNeighborDeadEnds = neighbors.stream().filter(c -> c.totalLinks() == 1).collect(toList());
-            List<Cell> best = otherNeighborDeadEnds.isEmpty() ? neighbors : otherNeighborDeadEnds;
-
-            Cell neighbor = random(best).get();
-            deadEnd.link(neighbor);
+            braid(deadEnd, true);
         }
     }
 
+    public static boolean braid(Cell cell, boolean favorOtherDeadEnds) {
+        if (!isDeadEnd(cell))
+            return false;
+
+        List<Cell> neighbors = cell.neighbors();
+        neighbors.removeAll(cell.links());
+
+        List<Cell> bestNeighbors = neighbors;
+        if (favorOtherDeadEnds) {
+            List<Cell> otherDeadEndNeighbors = neighbors.stream().filter(Grid::isDeadEnd).collect(toList());
+            bestNeighbors = !otherDeadEndNeighbors.isEmpty() ? otherDeadEndNeighbors : neighbors;
+        }
+
+        Cell neighbor = random(bestNeighbors).get();
+        cell.link(neighbor);
+        return true;
+    }
+
+    public static boolean isDeadEnd(Cell cell) {
+        return cell.totalLinks() == 1;
+    }
+
+    public static boolean isThreeWayIntersection(Cell cell) {
+        return cell.totalLinks() == 3;
+    }
+
+    public static boolean isFourWayIntersection(Cell cell) {
+        return cell.totalLinks() == 4;
+    }
+
     public long countThreeWayIntersections() {
-        return cells().stream().filter(c -> c.totalLinks() == 3).count();
+        return cells().stream().filter(Grid::isThreeWayIntersection).count();
     }
 
     public long countFourWayIntersections() {
-        return cells().stream().filter(c -> c.totalLinks() == 4).count();
+        return cells().stream().filter(Grid::isFourWayIntersection).count();
     }
 
     public long countCellsWithHorizontalPassages() {
@@ -789,6 +814,10 @@ public class Grid implements Iterable<Cell> {
                 c.hasLinksWithAllDirection(Direction.RIGHT_DOWN_ELBOW) ||
                 c.hasLinksWithAllDirection(Direction.LEFT_UP_ELBOW) ||
                 c.hasLinksWithAllDirection(Direction.LEFT_DOWN_ELBOW);
+    }
+
+    protected String repeat(char c, int amount) {
+        return repeat("" + c, amount);
     }
 
     protected String repeat(String str, int amount) {
@@ -828,6 +857,197 @@ public class Grid implements Iterable<Cell> {
         }
     }
 
+    /**
+     * Relaxed blockwise maze representation treats every block as a cell
+     * - The entire outer walls it not considered as part of the maze in this case
+     *
+     * <pre>
+     *     Example: o represents cells, # represents blocks
+     *     ##########
+     *     #oo#oo##o#  (row 1)
+     *     #o#o#o#oo#  (row 2)
+     *     #ooooooo##  (row 3)
+     *     ##########
+     *
+     * </pre>
+     * 
+     * @implNote This does not handle {@link CylinderGrid} and other mazes with
+     *           similar kind of logic.
+     * @param blockwiseRows Each row of the blockwise maze, includes the top and
+     *                      bottom walls of the maze.
+     * @param cellSymbol    The symbol that will be considered a cell, any other
+     *                      symbol will be a block
+     * @return A grid that represents the given relaxed blockwise maze.
+     */
+    public static MaskedGrid generateMazeFromRelaxedBlockwiseMaze(List<String> blockwiseRows, char cellSymbol) {
+        blockwiseRows = filterOutNullOrEmptyRows(blockwiseRows);
+        checkHasValidRelaxedBlockwiseRows(blockwiseRows);
+
+        final int topBlockwiseRow = 0, bottomBlockwiseRow = blockwiseRows.size() - 1,
+                leftBlockwiseCol = 0, rightBlockwiseCol = blockwiseRows.get(0).length() - 1;
+        final int rows = blockwiseRows.size() - 2, columns = blockwiseRows.get(0).length() - 2;
+        MaskedGrid grid = new MaskedGrid(rows, columns);
+
+        // Skip first and last row, first and last column as they are blockwise blocks:
+        // #
+        for (int row = topBlockwiseRow + 1; row < bottomBlockwiseRow; row++) {
+            String blockwiseRow = blockwiseRows.get(row);
+            for (int col = leftBlockwiseCol + 1; col < rightBlockwiseCol; col++) {
+                char symbol = blockwiseRow.charAt(col);
+                int gridRow = row - 1, gridCol = col - 1;
+                if (symbol != cellSymbol) {
+                    grid.hide(gridRow, gridCol);
+                    continue;
+                }
+                Cell cell = grid.get(gridRow, gridCol);
+                for (Direction direction : Direction.RIGHT_DOWN_ELBOW) {
+                    int neighborRow = direction.yDir + row, neighborCol = direction.xDir + col;
+                    if (neighborRow == topBlockwiseRow || neighborRow == bottomBlockwiseRow
+                            || neighborCol == leftBlockwiseCol || neighborCol == rightBlockwiseCol)
+                        continue;
+
+                    char neighborSymbol = blockwiseRow.charAt(neighborCol);
+                    if (neighborSymbol == cellSymbol)
+                        cell.linkNeighbor(direction);
+                }
+            }
+        }
+        return grid;
+    }
+
+    private static List<String> filterOutNullOrEmptyRows(List<String> rows) {
+        return rows.stream().filter(Objects::nonNull).filter(Predicate.not(String::isEmpty)).collect(toList());
+    }
+
+    private static void checkHasValidRelaxedBlockwiseRows(List<String> rows) {
+        checkHasAtLeastNumberOfRows(rows, 3);
+        checkRowsHasAtLeastNumberOfColumns(rows, 3);
+        checkEachRowIsSameLength(rows);
+    }
+
+    private static void checkHasAtLeastNumberOfRows(List<?> rows, int minimumRows) {
+        if (rows.size() < minimumRows)
+            throw new IllegalArgumentException(
+                    String.format("Expecting at least %d rows to represent a potential maze", minimumRows));
+    }
+
+    private static void checkRowsHasAtLeastNumberOfColumns(List<String> rows, int minimumColumns) {
+        if (rows.get(0).length() < minimumColumns)
+            throw new IllegalArgumentException(
+                    String.format("Each row should have at least a size of %d or more", minimumColumns));
+    }
+
+    private static void checkEachRowIsSameLength(List<String> rows) {
+        long differentColumnSizes = rows.stream().map(String::length).distinct().count();
+        if (differentColumnSizes != 1) {
+            throw new IllegalArgumentException("Each row should be the same size");
+        }
+    }
+
+    /**
+     * Strict blockwise maze representation every cell is padded by a group of
+     * blocks
+     * - A cell without a block represents a passage way to another cell
+     *
+     *
+     * <pre>
+     *     Example 1: o represents cells / passage ways, # represents blocks.
+     *     #########
+     *     #ooo#ooo#  (row 1)
+     *     ###o###o#
+     *     #o#o#o#o#  (row 2)
+     *     ###o###o#
+     *     #ooooooo#  (row 3)
+     *     #########
+     *
+     *     Example 2: No cells are linked, thus no passage ways
+     *     #########
+     *     #o#o#o#o#
+     *     #########
+     *     #o#o#o#o#
+     *     #########
+     *     #o#o#o#o#
+     *     #########
+     * </pre>
+     *
+     * @param blockwiseRows Each row of the blockwise maze, includes the top and
+     *                      bottom walls of the maze
+     * @param passageSymbol The symbol that will be considered a link or passage
+     *                      between 2 cells
+     * @return A grid that represents the given strict blockwise maze
+     */
+    public static Grid generateMazeFromStrictBlockwiseMaze(List<String> blockwiseRows, char passageSymbol) {
+        blockwiseRows = filterOutNullOrEmptyRows(blockwiseRows);
+        checkHasValidStrictBlockwiseRows(blockwiseRows);
+
+        final int topBlockwiseRow = 0, bottomBlockwiseRow = blockwiseRows.size() - 1,
+                leftBlockwiseCol = 0, rightBlockwiseCol = blockwiseRows.get(0).length() - 1;
+        final int rows = blockwiseRows.size() / 2, columns = blockwiseRows.get(0).length() / 2;
+        Grid grid = new Grid(rows, columns);
+
+        for (int row = topBlockwiseRow + 1; row < bottomBlockwiseRow; row++) {
+            String blockwiseRow = blockwiseRows.get(row);
+            boolean isProcessingHorzontalPassage = row % 2 != 0;
+            Direction linkDirection = isProcessingHorzontalPassage ? Direction.WEST : Direction.NORTH;
+            int col = isProcessingHorzontalPassage ? leftBlockwiseCol + 2 : leftBlockwiseCol + 1;
+            System.out.println("Row str: " + blockwiseRow + "\trow: " + row + "\tcol: " + col + "\tis horizontal: "
+                    + isProcessingHorzontalPassage + "\tdirection: " + linkDirection);
+            for (; col < rightBlockwiseCol; col += 2) {
+                char symbol = blockwiseRow.charAt(col);
+                if (symbol != passageSymbol)
+                    continue;
+                Cell cell = grid.get(row / 2, col / 2);
+                cell.linkNeighbor(linkDirection);
+                System.out.println(cell + "\t linked with cell: " + cell.getNeighbor(linkDirection));
+            }
+        }
+
+        return grid;
+    }
+
+    private static void checkHasValidStrictBlockwiseRows(List<String> rows) {
+        checkHasValidRelaxedBlockwiseRows(rows);
+        checkHasOddNumberOfRows(rows);
+        checkHasOddNumberOfColumns(rows);
+    }
+
+    private static void checkHasOddNumberOfRows(List<?> rows) {
+        if (rows.size() % 2 == 0)
+            throw new IllegalArgumentException("Number of rows must be odd!");
+    }
+
+    private static void checkHasOddNumberOfColumns(List<String> rows) {
+        if (rows.get(0).length() % 2 == 0)
+            throw new IllegalArgumentException("Number of columns must be odd!");
+    }
+
+    public String strictBlockwiseString() {
+        return strictBlockwiseString('o', 'x', '#', '\n');
+    }
+
+    public String strictBlockwiseString(char cellSymbol, char passageSymbol, char blockSymbol, char lineDelimiter) {
+        StringBuilder body = new StringBuilder();
+
+        String rowWall = repeat(blockSymbol, columns * 2 + 1);
+        body.append(rowWall).append(lineDelimiter);
+
+        for (Cell[] row : grid) {
+            StringBuilder horizontalLinkRow = new StringBuilder().append(blockSymbol);
+            StringBuilder verticalLinkRow = new StringBuilder().append(blockSymbol);
+
+            for (Cell cell : row) {
+                char horizontalNeighborSymbol = cell.hasLink(Direction.EAST) ? passageSymbol : blockSymbol;
+                char verticalNeighborSymbol = cell.hasLink(Direction.SOUTH) ? passageSymbol : blockSymbol;
+                horizontalLinkRow.append(cellSymbol).append(horizontalNeighborSymbol);
+                verticalLinkRow.append(verticalNeighborSymbol).append(blockSymbol);
+            }
+
+            body.append(horizontalLinkRow).append(lineDelimiter);
+            body.append(verticalLinkRow).append(lineDelimiter);
+        }
+        return body.toString();
+    }
+
     public String gridString() {
         StringBuilder output = new StringBuilder("+").append(repeat("---+", columns)).append("\n");
         final Cell emptyCell = new Cell(-1, -1);
@@ -853,11 +1073,45 @@ public class Grid implements Iterable<Cell> {
     }
 
     public static void main(String[] args) {
-        Grid grid = new Grid(100, 100);
+        Grid grid = new Grid(7, 5);
         Grid.houstonsMaze(grid);
         System.out.println(grid.gridString());
-        System.out.println(grid.countDeadEnds());
-        System.out.println(grid.countUnlinkedCells());
+        while (grid.countDeadEnds() > 2) {
+            Grid.braid(grid, 1.0);
+            System.out.println(grid.gridString());
+        }
+        System.out.println(grid.gridString());
+        /*
+         * List<String> strictGrid = Arrays.asList(
+         * "#########",
+         * "#oxoxoxo#",
+         * "###x###x#",
+         * "#oxoxo#o#",
+         * "###x###x#",
+         * "#oxo#oxo#",
+         * "#########"
+         * );
+         * Grid grid = Grid.generateMazeFromStrictBlockwiseMaze(strictGrid, 'x');
+         * System.out.println(grid.gridString());
+         * System.out.println(grid.strictBlockwiseString());
+         * 
+         * /*
+         * List<String> relaxedGrid = Arrays.asList((
+         * "##########\n" +
+         * "#oo#oo##o#\n" +
+         * "#o#o#o#oo#\n" +
+         * "#ooooooo##\n" +
+         * "##########").split("\n"));
+         * MaskedGrid grid2 = Grid.generateMazeFromRelaxedBlockwiseMaze(relaxedGrid,
+         * 'o');
+         * System.out.println(grid2.relaxedBlockwiseString());
+         */
+
+        // Grid grid = new Grid(100, 100);
+        // Grid.houstonsMaze(grid);
+        // System.out.println(grid.gridString());
+        // System.out.println(grid.countDeadEnds());
+        // System.out.println(grid.countUnlinkedCells());
         // Grid.recursiveBacktrackerMaze(grid);
         // Grid.braid(grid, 1);
         // System.out.println(grid.gridString());

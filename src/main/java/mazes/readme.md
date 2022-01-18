@@ -1,9 +1,19 @@
 # Mazes
 
+## TODO
+
+- https://weblog.jamisbuck.org/2015/1/15/better-recursive-division-algorithm.html
+- https://github.com/john-science/mazelib/blob/master/docs/API.md
+  - Learn maze transmmutations
+- https://en.wikipedia.org/wiki/Space-filling_curve
+  - https://stackoverflow.com/questions/7369945/algorithm-for-maze-generation-with-no-dead-ends
+  - For different unicursal implementation
+
 ## Sources (Code and Information from these sources)
 
 - Mazes for Programmers by Jamis Buck
   - Most of the code and notes are from his book
+- http://weblog.jamisbuck.org/archives.html
 - https://www.astrolog.org/labyrnth/algrithm.htm
 - https://www.reddit.com/r/mazes/
 - https://en.wikipedia.org/wiki/Maze_generation_algorithm
@@ -123,7 +133,7 @@
       - Every division, add a wall to all the cells except for 1
       - repeat subdividing horizontally & vertically until reaching base case
   - Other algorithms
-    - Cellular automata, good with bitmasking but may not create a complete maze
+    - Cellular automata, good with bitmasking but may not create a complete maze and slow to run
 
 - Masking mazes
   - Great for creating ASCII mazes or even creating areas that can't be accessed
@@ -140,6 +150,11 @@
   - Need **Adapative subdivision** for better evenly sized cells
     - forwards, inward, cw, ccw cells
   - pg 115
+
+- Truncated Square Tiling
+
+  - Upslion
+    - hexagon and square
 
 - Braiding and Weaving mazes
 
@@ -239,6 +254,12 @@
   - Cone mazes?
   - How to add real walls to mazes?
   - Rendering 4D mazes onto objects: Tesseracts, duo-cylinders, glomes
+- Questions
+  - How to print ascii shaped mazes
+    - Hexagons (Sigma)
+    - Squares with good sybbols (Orthogonal)
+    - Square and hexagons together (Upsilon)
+    - Triangles (delta)
 
 ## Implementation Examples
 
