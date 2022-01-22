@@ -352,14 +352,12 @@ public class Grid implements Iterable<Cell> {
     private static void depthFirstSearchMazeHelper(Cell cell, Set<Cell> visitedCells) {
         visitedCells.add(cell);
 
-        List<Cell> unlinkedNeighbors = cell.neighborsWithoutLinks();
-        while (!unlinkedNeighbors.isEmpty()) {
-            Cell neighbor = random(unlinkedNeighbors).get();
+        while (!cell.neighborsWithoutLinks().isEmpty()) {
+            Cell neighbor = random(cell.neighborsWithoutLinks());
             if (!visitedCells.contains(neighbor)) {
                 cell.link(neighbor);
                 depthFirstSearchMazeHelper(neighbor, visitedCells);
             }
-            unlinkedNeighbors.remove(neighbor);
         }
     }
 
