@@ -10,3 +10,4 @@ Variations
 - [Factory Method](./factorymethod)
 - [Simple Factory](./simple)
 - [Static Factory Method](./staticmethod)
+- [Object Mother](./objectmother)

@@ -9,6 +9,8 @@ Variations
 - [Faceted](./faceted)
 - [Fluent](./fluent)
 - [Generic](./generic)
+- [Immutable])(./immutable)
 - [Lambda](./lambda)
   - Functional
 - [Normal / Standard](./normal)
+- [Test Data Builder](./testdata)
