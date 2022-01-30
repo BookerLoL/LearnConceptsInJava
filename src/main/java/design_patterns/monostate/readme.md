@@ -2,6 +2,8 @@
 
 Maintains a shared state across all instances.
 
+- Can create as many instances, but data is all the same
+
 - Often confused with Singleton which cares only about maintaining one instance
 
 ```java
@@ -28,6 +30,22 @@ public class SortedGlobalTable extends GlobalCounter {
         datastructures.list<Entry<K, V>> list = new ArrayList<>(OBJ_COUNTER.entrySet());
         list.sort(Entry.comparingByValue());
         return list;
+    }
+}
+```
+
+- Other examples
+
+```java
+public class Monostate {
+    private static int someData = 0;
+
+    public int getData() {
+        return someData;
+    }
+
+    public void setData(int data) {
+        this.someData = data;
     }
 }
 ```

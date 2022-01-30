@@ -2,7 +2,7 @@
 
 **Behavioral** Design Pattern
 
-Design pattern to restore an object to it's previous states
+Capture an object's state for later to restore back to a previous state
 
 ```java
 import java.util.ArrayList;
@@ -44,11 +44,11 @@ public class TextLineEditor {
     public void printLine() {
         System.out.println(lines.get(currentLine));
     }
-    
+
     public void clearLine() {
         lines.set(currentLine, "");
     }
-    
+
     public void write(String text) {
         lines.set(currentLine, text);
     }
@@ -62,7 +62,7 @@ public class Example {
 
         TextLineEditorStates savedStates = new TextLineEditorStates();
         savedStates.add(textEditor.saveState());
-        
+
         textEditor.clearLine();
         textEditor.printLine();
         textEditor.getStateFrom(savedStates.get(0));

@@ -11,7 +11,7 @@ public interface PartsFactory {
     public Model getModel();
 }
 
-//factories that implement PartsFactory
+//factories that implement PartsFactory ex: ExpensivePartsFactory, CheapPartsFactory, etc
 //Omitted classes that implement Material and Model
 ```
 

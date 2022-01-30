@@ -6,6 +6,8 @@ Is a special case of the Special Case Pattern
 
 Replaces the need for null checking by providing a class that does nothing
 
+- While not having to check for null is nice, `Optional` is a good alternative
+
 ```java
 interface Function {
     public void apply();

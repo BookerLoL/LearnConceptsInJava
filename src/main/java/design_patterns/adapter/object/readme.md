@@ -7,7 +7,7 @@ public interface Displayable {
     void display();
 }
 
-public ClassAdapter implements Dispayable {
+public class ObjectAdapter implements Dispayable {
     IncompatibleService service;
 
     public void display() {

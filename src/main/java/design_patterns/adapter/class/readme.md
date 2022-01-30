@@ -11,7 +11,7 @@ public class IncompatibleService {
     void show();
 }
 
-public ClassAdapter extends IncompatibleService implements Dispayable {
+public class ClassAdapter extends IncompatibleService implements Dispayable {
     public void display() {
         show();
     }

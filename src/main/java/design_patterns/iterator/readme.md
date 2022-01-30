@@ -2,7 +2,7 @@
 
 **Behavioral** Design Pattern
 
-Allows you to traverse contents of a container object.
+Allows you to traverse contents of a container object without exposing underlying representation
 
 ```java
 interface Iterable<T> {

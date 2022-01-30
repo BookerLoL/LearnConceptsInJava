@@ -10,3 +10,5 @@
     - inheritance appraoch
   - [Object Adapter](./object)
     - composition appraoch
+  - [Two-way Adapater / N-way adapter](./nway)
+  - [Pluggable Adapter](./pluggable)

@@ -2,7 +2,27 @@
 
 **Behavioral** Design Pattern
 
-- Lets multiple objects be informed of new events that happen to an object
+- Lets multiple dependents be informed of new events that happen to the object
+
+```java
+public interface Observer {
+    void update();
+}
+
+public class Observerable {
+    private List<Observer> observables;
+
+    public void add(Observer o) { observables.add(o); }
+    public void remove(Observer o) { observables.remove(o); }
+    public void notify() { observables.forEach(Observer::update); }
+}
+
+public class ExampleObserver implements Observer {
+    public void update() {
+        System.out.println("Updated at: " + System.nanoTime());
+    }
+}
+```
 
 Functional Approach
 

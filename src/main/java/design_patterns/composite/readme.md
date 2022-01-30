@@ -35,9 +35,11 @@ public abstract class Component {
     String name;
 }
 
+//Leaf class
 class File extends Component {
 }
 
+//Composite class
 class Directory extends Component {
     Collection<Component> subcomponents = new ArrayList<>();
 }
@@ -45,7 +47,7 @@ class Directory extends Component {
 public class Example {
     public static void main(String[] args) {
         File f0 = new File();
-        
+
         Directory d1 = new Directory();
         File f1 = new File();
         d1.subcomponents.add(f1);

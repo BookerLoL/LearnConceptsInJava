@@ -1,6 +1,7 @@
 # State Design Pattern
 
-- Different objects to represent state of the object
+- Alter behavior when internal state changes
+  - Different objects to represent state of the object
   - Often pass the object to other instances
 - [Source](https://www.youtube.com/watch?v=-k2X7guaArU)
 

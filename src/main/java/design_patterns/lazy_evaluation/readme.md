@@ -5,6 +5,7 @@ Evaluate results until needed.
 There are many different ways of designing
 
 - Supplier makes it easy to create lazy evaluation
+- Same idea can be applied to lazy loading
 
 ```java
 //DecoratingIterator omitted
