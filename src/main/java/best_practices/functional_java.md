@@ -139,3 +139,354 @@ public interface DoSomething {
   BinaryOperator<Integer> ADDER = (a, b) -> a + b;
 }
 ```
+
+---
+
+- `f.andThen(g)` equal to `g.compose(f)`
+  - g compose f means: execute f and use results of f for g
+  - Be very careful composing lots of functions, can run into overflow
+  ```java
+  //Example of writing compose
+  static <T, U, V> Function<T, V> compose(Function<U, V> f, Function<T, U> g) {
+    return arg -> f1.apply(f2.apply(arg));
+  }
+  ```
+- Handling multiple arguments
+
+  ```java
+  //Just more verbose, take away Function: Integer -> (Integer -> Integer)
+  Function<Integer, Function<Integer, Integer>> add = x -> y -> x + y;
+
+  //Creating own named Function type for reuse
+  public interface BinaryOperator extends Function<Integer, Function<Integer, Integer>> {}
+
+
+  static <T, U, V> Function<Function<U, V>, Function<Function<T, U>, Function<T, V>>> higherCompose() {
+        return (Function<U, V> f) -> (Function<T, U> g) -> (T x)
+                -> f.apply(g.apply(x));
+
+  ClassName.<Double, Integer, Double>higherCompose().apply(Double::valueOf).apply(Double::intValue).apply(10.0);
+
+
+
+  //While many would just create BiConsumer, of Function3, Function4, etc
+  //Learn to use currying
+  Function<Double, Function<Double, Double>> addTax = taxRate -> price -> price + price * taxRate;
+  ```
+
+```java
+//Need to an either class, Java does not provide this
+Either<SomeException, Type>
+```
+
+- Ananymous vs named function
+  - if used once and is short, can use anonymous
+  - **Focus on clarity and maintainability**
+    - Performance and usuability, use method references
+  - Type inference, use method reference to provide compiler info
+- Can have a `Function` inside a method/function
+- Recursive functions
+
+```java
+//Need to master recursion
+
+//Self-refrencing requires: static final, using 'this', or init block
+Function<Integer, Integer> factorial = n -> n <= 1 ? n : n * this.factorial.apply(n - 1);
+```
+
+- `identity() { return t -> t }`
+- Java interfaces
+  - `java.util.function.Function`, `Supplier`, `Consumer`, `Runnable`
+- **Debugging lambdas**
+
+  - More difficult to debug lambdas, but less necessary to debug
+  - Try ot break one-line version into several lines and set breakpoints
+  - extensively unit test each component
+
+- Control Structures Functionally
+
+```java
+public interface Effect<T> {
+  void apply(T t);
+}
+
+public interface Result<T> {
+  void bind(Effect<T> success, Effect<String> failure);
+
+  public static <T> Result<T> success(String message) {
+    return new Success<>(message);
+  }
+
+  public static <T> Result<T> failure(String message) {
+    return new Failure<>(message);
+  }
+
+  public class Success<T> implements Result<T> {
+    private final T value;
+    //...
+
+    public void bind(Effect<T> success, Effect<String> failure) {
+      success.bind(value);
+    }
+  }
+
+  //Failure, similar logic to Success
+}
+
+someFunction("test").bind(success, failure);
+
+static Effect<String> success = s -> System.out.println("Success with: " + s);
+
+static Effect<String> failure = s -> System.err.println("Error message: " + s);
+
+
+public class Case<T> extends Pair<Supplier<Boolean>, Supplier<Result<T>>> {
+  private case(Supplier<Boolean> conditionSupplier, Supplier<Result<T>> resultSupplier) {
+    super<condition, resultSupplier>
+  }
+
+  public static <T> Case<T> mcase(Supplier<Boolean> condition, Supplier<Result<T>> value) {
+return new Case<>(condition, value);
+  }
+
+  public static <T> DefaultCase default(Supplier<Result<T>> value) {
+    return new DefaultCase<>(() -> true, value);
+  }
+
+  private static class DefaultCase<T> extends Case<T> {
+    //omit
+  }
+
+  public static <T> Result<T> match(DefaultCase<T> default, Case<T> ... matchers) {
+    for (Case<T> case : matchers) {
+      if (case.getCondition().get()) return case.getResult().get();
+    }
+    return default.getResult().get();
+  }
+}
+```
+
+```java
+public static <T> T head(List<T> list) {
+  if (list.isEmpty()) {
+    throw new IllegalStateException("List is empty");
+  }
+
+  return list.get(0);
+}
+
+public static <T> List<T> tail(List<T> list) {
+   if (list.isEmpty()) {
+    throw new IllegalStateException("List is empty");
+  }
+
+  List<T> modifiableList = new ArrayList<>(list);
+  modifiableList.remove(0);
+  return Collections.unmodifiableList(modifiableList);
+}
+
+public static <T> List<T> append(List<T> list, T t) {
+  List<T> ts = new ArrayList<>(list);
+  ts.add(t);
+  return Collections.unmodifiable(ts);
+}
+
+//Folding, transform list into single value aka reducing
+public static <T, U> U foldLeft(List<T> values, U identity, Function<U, Function<T, U>> transform) {
+  U result = identity;
+  for (T i : values) {
+    result = transform.apply(result).apply(i);
+  }
+  return result;
+}
+
+static <T> List<T> unfold(T seed, Function<T, T> f, Predicate<T> predicate) {
+  List<T> results = new ArrayList<>();
+  T temp = seed;
+  while (predicate.test(temp)) {
+    results.add(temp);
+    temp = f.apply(temp);
+  }
+  return results;
+}
+
+static List<Integer> range(int start, int end) {
+  return unfold(start, x -> x + 1, x -> x < end);
+}
+```
+
+- Better to compose / andThen before mapping over to avoid repeated maps
+
+  - Streams are lazily evaluated, so streams aren't really affected
+
+- How to avoid wrong method for right type
+
+  - Sometimes might have 2 doubles, but method used on them might be for the other
+
+  ```java
+  //Value types to represent values to avoid mixup
+  public class Price {
+    public static final Price ZERO = new Price(0.0);
+    public static Function<Price Function<FoodLine, Price>> sum = x -> y -> x.add(y.getAmount());
+
+    double price;
+
+    public Price add(Price other) {
+      return new Price(this.value + that.value);
+    }
+  }
+
+  public class Weight {
+    double weight;
+  }
+  ```
+
+- Corecursion, computing steps by using output of one step as input of next step
+- Recursion, same as corecursion but starts with last step first
+- **No Tall Call Elmination in Java (other compilers have it)**
+  - Tail call, recursion happens occurring in last position
+    - Tail recursive, **often times need to use an accumlator, and a private helper method**
+  - Tail call elimination, removing pushing environment to stack to process tail call
+  - **Components needed for improved recursion**
+    - represent **unevaluated method calls**
+    - Store them in stack-like structure until encounter terminal condition
+    - Evaluate calls LIFO order
+
+```java
+public interface TailCall<T> {
+  TailCall<T> resume();
+  T eval();
+  boolean hasMore();
+
+  public class Results<T> implements TailCall<T> {
+    private final T t;
+    public T eval() { return t; }
+    public boolean isSuspend() { return false; }
+    public TailCall<T> resume() { throw new IllegalStateException(); }
+  }
+
+  public class Suspend<T> implements TailCall<T> {
+    private final Supplier<TailCall<T>> resume;
+    public T eval() {
+      TailCall<T> current = this;
+      while (current.isSuspend()) {
+        current = current.resume();
+      }
+      return current.eval();
+    }
+    public boolean isSuspend() { return true; }
+    public TailCall<T> resume() { return resume.get(); }
+  }
+
+  public Results<T> finish(T data) { return new Results<>(data); }
+  public Suspend<T> next(Supplier<TailCall<T>> next) { return new Suspend<>(next); }
+}
+
+static TailCall<Integer> add(int x, int y) {
+  return y == 0 ? finish(x) : next(() -> add(x + 1, y - 1));
+}
+
+static Function<Integer, Function<Integer, Integer>> add = x -> y -> {
+  class AddHelper {
+    Function<Integer, Function<Integer, TailCall<Integer>>> addHelper = a -> b -> b == 0 ? finish(a) : next(() -> this.add.apply(a + 1).apply(b - 1));
+  }
+
+  //To get rid of the need to type 'eval'
+  return new AddHelper().addHelper.apply(x).apply(y).eval();
+}
+
+```
+
+```java
+static <T> Function<T, T> composeAll(List<Function<T, T>> list) {
+  return x -> {
+    T y = x;
+    for (Function<T, T> f : list) {
+      y = f.apply(y);
+    }
+    return y;
+  };
+}
+```
+
+- Handling with lists
+
+```java
+public interface List<T> {
+  public T head();
+  public List<T> tail();
+  public boolean isEmpty();
+  public List<T> prepend(T item);
+  public List<T> setHead(T item);
+  public List<T> drop(int n);
+
+  default U List<U> nil() {
+    return new Nil<>();
+  }
+
+  default U List<U> list() {
+    return new Nil<>();
+  }
+
+  default U List<U> list(U ... u) {
+    List<U> node = nil();
+    for (int  i = u.length - 1; i >= 0; i--) {
+      n = new Cons<>(u[i], n);
+    }
+    return n;
+  }
+
+  default U List<U> concat(List<U> list1, List<U> list2) {
+    return list1.isEmpty() ? list2 : new Cons<>(list1.head(), concat(list1.tail(), list2));
+  }
+
+  default T List<T> cons(T item) {
+    return new Cons<>(item, this);
+  }
+
+  //To reverse list, can accumulator list to store results while traversing recursively
+
+  private class Nil<T> implements List<T> {
+    //omit rest, throw excepitons
+    public boolean isEmpty() { return true; }
+    public List<T> prepend(T item) { return new Cons<>(item, this); }
+    public List<T> setHead(T item) { throw new IllegalStateException(); }
+    public List<T> drop(int n) { return this; }
+  }
+
+  private class Cons<T> implements List<T> {
+    private final T head;
+    private final List<T> tail;
+
+    public boolean isEmpty() { return false; }
+    public List<T> prepend(T item) { return new Cons<>(item, this); }
+    public List<T> setHead(T item) { return new Cons<>(item, tail()); }
+    public List<T> drop(int n) { return n <=  0 ? this : dropHelper(this, n).eval(); }
+    private TailCall<List<T>> dropHelper(List<T> list, int n) { return n <= 0 || list.isEmpty() ? finish(list) : next(() -> dropHelper(list.tail(), n-1)); }
+  }
+}
+
+public Integer sum(List<Integer> numbers) { return numbers.isEmpty() ? 0 : numbers.head() + sum(numbers.tail()); }
+
+
+public <T, U> TailCall<U> foldLeftHelper(B acc, List<A> list, Function<B, Function<A, B>> f) {
+  return list.isEmpty() ? finish(acc) : next(() -> foldLeftHelper(f.apply(acc).apply(list.head()), list.tail(), f));
+}
+
+public Integer length(List<Integer> list) {
+  return foldLeftHelper(0, list, x -> ignore -> x + 1);
+}
+
+public Double product(List<Double> list) {
+  return foldLeftHelper(1.0, list, x -> y -> x * y);
+}
+
+public <A> List<A> reverse(List<A> list) {
+  return foldLeft(List.list(), list, x -> x::cons);
+}
+
+//Can use foldLeft to implement map, filter, flatMap, etc
+```
+
+- FP, often involves terms of what intended result is rather than how to obtain it
+- Find patterns that can be abstracted

@@ -2,6 +2,7 @@
 
 - Helps elminate boilerplate code
 - Write method that does something every code must do
+- Functional design pattern
 
 ```java
 public interface Timeable {

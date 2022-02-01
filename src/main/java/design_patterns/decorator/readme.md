@@ -55,11 +55,12 @@ public void setFilters(final Function<Color, Color>... filters) {
                 Stream.of(filters)
                         .reduce(Function::compose)
                         .orElse(color -> color);
+
+        //Could have done: reduce(Function.identity(), Function::andThen)
 }
 
 
 setFilters(Color::brighter, Color::darker);
-
 
 
 //Class appraoch

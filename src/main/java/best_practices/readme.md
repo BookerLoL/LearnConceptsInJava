@@ -200,3 +200,11 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
   - accept imperfect solutions to preserve team spirit
   - submit reviewer friendly pull requests with explanatory, fine-grained commits
 - Pair programming is good alternative to code reviews
+
+---
+
+- **Parameterized types are to be invariant**
+  - This means: `Integer extends Object` but cannot do: `List<Integer> = List<Object>`
+    - Thus **Invariant**
+  - covariance: `List<Integer>` is subtype of `List<Number>`
+  - contravariant: `List<Number>` is subtype of `List<Integer>`
