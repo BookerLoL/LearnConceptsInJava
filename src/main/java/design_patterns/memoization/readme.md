@@ -36,5 +36,3 @@ public static final Function<Integer, Integer> doubler = memoise(ADDER);
 //Multiple arguments
 Function<Integer, Function<Integer, Function<Integer, Integer>>> f3 = memoise(x -> memoise(y -> memoise(z -> x + y - z)));
 ```
-
-- 146

@@ -212,6 +212,7 @@ public interface Effect<T> {
 
 public interface Result<T> {
   void bind(Effect<T> success, Effect<String> failure);
+  void forEach(Effect<T> ef);
 
   public static <T> Result<T> success(String message) {
     return new Success<>(message);
@@ -228,6 +229,8 @@ public interface Result<T> {
     public void bind(Effect<T> success, Effect<String> failure) {
       success.bind(value);
     }
+
+    public void forEach(Effect<T> effect) { effect.apply(value); }
   }
 
   //Failure, similar logic to Success
@@ -490,3 +493,173 @@ public <A> List<A> reverse(List<A> list) {
 
 - FP, often involves terms of what intended result is rather than how to obtain it
 - Find patterns that can be abstracted
+- Optional Data / Dealing with null
+  - Using list, has drawbacks
+  - return sentinel value
+  - throw exception
+  - return null (worst solution)
+  - Have user provide default value
+
+```java
+public interface Optional<T> {
+  T get();
+  T getOrElse(Supplier<T> defaultValue);
+  <U> Optional<U> map(Function<T, U> f);
+
+  default <U> Optional<U> flatMap(Function<T, Optional<U>> f) {
+    return map(f).getOrElse(Optional::empty);
+  }
+
+  default Optional<T> orElse(Supplier<Optional<T>> defaultValue) {
+    return map(x -> this).getOrElse(defaultValue);
+  }
+
+  private static final Optional<?> EMPTY = new Empty<>();
+
+  public static <T> Optional<T> empty() {
+    return (Optional<T>) EMPTY;
+  }
+
+  public static <T> Optional<T> of(T value) {
+    return value == null ? empty() : new Value<>(value);
+  }
+
+  private static class Empty<T> implements Optional<T> {
+    public T get() { throw IllegalStateException(); }
+    public T getOrElse(Supplier<T> defaultValue) { return defaultValue.get(); }
+    public <U> Optional<U> map(Function<T, U> f) { return this; }
+
+    public boolean equals(Object o) { return this == o || o instanceof Empty; }
+
+    public int hashCode() { return 0; }
+  }
+
+  private static class Value<T> implements Optional<T> {
+    private final T value;
+
+    public T get() { return value; }
+    public T getOrElse(Supplier<T> defaultValue) { value != null ? value : defaultValue.get();  }
+    public <U> Optional<U> map(Function<T, U> f) { return new Value<>(f.apply(value)); }
+
+    public boolean equals(Object o) { return (this == o || o instanceof Value) && value.equals(((Value<?>)o).value); }
+
+    public int hashCode() { return Objects.hashCode(value); }
+
+  }
+
+  static <T, U> Function<Optional<T>, Optional<U>> lift(Function<T, U> f) {
+    return x -> {
+      try {
+        return Optional.of(x).map(f);
+      } catch (Exception e) {
+        return Optional.empty();
+      }
+    }
+  }
+
+  static <A, B, C, D> map3Args(Optional<A> a, Optional<B> b, Optional<C> c, Function<A, Function<B, Function<C, D>>> f) {
+    return a.flatMap(ax -> b.flatMap(bx -> c.map(cx -> f.apply(ax).apply(bx).apply(cx))));
+  }
+}
+
+```
+
+- Necessary methods for all use cases to do with value for all use cases
+
+  - use value as input to another function
+  - apply effect to value
+  - use value if it's not null or use default value to apply a function or an effect
+
+- Use Functional methods instead of Functions as often as possible
+  - Prefer function answer over nonfunctional techniques if possible
+- Original use of Optional
+  - needed clear way to represent no result and using null would cause errors
+  - Almost never use it as a field or method parameter
+  - **Never use optional.get** unless prove it will never be null
+    - use orElse or ifPresent
+- Should you use Optional as originally intended?
+  - Just do what you want, don't do it without thinking
+  - Some properties could use Optionals when appropriate
+    - don't routinely use it for get methods
+- Consider using final classes
+- **Often times in business code, should probably just throw an error**
+
+```java
+//Can create your own Either
+ public interface Either<T, U> {
+
+        class Left<T, U> implements Either<T, U> {
+            T value;
+        }
+
+        class Right<T, U> implements Either<T, U> {
+            U value;
+        }
+
+        public static <T, U> Either<T, U> left(T value) { new Left<>(value); }
+        public static <T, U> Either<T, U> right(U value) { new Right<>(value); }
+    }
+```
+
+```java
+//Similar to Optional but also storing an Exception
+//Can also create Empty class
+//Can also convert to Optional
+public interface Result<V> {
+  <U> Result<U> map(Function<V, U> f);
+  <U> Result<U> flatMap(Function<V, Result<U>> f);
+  V getOrElse(V defaultValue);
+  V getOrElse(Supplier<V> defaultValue);
+  Result<V> orElse(Supplier<Result<V>> defaultValue);
+  Result<V> mapFailure(String s, Exception e);
+  Result<V> mapFailure(Exception e);
+
+  class Failure<V> implements Result<V> {
+    RuntimeException exception;
+  }
+  class Success<V> implements Success<V> {
+    V value;
+  }
+
+  public static <V> Result<V> failure(String message) {}
+  public static <V> Result<V> failure(Exception e) {}
+  public static <V> Result<V> success(V value) {}
+
+  public default Result<V> filter(Predicate<V> p) {
+    return flatMap(x -> p.test(x) ? this : failure("Failed condition"))
+  }
+
+  public default exists(Predicate<V> p) {
+    return map(p).getOrElse(false);
+  }
+
+  public static <V> Result<V> of(V value);
+  public static <V> Result<V> of(V value, String message);
+  public static <V> Result<V> of(Predicate<V> predicate, T value);
+  public static <V> Result<V> of(Predicate<V> predicate, T value, String message);
+}
+```
+
+- Applying an effect
+  - forEach, forEachOrThrow, forEachOrException
+  - Ch 13 for more
+
+```java
+static Result<String> getFirstName() {}
+getFirstName().flatMap(firstName -> getLastName().flatMap(lastName -> getMail().map(mail -> new Person(firstName, lastName, mail))));
+
+//Function<String, Function....> same way of writing this
+
+public static <A, B, C, D> Function<Result<A>,
+Function<Result<B>, Function<Result<C>,
+Result<D>>>> lift3(Function<A, Function<B, Function<C, D>>> f) {
+return a -> b -> c -> a.map(f).flatMap(b::map).flatMap(c::map);
+}
+```
+
+```java
+//Comprehension pattern
+result1.flatMap(p1 -> result2.flatMap(p2 -> result3.flatMap(p3 -> result4.flatMap(p4 -> result5.map(p5 -> function(p1, p2, p3, p4, p5))))));
+```
+
+- pg 225
