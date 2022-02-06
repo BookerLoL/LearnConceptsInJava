@@ -1,0 +1,137 @@
+# Functional Programming in Java 
+## By Pierre-Yves Saumont
+
+- Basics
+  - Benefits
+    - Easy to reason about and test
+    - More modular
+    - Composition easier
+    - Inherently thread safe
+  - **No side effects**
+  - Focuses a lot on abstraction
+
+- Functions
+  - domain mapped to codomain values
+  - Inverse f^-1(x), A -> B f exists B -> A
+  - Partial functions
+    - Often a source for bugs
+    - not all elements in domain have defined relation
+  - Composition
+    - F o G = f(g(x))
+  - Function currying
+    - f(x)(y) = g(y)
+      - f(3)(5) = g(5) = x + y = 3 + 5
+  - Pure Function
+    - Don't mutate anything outside function
+    - Don't mutate arguments
+    - Don't throw errors / exceptions
+    - Always returns a value
+    - Same arguments -> same results
+  - Java
+    - All instance methods can be replaced with static, just add argument of enclosing class
+    - Java 7, diamond syntax
+    - Java 8, Lambdas to the rescue!
+  - Higher order functions (HOF)
+    - Taking functions as args and returning functions
+  - Writing compose of certain functions
+    1. How many arguments? `Ex: Function<T, Function<T, T>>`
+    2. Write return type `Ex: Function<Integer, Integer>`
+  - Anonymous vs Named Functions
+    - If used once and short to read, probably just use anonymous 
+    - If hard to read function or used many times, create named functions
+  - Local functions, helper functions are useful in Java
+  - Closures
+    - The environment variables it can access within its scope
+  - Trust the types, if implementation compiles, it's correct
+  - Self-referencing functions
+    - Static: `static final Function<Integer, Integer> f = n -> n < 0 ? n : ClassName.f.apply(n-1);`
+    - Class: `final Function<Integer, Integer> f = n -> n < 0 ? n : this.f.apply(n - 1);`
+- Java More Functional
+  - Can abstract the if, else if, else behind a class that handles it
+  - Can abstract for/while loops using a List class and folding methods
+  - Corecursion and recursion can be interchanged
+  - Trust types more than names, Create classes for names: `class Price { private double price; double getPrice() { return price; } }`
+    - Such as Value Classes: define objects which, once created, never change their value
+- Recursion, Corecursion, memoization
+  - Corecursion: uses output of one step as input for next
+  - Recursion, same as corecursion, delay evaluation until base condition
+  - Tail Call Optimization / Elimination, where tail call recursion doesn't use stack
+    - Tail recursion: where recursion method is the absolute last step, no other things needed afterwards
+    - Java doesn't have due to not having byte code for tail calls
+  - Can consider locally defined functions and locally defined classes to avoid creating accessible helper functions
+  - Consider using accumulators for recursive methods
+  - Must convert any recursion to tail call recursion only then able to convert to tail call optimization
+- Data Handling with Lists
+  - Immutable, persistent, singly linked list: List -> head, tail List
+  - Ignore optimized versions of similar code, find patterns in the code that could be abstracted
+- Dealing with Nulls
+  - Functional methods simpler to use than functions
+    - Don't need to write `.apply`
+    - Types are shorter, don't need to write `Function`
+    - Often times throw exceptions for production
+- Handling Errors and Exceptions
+  - Either, useful when want data to be present otherwise error
+  - Result, similar to Option but a bit more improved to handle errors
+  - flatMap / map nesting can do `comprehension` where `x.flatMap(p1 -> x2.flatMap(p2 -> compute(p1, p2));` can do for as many args
+    - **Great technique to learn if you need multiple values before returning a result**
+    - May sometimes end with map but depends on output
+- Advanced List Handling
+  - Drawbacks of memoization
+    - need to call it several times to get benefits back
+    - Need to avoid functions that create new objects for results
+    - Increase memory space
+  - Functional libraries in imperative languages
+    - Some can be implemented in functional style or imperative
+    - Choose most efficient implementation, not because you can use a certain function
+    - Better to use specific structures for some functional methods
+  - Processing sublists in parallel
+    - divide list into sublists, map lists with function with threads to distribute work
+- Working with laziness
+  - strictness: doing things 
+  - laziness: nothing things to do in the future
+  - Can use result to avoid null references
+- Data handling with trees (256)
+  - BST, folding trees, mapping trees, balancing trees
+- Handling state mutation in functional way
+  - Consider encapsulating interface: `interface Random<T> extends Function<RNG, Tuple<T, RNG>>`
+  - flatMap gives additional level of abstraction for clearer implementations
+  - Composition is better than inheritance
+  - 358
+- Functional Input/Output
+  - Effect: anything observed outside the program
+  - Single abstract method (SAM), functional interface
+  - Logging is ubiquitous in imperative programming
+  - `forEachOrFail`, `forEachOrException`, `forEachOrThrow`, etc
+  - Can make IO stack-safe using the stack-safe recursive approaches
+  - IO can be extended into an imperative way to build a program to be executed later
+- Sharing mutable state with actors (392)
+  - Actor framework
+    - Main actor 
+      - Sends main task to manager actor
+      - Receive results and outputs results
+    - Manager actor
+      - Distribute subtasks to workers
+      - Send subresults to receiver
+    - Worker actor
+      - Do distributed work
+    - Receiver actor
+      - Collates results and send back to main actor
+  - Actor framework mostly for abstraction of sharing mutable state
+  - Otherwise ned to use synchronize access 
+  - Akka is a scala actor framework that could be used
+- Solving Common problems functionally
+  - Can use Result to represent assertions, reading property files, etc
+  - Functional wrappers around legacy libraries
+- Appendix java 8 features
+  - Function, Optional, CompletableFuture, Streams, etc
+  - Optional, can only be used for truly optional data, not great for dealing with errors
+  - Streams, is a mix of lazy, monadic, and automatic parallelization but doesn't do a great job
+    - Usable only once when terminal method called on them
+    - Better to use Collector
+- Monads
+  - It doesn't really matter about definitions, you write them all the time
+- Where to go from here
+  - Choose more functional friendly language
+  - Stick with Java
+    - Will need a Funtional library (might need to create one)
+    - Libraries: Functional Java, Javaslang, Cyclops
