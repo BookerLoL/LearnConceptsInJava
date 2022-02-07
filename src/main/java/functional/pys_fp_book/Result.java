@@ -123,7 +123,6 @@ public abstract class Result<T> {
             }
         }
 
-
         @Override
         public <U> Result<U> flatMap(Function<T, Result<U>> f) {
             try {
@@ -339,7 +338,8 @@ public abstract class Result<T> {
         return a -> b -> a.map(f).flatMap(b::map);
     }
 
-    public static <T, U, V, W> Function<Result<T>, Function<Result<U>, Function<Result<V>, Result<W>>>> lift3(Function<T, Function<U, Function<V, W>>> f) {
+    public static <T, U, V, W> Function<Result<T>, Function<Result<U>, Function<Result<V>, Result<W>>>> lift3(
+            Function<T, Function<U, Function<V, W>>> f) {
         return a -> b -> c -> a.map(f).flatMap(b::map).flatMap(c::map);
     }
 
