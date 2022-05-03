@@ -1,4 +1,4 @@
-package design_patterns.proxy.virtual_proxy;
+package design_patterns.proxy.virtual;
 
 public class Image {
 	public Image(String path) {
