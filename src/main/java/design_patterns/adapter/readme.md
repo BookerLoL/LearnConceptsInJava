@@ -4,6 +4,7 @@
 - Also known as **Wrapper**
 - Class that bridges between two incompatible interfaces
 - [Source](https://stackoverflow.com/questions/9978477/difference-between-object-adapter-pattern-and-class-adapter-pattern)
+  - May consider using `Consumer` or `Function` to avoid creating another class
 
 - Types
   - [Class Adapter](./class)

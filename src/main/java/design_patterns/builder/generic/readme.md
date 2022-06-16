@@ -1,6 +1,6 @@
 # Generic Builder Pattern
 
-This allows you extend existing builder patterns to add additional functionalities and keep existing builder features
+- This allows you extend existing builder patterns to add additional functionalities and keep existing builder features
 
 ```java
 public class Person {

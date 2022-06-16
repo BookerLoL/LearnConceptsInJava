@@ -24,7 +24,7 @@ interface VehicleFactory {
 interface Vehicle {}
 ```
 
-- Can do better be providing a method that does all you need
+- Can do better by providing a method that does all you need
 
 ```java
 public static <U, V> Function<U, V> factoryKit(Consumer<BiConsumer<U, V>> consumer, Function<U, V> ifAbsent) {

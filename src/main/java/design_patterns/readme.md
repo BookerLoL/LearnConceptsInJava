@@ -4,45 +4,27 @@ Typical solutions to common problems. These are essentially tools at the disposa
 
 Good for refactoring but use only when appropriate.
 
-## Code Design Patterns (Most are OOP, may include Functional appraoch)
+## Code Design Patterns (OOP and some functional)
 
-- [Adapter](./adapter)
-- [Bridge](./bridge)
-- [Builder](./builder)
-  - Functional
-- [Callback](./callback)
-  - Functional
-- [Chain of Responsibility](./chain_of_responsibility)
-  - Functional
-- [Collection Pipeline](./collection_pipeline)
-  - Functional
-- [Combinator](./combinator)
-  - Functional
-- [Command](./command)
-  - Functional
+- [Adapter](./adapter) (Structural)
+- [Bridge](./bridge) (Structural)
+- [Builder](./builder) (Creational | Functional)
+- [Callback](./callback) (Functional)
+- [Chain of Responsibility](./chain_of_responsibility) (Behavioral | Functional)
+- [Collection Pipeline](./collection_pipeline) (Functional)
+- [Combinator](./combinator) (Functional)
+- [Command](./command) (Behavioral | Functional)
 - [Composite](./composite)
-- [Converter](./converter)
-
-  - Functional
-
-- [Currying Functions](./currying_functions)
-
-  - Functional
-
+- [Converter](./converter) (Functional)
+- [Currying Functions](./currying_functions) (Functional)
 - [Data Access Object (DAO)](./data_access_object)
-- [Decorator](./decorator)
-  - Functional
-- [Default Values](./default_values)
-  - Functional
+- [Decorator](./decorator) (Structural | Functional)
+- [Default Values](./default_values) (Behavioral | Functional)
 - [Double Checked Locking](./double_checked_locking)
 - [Double Dispatch](./double_dispatch)
-- [Execute Around](./execute_around)
-
-  - Functional
-
+- [Execute Around](./execute_around) (Behavioral | Functional)
 - [Facade](./facade)
-- [Factory](./factor)
-  - Functional
+- [Factory](./factory) (Functional)
 - [Feature Flag](./feature_flag)
 - [Filter](./filter)
 - [Fluent Interface](./fluent_interface)
@@ -50,31 +32,22 @@ Good for refactoring but use only when appropriate.
 - [Forwarding Decorator](./forwarding_decorator)
 - [Intercepting Filter](./intercepting_filter)
 - [Interpreter](./interpreter)
-- [Iterator](./iterator)
-  - Functional
-- [Lazy Evaluation](./lazy_evaluation)
-  - Functional
-- [Loan](./loan)
-  - Functional
+- [Iterator](./iterator) (Behavioral | Functional)
+- [Lazy Evaluation](./lazy_evaluation) (Behavioral | Functional)
+- [Loan](./loan) (Functional)
 - [Mediator](./mediator)
 - [Memento](./momento)
-- [Memoization](./memoization)
-  - Functional
-- [Method Chaining](./method_chaining)
-  - Functional
-- [Monad](./monad)
-  - Functional
+- [Memoization](./memoization) (Behavioral | Functional)
+- [Method Chaining](./method_chaining) (Functional)
+- [Monad](./monad) (Functional)
 - [Monostate](./monostate)
 - [Multition](./multition)
-- [Mute](./mute)
-  - Functional
+- [Mute](./mute) (Functional)
 - [Null Object](./null_object)
-- [Observer](./observer)
-  - Functional
+- [Observer](./observer) (Functional)
 - [Page Object](./page_object)
 - [Paramter Object](./parameter_object)
-- [Partial Application](./partial_application)
-  - Functional
+- [Partial Application](./partial_application) (Functional)
 - [Partial Response](./partial_response)
 - [Private Class](./private_class_design)
 - [Prototype](./prototype)
@@ -87,19 +60,15 @@ Good for refactoring but use only when appropriate.
 - [Spatial Partition](./spatial_partition)
 - [Special Case](./special_case)
 - [Specification](./specification)
-- [State](./state)
-  - Functional
+- [State](./state) (Behavioral | Functional)
 - [Stateless](./stateless)
-- [Strategy](./strategy)
-  - Functional
+- [Strategy](./strategy) (Behavioral | Functional)
 - [Subclass Sandbox](./subclass_sandbox)
 - [Telescoping](./telescoping)
-- [Template](./template)
-  - Functional
+- [Template](./template) (Behavioral | Functional)
 - [Thread Local Storage](./thread_local_storage)
 - [Throttling](./throttling)
-- [Trampoline](./trampoline)
-  - Functional
+- [Trampoline](./trampoline) (Functional)
 - [Transaction Script](./transaction_script)
 - [Transfer Object](./transfer_object)
 - [Twin](./twin)
@@ -107,8 +76,7 @@ Good for refactoring but use only when appropriate.
 - [Unit of Work](./unit_of_work)
 - [Update Method](./update_method)
 - [Version Number](./version_number)
-- [Visitor](./visitor)
-  - Functional
+- [Visitor](./visitor) (Behavioral | Functional)
 
 ## Architecture Design Patterns
 

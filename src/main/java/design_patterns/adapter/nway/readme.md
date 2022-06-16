@@ -4,7 +4,8 @@
   - Ensure they are interfaces
 
 ```java
+// Better to implement interfaces rather than extending
 public class NWayAdapter extends TargetService, AdapteeService, OtherServices {
-//implement methods, take a constructor that accepts those types and call delegate
+  //implement methods, take a constructor that accepts those types and call delegate
 }
 ```
