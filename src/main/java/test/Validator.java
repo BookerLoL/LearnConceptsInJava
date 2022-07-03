@@ -117,7 +117,7 @@ W
 	 * an error will be thrown.
 	 * 
 	 * @param objects The objects to check if null.
-	 * @throws NullpointerException if one of the objects is null.
+	 * @throws NullPointerException if one of the objects is null.
 	 */
 	public static void checkNotNull(Iterable<Object> objects) {
 		for (Object object : objects) {
@@ -133,7 +133,7 @@ W
 	 * 
 	 * @param objects      The objects to check if null.
 	 * @param errorMessage The error message to supply if error occurs.
-	 * @throws NullpointerException if one of the objects is null.
+	 * @throws NullPointerException if one of the objects is null.
 	 */
 	public static void checkNotNull(Iterable<Object> objects, String errorMessage) {
 		for (Object object : objects) {
@@ -152,7 +152,7 @@ W
 	 * @param errorMessageFormat The error message format string to supply if error
 	 *                           occurs.
 	 * @param errorMessageArgs   The error message arguments for the format string.
-	 * @throws NullpointerException if one of the objects is null.
+	 * @throws NullPointerException if one of the objects is null.
 	 */
 	public static void checkNotNull(Iterable<Object> objects, String errorMessageFormat, Object... errorMessageArgs) {
 		for (Object object : objects) {
@@ -160,9 +160,5 @@ W
 				throw new NullPointerException(String.format(errorMessageFormat, errorMessageArgs));
 			}
 		}
-	}
-
-	public static void main(String[] args) {
-		Validator.checkValid(false, "fck %s", "fck");
 	}
 }

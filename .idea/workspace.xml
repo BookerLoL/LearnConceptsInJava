@@ -5,20 +5,376 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b42b4d-235e-4bc2-b7ff-143773c0cac4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/optimizing/code_optimizations.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/optimizing/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datastructures/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interviewprep/algorithms/Prims.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interviewprep/algorithms/TopologicalSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interviewprep/algorithms/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interviewprep/coding_problems/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interviewprep/common_techniques/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interviewprep/data_structures/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interviewprep/data_structures/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interviewprep/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/BSPTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/lazyevaluation/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/lazyevaluation/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/AccessingVariables.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/BufferingStreams.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/CommonSubexpressionExlimination.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/Iterative.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/NullingVariables.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/Packages.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/Primitives.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/StringConcatenation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/SwitchCases.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/UnrollingLoops.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/best_practices/functional_java.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bestpractices/functional_java.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/best_practices/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bestpractices/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/ArrayTrie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/ArrayTrie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/BloomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/BloomFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/CountMinSketch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/CountMinSketch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/CountingBloomFIlter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/CountingBloomFIlter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/DirectAdressingVEMTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/DirectAdressingVEMTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/ExtendibleHashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/ExtendibleHashTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/HashMapTrie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/HashMapTrie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/ImmutablePair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/ImmutablePair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/LeftistHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/LeftistHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/NonNullPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/NonNullPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/SkewHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/SkewHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/TwoChoiceHashing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/TwoChoiceHashing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/ArraySparseArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/ArraySparseArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/CircularArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/CircularArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/DopeVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/DopeVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/GapBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/GapBuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/LinkedListSparseMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/LinkedListSparseMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/OneDSparseMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/OneDSparseMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/ParallelArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/ParallelArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/arrays/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/arrays/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/counters/BoundedCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/counters/BoundedCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/counters/LoopCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/counters/LoopCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/ArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/CircularLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/CircularLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/DoublyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/DoublyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/GeneralizedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/GeneralizedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/OrderedLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/OrderedLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/SentinelDoublyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/SentinelDoublyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/SentinelLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/SentinelLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/SkipList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/SkipList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/list/UnrolledLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/list/UnrolledLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/pair/ImmutablePair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/pair/ImmutablePair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/pair/MutablePair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/pair/MutablePair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/pair/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/pair/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/ArrayQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/ArrayQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/BinomialHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/BinomialHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/Deap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/Deap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/HBLeftistTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/HBLeftistTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/IntervalHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/IntervalHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/LeftistTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/LeftistTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/LinkedListQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/LinkedListQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/MH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/MH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/MMH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/MMH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/PairingHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/PairingHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/SMMH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/SMMH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/SMMH2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/SMMH2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/SkewHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/SkewHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/Splay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/Splay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/Treap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/Treap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/queue/WBLeftistTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/queue/WBLeftistTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/stack/ArrayStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/stack/ArrayStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/stack/LinkedListStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/stack/LinkedListStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/AVLTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/AVLTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/BPlusTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/BPlusTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/BTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/BTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/BinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/BinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/DiamondTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/DiamondTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/HashArrayTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/HashArrayTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/RedBlackTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/RedBlackTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/ThreadedBinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/ThreadedBinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/TournamentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/TournamentTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/TwoThreeTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/TwoThreeTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_structures/tree/WBT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datastructures/tree/WBT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/adapter/class/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/adapter/class/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/adapter/nway/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/adapter/nway/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/adapter/object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/adapter/object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/adapter/pluggable/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/adapter/pluggable/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/adapter/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/adapter/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/autoscaling/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/autoscaling/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/blackboard/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/blackboard/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bounded_queue/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bounded_queue/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/DatabaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/DatabaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/FileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/FileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/StorageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/StorageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bridge/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bridge/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/broker/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/broker/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/faceted/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/faceted/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/faceted/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/faceted/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/fluent/WebRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/fluent/WebRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/fluent/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/fluent/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/generic/Generic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/generic/Generic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/generic/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/generic/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/immutable/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/immutable/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/lambda/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/lambda/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/normal/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/normal/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/normal/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/normal/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/builder/testdata/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/testdata/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/bulkhead/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/bulkhead/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/cache/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/cache/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/callback/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/callback/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/chain_of_responsibility/ConsoleLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/ConsoleLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/chain_of_responsibility/ErrorLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/ErrorLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/chain_of_responsibility/FileLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/FileLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/chain_of_responsibility/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/chain_of_responsibility/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/circuit_breaker/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/circuit_breaker/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/client_server/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/client_server/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/collecting_parameter/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/collecting_parameter/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/collection_pipeline/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/collection_pipeline/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/combinator/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/combinator/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/command/JumpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/JumpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/command/MoveLeftCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/MoveLeftCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/command/MoveRightCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/MoveRightCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/command/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/command/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/composite/Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/composite/Number.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/composite/Numbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/composite/Numbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/composite/Summable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/composite/Summable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/composite/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/composite/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/composite/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/composite/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/converter/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/converter/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/crash_test_dummy/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/crash_test_dummy/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/currying_functions/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/currying_functions/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/data_access_object/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/data_access_object/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/data_access_object/StudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/data_access_object/StudentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/data_access_object/StudentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/data_access_object/StudentDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/data_access_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/data_access_object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/decorator/ExpensiveEggs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/decorator/ExpensiveEggs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/decorator/ExpensiveFoodDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/decorator/ExpensiveFoodDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/decorator/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/decorator/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/decorator/FoodDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/decorator/FoodDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/decorator/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/decorator/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/default_values/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/default_values/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/double_checked_locking/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/double_checked_locking/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/double_dispatch/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/double_dispatch/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/event_driven/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/event_driven/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/event_driven_communication/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/event_driven_communication/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/execute_around/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/execute_around/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/extract_transform_load/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/extract_transform_load/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/facade/ByteLoaderFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/facade/ByteLoaderFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/facade/Compressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/facade/Compressor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/facade/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/facade/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/facade/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/facade/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/facade/Uploader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/facade/Uploader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/facade/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/facade/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/AnimalFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/PetAnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/PetAnimalFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/PetCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/PetCat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/PetDog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/PetDog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/WildAnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/WildAnimalFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/WildCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/WildCat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/WildDog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/WildDog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/abstract/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/abstract/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/factorymethod/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/factorymethod/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/factorymethod/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/factorymethod/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/factorymethod/ShapeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/factorymethod/ShapeFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/factorymethod/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/factorymethod/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/factorymethod/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/factorymethod/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/objectmother/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/objectmother/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/simple/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/simple/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/factory/staticmethod/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/factory/staticmethod/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/fail_fast/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/fail_fast/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/failure_handling/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/failure_handling/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/fan_out_quickest_reply/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/fan_out_quickest_reply/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/feature_flag/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/feature_flag/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/filter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/filter/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/filter/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/filter/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/filter/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/filter/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/fluent_interface/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/fluent_interface/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/flyweight/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/flyweight/Terrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/flyweight/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/flyweight/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/flyweight/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/flyweight/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/flyweight/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/flyweight/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/forwarding_decorator/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/forwarding_decorator/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/idempotency/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/idempotency/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/intercepting_filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/intercepting_filter/DebugFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/DebugFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/intercepting_filter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/intercepting_filter/FilterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/FilterChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/intercepting_filter/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/intercepting_filter/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/interpreter/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/interpreter/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/iterator/Iterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/iterator/Iterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/iterator/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/iterator/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/layered/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/layered/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/lazy_evaluation/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/lazy_evaluation/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/loan/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/loan/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/map_reduce/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/map_reduce/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/master_slave/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/master_slave/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/mediator/BooleanValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/mediator/BooleanValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/mediator/Mediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/mediator/Mediator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/mediator/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/mediator/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/mediator/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/mediator/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/memento/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/memento/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/memento/TextEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/memento/TextEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/memento/TextWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/memento/TextWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/memento/TextWindowState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/memento/TextWindowState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/memento/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/memento/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/memoization/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/memoization/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/method_chaining/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/method_chaining/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/microkernel/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/microkernel/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/monad/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/monad/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/monitoring/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/monitoring/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/monostate/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/monostate/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/multition/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/multition/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/mute/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/mute/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/naked_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/naked_object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/null_object/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/null_object/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/null_object/NullCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/null_object/NullCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/null_object/RealCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/null_object/RealCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/null_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/null_object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/object_pool/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/object_pool/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/observer/Alert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/observer/Alert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/observer/Observable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/observer/Observable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/observer/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/observer/Observer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/observer/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/observer/Phone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/observer/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/observer/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/observer/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/observer/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/page_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/page_object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/parameter_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/parameter_object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/partial_application/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/partial_application/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/partial_response/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/partial_response/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/pipeline/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/pipeline/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/private_class_design/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/private_class_design/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/prototype/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/prototype/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/prototype/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/prototype/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/cache/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/cache/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/counting/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/counting/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/firewall/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/firewall/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/protection/Internet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/protection/Internet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/protection/ProxyInternet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/protection/ProxyInternet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/protection/RealInternet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/protection/RealInternet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/protection/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/protection/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/protection/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/protection/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/remote/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/remote/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/smart_reference/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/smart_reference/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/synchonization/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/synchonization/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/virtual/BaseImageViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/virtual/BaseImageViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/virtual/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/virtual/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/virtual/ImageViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/virtual/ImageViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/virtual/ProxyImageViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/virtual/ProxyImageViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/virtual/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/virtual/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/proxy/virtual/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/proxy/virtual/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/publisher_subscriber/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/publisher_subscriber/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/query_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/query_object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/repository/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/repository/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/resource_acquisition/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/resource_acquisition/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/self_containment/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/self_containment/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/self_shunt/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/self_shunt/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/servant/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servant/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/service_layer/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/service_layer/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/service_locator/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/Cache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/service_locator/InitialContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/InitialContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/service_locator/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/service_locator/Service1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/Service1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/service_locator/Service2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/Service2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/service_locator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/ServiceLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/service_locator/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/singleton/BillPughSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/singleton/BillPughSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/singleton/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/singleton/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/spatial_partition/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/spatial_partition/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/special_case/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/special_case/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/specification/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/specification/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/state/AbstractDoorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/state/AbstractDoorState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/state/ClosedDoorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/state/ClosedDoorState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/state/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/state/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/state/DoorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/state/DoorState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/state/LockedDoorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/state/LockedDoorState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/state/OpenDoorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/state/OpenDoorState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/state/UnlockedDoorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/state/UnlockedDoorState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/state/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/state/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/stateless/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/stateless/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/strategy/BFSPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/strategy/BFSPathFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/strategy/DFSPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/strategy/DFSPathFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/strategy/DistanceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/strategy/DistanceMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/strategy/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/strategy/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/strategy/PathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/strategy/PathFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/strategy/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/strategy/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/subclass_sandbox/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/subclass_sandbox/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/table_module/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/table_module/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/telescoping/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/telescoping/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/template/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/template/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/thread_local_storage/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/thread_local_storage/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/throttling/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/throttling/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/trampoline/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/trampoline/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/transaction_script/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/transaction_script/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/transfer_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/transfer_object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/twin/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/twin/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/type_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/type_object/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/unit_of_work/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/unit_of_work/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/update_method/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/update_method/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/utility/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/utility/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/version_number/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/version_number/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/visitor/Assign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/visitor/Assign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/visitor/If.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/visitor/If.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/visitor/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/visitor/Instruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/visitor/Read.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/visitor/Read.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/visitor/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/visitor/Visitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/visitor/Write.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/visitor/Write.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/design_patterns/visitor/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/visitor/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_theory/IESDS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gametheory/IESDS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_theory/IEWDS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gametheory/IEWDS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_theory/NashEquilibrium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gametheory/NashEquilibrium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_theory/NormalFormGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gametheory/NormalFormGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_theory/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gametheory/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mazes/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mazes/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mazes/CylinderGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mazes/CylinderGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mazes/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mazes/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mazes/DistanceGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mazes/DistanceGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mazes/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mazes/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mazes/MaskedGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mazes/MaskedGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mazes/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mazes/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/need_to_improve/Hasher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/needtoimprove/Hasher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/need_to_improve/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/needtoimprove/Memory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/need_to_improve/NetworkingUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/needtoimprove/NetworkingUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/need_to_improve/RandomEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/needtoimprove/RandomEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/need_to_improve/Serializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/needtoimprove/Serializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/need_to_improve/Shuffler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/needtoimprove/Shuffler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/need_to_improve/Sorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/needtoimprove/Sorter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/need_to_improve/Stopwatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/needtoimprove/Stopwatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/ArrayTrie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/ArrayTrie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/BSPTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/BloomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/BloomFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/CountMinSketch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/CountMinSketch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/FMSketch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/FMSketch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/Features.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/Features.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/HashMapTrie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/HashMapTrie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/HashTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/IntervalTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/IntervalTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/KDTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/KDTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/LinearCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/LinearCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/LinkedHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/LinkedHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/LogLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/LogLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/MinHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/MinHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/Octree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/Octree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/PaintersBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/PaintersBuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/QuadTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/QuadTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/RTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/RTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/RadixTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/RadixTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/Rope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/Rope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/SegmentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/SegmentTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/SuffixArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/SuffixArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/SuffixTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/SuffixTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/TernarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/TernarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no_category_yet/ZBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nocategoryyet/ZBuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizing/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/optimizing/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Validator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +383,10 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="AUTO_SHOW_ERRORS_IN_EDITOR" value="false" />
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -80,6 +440,9 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="q6cn0iat" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -88,51 +451,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.16685843" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="scala_project_settings_configurable.last_selected_tab_index" value="0" />
-    <property name="settings.editor.selected.configurable" value="Settings.Markdown" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Ethan/Documents/LearnConceptsInJava",
+    "settings.editor.selected.configurable": "preferences.keymap"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="designpatterns.builder.faceted" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
-    <configuration name="CaesarCipher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ciphers.CaesarCipher" />
-      <module name="LearnConceptsInJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ciphers.AtbashCipher" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CharacterUtil$AsciiHelper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="utils.CharacterUtil$AsciiHelper" />
-      <module name="LearnConceptsInJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.interview_prep.Tester">
     <configuration name="RailFenceCipher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ciphers.RailFenceCipher" />
       <module name="LearnConceptsInJava" />
@@ -166,13 +499,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="interview_prep.Tester" />
+      <module name="LearnConceptsInJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="interviewprep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TopologicalSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="interviewprep.algorithms.TopologicalSort" />
+      <module name="LearnConceptsInJava" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.interview_prep.Tester" />
+        <item itemvalue="Application.interviewprep.algorithms.TopologicalSort" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.RailFenceCipher" />
-        <item itemvalue="Application.CharacterUtil$AsciiHelper" />
-        <item itemvalue="Application.CaesarCipher" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +557,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

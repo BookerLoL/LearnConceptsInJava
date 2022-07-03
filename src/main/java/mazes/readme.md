@@ -1,5 +1,6 @@
 # Mazes
 
+## TODO still need to document more code
 ## TODO
 
 - https://weblog.jamisbuck.org/2015/1/15/better-recursive-division-algorithm.html

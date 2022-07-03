@@ -14,6 +14,8 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
+import static java.util.Comparator.comparing;
+
 public class DistanceGrid extends Grid {
     public static final int DEFAULT_DISTANCE = 0;
     protected Map<Cell, Integer> distances;
@@ -40,23 +42,29 @@ public class DistanceGrid extends Grid {
     }
 
     public Optional<Cell> farthestAwayCell() {
-        if (distances.isEmpty())
+        if (distances.isEmpty()) {
             return Optional.empty();
-        Cell maxDistantCell = distances.entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).get()
+        }
+
+        Cell maxDistantCell = distances.entrySet().stream().max(comparing(Map.Entry::getValue)).get()
                 .getKey();
         return Optional.of(maxDistantCell);
     }
 
     private Optional<List<Cell>> generatePath(Cell start, Cell end,
             BiFunction<Cell, Cell, Optional<List<Cell>>> pathProducer) {
-        if (!contains(start) || !contains(end))
+        if (!contains(start) || !contains(end)) {
             return Optional.ofNullable(null);
-        if (start == end)
+        }
+        if (start == end) {
             return Optional.of(Collections.emptyList());
-        if (!distances.containsKey(start))
+        }
+        if (!distances.containsKey(start)) {
             calculateDistances(start); // Distance never calculated
-        if (!distances.containsKey(end))
+        }
+        if (!distances.containsKey(end)) {
             return Optional.ofNullable(null); // Unable to reach end node from start after calculating distances
+        }
         return pathProducer.apply(start, end);
     }
 
@@ -99,8 +107,9 @@ public class DistanceGrid extends Grid {
                     current = neighbor;
                 }
             }
-            if (previous == current)
+            if (previous == current) {
                 return Optional.ofNullable(null);
+            }
         }
         path.add(start);
         return Optional.of(path);
@@ -179,17 +188,5 @@ public class DistanceGrid extends Grid {
             output.append(bottom).append("\n");
         }
         return output.toString();
-    }
-
-    public static void main(String[] args) {
-        DistanceGrid grid = new DistanceGrid(10, 10);
-        Grid.sideWinderMaze(grid);
-        Grid.braid(grid, 1);
-        Cell start = grid.randomCell();
-        grid.calculateDistances(start);
-        // List<Cell> cellPath = grid.shortestPath(start,
-        // grid.farthestAwayCell().get());
-        // System.out.println(grid.gridString(cellPath.stream().collect(Collectors.toSet())));
-        System.out.println(grid.gridString());
     }
 }

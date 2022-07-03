@@ -6,14 +6,18 @@ public class CylinderGrid extends Grid {
         super(rows, columns);
     }
 
+    /**
+     * Attempts to retrieve the cell at the given coordinates.
+     *
+     * @param row The row of the cell, 0 <= value && value => total rows
+     * @param col The column of the cell, value >= 0
+     * @return The cell if valid coordinates otherwise returns null.
+     * @implNote We need to override this method to handle special logic of the cylinder grid.
+     */
     public Cell get(int row, int col) {
-        return getHelper(row, col);
-    }
-
-    private Cell getHelper(int row, int col) {
-        if (!isWithinRowRange(row))
+        if (!isWithinRowRange(row)) {
             return null;
-        System.out.println("Row: " + row + "\tCol: " + col + "\tmod: " + Math.floorMod(col, grid[row].length));
+        }
         return grid[row][Math.floorMod(col, grid[row].length)];
     }
 

@@ -21,6 +21,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -186,12 +187,15 @@ public class Grid implements Iterable<Cell> {
     }
 
     private static double getValidPercent(double percentage) {
-        if (percentage >= 1.0)
+        if (percentage >= 1.0) {
             return 1.0;
-        else if (percentage <= 0.0)
+        }
+        else if (percentage <= 0.0) {
             return 0.0;
-        else
+        }
+        else {
             return percentage;
+        }
     }
 
     public static void wilsonsMaze(Grid grid) {
@@ -316,24 +320,35 @@ public class Grid implements Iterable<Cell> {
         public final double oddsOfPicking;
 
         public SelectorItem(Function<List<Cell>, Cell> selectorFunction, double oddsOfPicking) {
+            Objects.requireNonNull(selectorFunction);
+
             this.selectorFunction = selectorFunction;
             this.oddsOfPicking = oddsOfPicking;
         }
     }
 
+    /**
+     * This method is useful when you want to mix different selectors on how a cell is picked for generating a maze.
+     *
+     * @param selectors Non-null selecting algorithms to choose from, the total odds of picking should add up to 1.0
+     * @return A function to select a cell from a list of cells.
+     * @apiNote If the total odds to not add up to 1.0, there is a chance that the last selector is picked.
+     */
     public static final Function<List<Cell>, Cell> MIX_OF_SELECTORS(SelectorItem... selectors) {
+        Objects.requireNonNull(selectors);
+        List<SelectorItem> selectorItems = Arrays.asList(selectors).stream().filter(Objects::nonNull).toList();
+
         return list -> {
             Random random = new Random(System.nanoTime());
             double chance = random.nextDouble();
 
-            for (SelectorItem selectionItem : selectors) {
+            for (SelectorItem selectionItem : selectorItems) {
                 if (chance <= selectionItem.oddsOfPicking) {
                     return selectionItem.selectorFunction.apply(list);
                 }
                 chance -= selectionItem.oddsOfPicking;
             }
 
-            System.out.println("Selecting last: " + chance);
             // Select last given list if none odds are not satisfied
             return selectors[selectors.length - 1].selectorFunction.apply(list);
         };
@@ -353,7 +368,7 @@ public class Grid implements Iterable<Cell> {
         visitedCells.add(cell);
 
         while (!cell.neighborsWithoutLinks().isEmpty()) {
-            Cell neighbor = random(cell.neighborsWithoutLinks());
+            Cell neighbor = random(cell.neighborsWithoutLinks()).get();
             if (!visitedCells.contains(neighbor)) {
                 cell.link(neighbor);
                 depthFirstSearchMazeHelper(neighbor, visitedCells);
@@ -385,13 +400,14 @@ public class Grid implements Iterable<Cell> {
         List<Cell> cells = grid.cells();
 
         Map<Cell, Set<Cell>> cellGroups = cells.stream()
-                .collect(Collectors.toMap(Function.identity(), c -> new HashSet<>(Arrays.asList(c))));
+                .collect(Collectors.toMap(identity(), c -> new HashSet<>(Arrays.asList(c))));
         PriorityQueue<CellPair> neighborPairs = generateKruskalPairs(cells);
 
         while (!neighborPairs.isEmpty()) {
             CellPair pair = neighborPairs.remove();
-            if (canMergeKruskalPair(cellGroups, pair))
+            if (canMergeKruskalPair(cellGroups, pair)) {
                 mergeKruskalPair(cellGroups, pair);
+            }
         }
     }
 
@@ -501,10 +517,12 @@ public class Grid implements Iterable<Cell> {
     }
 
     public static void mixOfSelectorsMaze(Grid grid, SelectorItem... selectors) {
-        if (selectors == null || selectors.length == 0)
+        if (selectors == null || selectors.length == 0) {
             growingTreeMaze(grid, SELECT_RANDOM);
-        else
+        }
+        else {
             growingTreeMaze(grid, MIX_OF_SELECTORS(selectors));
+        }
     }
 
     private static void growingTreeMaze(Grid grid, Function<List<Cell>, Cell> selectingFunction) {
@@ -1068,76 +1086,5 @@ public class Grid implements Iterable<Cell> {
             output.append(bottom).append("\n");
         }
         return output.toString();
-    }
-
-    public static void main(String[] args) {
-        Grid grid = new Grid(7, 5);
-        Grid.houstonsMaze(grid);
-        System.out.println(grid.gridString());
-        while (grid.countDeadEnds() > 2) {
-            Grid.braid(grid, 1.0);
-            System.out.println(grid.gridString());
-        }
-        System.out.println(grid.gridString());
-        /*
-         * List<String> strictGrid = Arrays.asList(
-         * "#########",
-         * "#oxoxoxo#",
-         * "###x###x#",
-         * "#oxoxo#o#",
-         * "###x###x#",
-         * "#oxo#oxo#",
-         * "#########"
-         * );
-         * Grid grid = Grid.generateMazeFromStrictBlockwiseMaze(strictGrid, 'x');
-         * System.out.println(grid.gridString());
-         * System.out.println(grid.strictBlockwiseString());
-         * 
-         * /*
-         * List<String> relaxedGrid = Arrays.asList((
-         * "##########\n" +
-         * "#oo#oo##o#\n" +
-         * "#o#o#o#oo#\n" +
-         * "#ooooooo##\n" +
-         * "##########").split("\n"));
-         * MaskedGrid grid2 = Grid.generateMazeFromRelaxedBlockwiseMaze(relaxedGrid,
-         * 'o');
-         * System.out.println(grid2.relaxedBlockwiseString());
-         */
-
-        // Grid grid = new Grid(100, 100);
-        // Grid.houstonsMaze(grid);
-        // System.out.println(grid.gridString());
-        // System.out.println(grid.countDeadEnds());
-        // System.out.println(grid.countUnlinkedCells());
-        // Grid.recursiveBacktrackerMaze(grid);
-        // Grid.braid(grid, 1);
-        // System.out.println(grid.gridString());
-
-        /*
-         * Grid.recursiveBacktrackerMaze(grid);
-         * System.out.println(grid.gridString());
-         * grid.clear();
-         * Grid.huntAndKillMaze(grid);
-         * System.out.println(grid.gridString());
-         * grid.clear();
-         * Grid.binaryTreeMaze(grid);
-         * System.out.println(grid.gridString());
-         * grid.clear();
-         * Grid.wilsonsMaze(grid);
-         * System.out.println(grid.gridString());
-         * grid.clear();
-         * Grid.aldousBroderMaze(grid);
-         * System.out.println(grid.gridString());
-         * grid.clear();
-         * Grid.simpliedPrimsMaze(grid);
-         * System.out.println(grid.gridString());
-         * grid.clear();
-         * Grid.threeSetPrimsMaze(grid);
-         * System.out.println(grid.gridString());
-         * grid.clear();
-         * Grid.ellersMaze(grid);
-         * System.out.println(grid.gridString());
-         */
     }
 }

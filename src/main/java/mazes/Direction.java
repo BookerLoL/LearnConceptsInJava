@@ -1,12 +1,13 @@
 package mazes;
 
 import java.util.EnumSet;
+import java.util.Set;
 
 public enum Direction {
     NORTH(0, -1), SOUTH(0, 1), WEST(-1, 0), EAST(1, 0);
 
-    int xDir, yDir;
-    Direction opposite;
+    public final int xDir, yDir;
+    private Direction opposite;
 
     Direction(int xDir, int yDir) {
         this.xDir = xDir;
@@ -20,11 +21,15 @@ public enum Direction {
         WEST.opposite = EAST;
     }
 
-    public static final EnumSet<Direction> RIGHT_UP_ELBOW = EnumSet.of(EAST, NORTH),
+    public Direction getOpposite() {
+        return this.opposite;
+    }
+
+    public static final Set<Direction> RIGHT_UP_ELBOW = EnumSet.of(EAST, NORTH),
             RIGHT_DOWN_ELBOW = EnumSet.of(EAST, SOUTH),
             LEFT_UP_ELBOW = EnumSet.of(WEST, NORTH),
             LEFT_DOWN_ELBOW = EnumSet.of(WEST, SOUTH);
 
-    public static final EnumSet<Direction> HORIZONTAL_DIRECTIONS = EnumSet.of(EAST, WEST),
+    public static final Set<Direction> HORIZONTAL_DIRECTIONS = EnumSet.of(EAST, WEST),
             VERTICAL_DIRECTIONS = EnumSet.of(NORTH, EAST);
 }

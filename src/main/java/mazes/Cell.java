@@ -1,17 +1,13 @@
 package mazes;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.EnumMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.stream.Collectors.toList;
+import static mazes.Direction.HORIZONTAL_DIRECTIONS;
+import static mazes.Direction.VERTICAL_DIRECTIONS;
 
 /**
- * The cell class is synonymous to a Node for graph theory.
+ * The cell class is synonymous to a node for graph theory.
  * <p>
  * Links indicate which cells the cell may traverse to.
  * <p>
@@ -25,7 +21,7 @@ import static java.util.stream.Collectors.toList;
  */
 public class Cell {
     private Set<Cell> links;
-    private EnumMap<Direction, Cell> neighbors;
+    private Map<Direction, Cell> neighbors;
     public final int row, col;
 
     /**
@@ -60,11 +56,14 @@ public class Cell {
      *                      vice-versa, else only link this cell to the given cell
      */
     public void link(Cell cell, boolean bidirectional) {
-        if (cell == null)
+        if (cell == null) {
             return;
+        }
+
         links.add(cell);
-        if (bidirectional)
+        if (bidirectional) {
             cell.links.add(this);
+        }
     }
 
     /**
@@ -84,36 +83,40 @@ public class Cell {
      *                      else only unlink this cell to the given cell.
      */
     public void unlink(Cell cell, boolean bidirectional) {
-        if (cell == null)
+        if (cell == null) {
             return;
+        }
+
         links.remove(cell);
-        if (bidirectional)
+        if (bidirectional) {
             cell.links.remove(this);
+        }
     }
 
     /**
-     * @return The total links of traversable cells.
+     * @return The total links of traversable cells, value is >= 0
      */
     public int totalLinks() {
         return links.size();
     }
 
     /**
-     * @return All the traversable cells this cell has links to.
+     * @return All the traversable cells this cell has links to, list is always non-empty.
+     * @apiNote Underlying {@link List} is an {@link ArrayList} that is modifiable.
      */
     public List<Cell> links() {
         return links.stream().collect(toList());
     }
 
     /**
-     * @return true if has no links, else false.
+     * @return true if the cell has no links, else false.
      */
     public boolean hasNoLinks() {
         return links.isEmpty();
     }
 
     /**
-     * @return true if has at least 1 link, else false.
+     * @return true if the cell has at least 1 link, else false.
      */
     public boolean hasLinks() {
         return !links.isEmpty();
@@ -186,21 +189,29 @@ public class Cell {
         return new ArrayList<>(neighbors.keySet());
     }
 
+    /**
+     * Links the neighbor in that given direction if there is a neighbor.
+     *
+     * @param direction The direction to grab it's closest neighboring cell.
+     */
     public void linkNeighbor(Direction direction) {
         link(neighbors.get(direction));
     }
 
+    /**
+     * Unlinks the neighbor in that given direction if there is a neighbor.
+     *
+     * @param direction The direction to grab it's closest neighboring cell.
+     */
     public void unlinkNeighbor(Direction direction) {
-     *         
         unlink(neighbors.get(direction));
     }
 
     /**
-     * @param allowedDirections All directions we want neighbors from
-     * @return Non-null list of cells that come from the given {@code allowedDirections}.
+     * @param allowedDirections The directions where the neighbors are located.
+     * @return Non-null list of cells that come from the given {@code allowedDirections} if there exists neighbors.
      */
     public List<Cell> neighbors(Collection<Direction> allowedDirections) {
-     *         
         return allowedDirections.stream().filter(neighbors::containsKey).map(neighbors::get).collect(toList());
     }
 
@@ -214,7 +225,7 @@ public class Cell {
     }
 
     /**
-     * @param direction The direction to check if has a neighbor from
+     * @param direction The direction to check if the cell has a neighbor from
      * @return True if the direction has a neighbor, else false.
      */
     public boolean hasNeighbor(Direction direction) {
@@ -226,9 +237,14 @@ public class Cell {
      * @param direction The direction to set for neighbor
      */
     public void setNeighbor(Cell neighbor, Direction direction) {
-     *                  
-        if (neighbor == null) return;
+        if (neighbor == null) {
+            return;
+        }
         neighbors.put(direction, neighbor);
+    }
+
+    public void removeNeighbor(Cell cell) {
+        neighbors.remove(cell);
     }
 
     /**
@@ -239,24 +255,6 @@ public class Cell {
         neighbors.remove(direction);
     }
 
-    /**
-     * @param cell The neighbor cell to remove.
-     *             /
-     *             public void removeNeighbor(Cell cell) {
-     *             if (cell == null) return;
-     *             neighbors.entrySet().stream().filter(e -> e.getValue() ==
-     *             cell).findAny().ifPresent(e -> neighbors.remove(e.getKey()));
-     *             }
-     * 
-     *             //TODO: Javadocs
-     *             public void removeNeighbors() {
-     *             neighbors.values().forEach(n -> n.removeNeighbor(this));
-     *             neighbors.clear();
-     *             }
-     * 
-     *             /**
-     * @return All neighbor cells.
-     */
     public List<Cell> neighbors() {
         return neighbors.values().stream().collect(toList());
     }
@@ -272,27 +270,25 @@ public class Cell {
      * @return True if has North and South links, else false.
      */
     public boolean hasVerticalPassage() {
-        return hasLinksWithAllDirection(Direction.VERTICAL_DIRECTIONS);
+        return hasLinksWithAllDirection(VERTICAL_DIRECTIONS);
     }
 
     /**
      * @return True if has West and East links, else false.
      */
-    *
 
     public boolean hasHorizontalPassage() {
-        return hasLinksWithAllDirection(Direction.HORIZONTAL_DIRECTIONS);
+        return hasLinksWithAllDirection(HORIZONTAL_DIRECTIONS);
     }
 
     /**
      * @return True if has only 2 links and they are North and South links, else
      *         false.
      */
-    *
 
     public boolean hasOnlyVerticalPassage() {
-        return hasLinksWithAllDirection(Direction.VERTICAL_DIRECTIONS)
-                && !hasLinksWithAnyDirection(Direction.HORIZONTAL_DIRECTIONS);
+        return hasLinksWithAllDirection(VERTICAL_DIRECTIONS)
+                && !hasLinksWithAnyDirection(HORIZONTAL_DIRECTIONS);
     }
 
     /**
@@ -300,8 +296,8 @@ public class Cell {
      *         false.
      */
     public boolean hasOnlyHorizontalPassage() {
-        return hasLinksWithAllDirection(Direction.HORIZONTAL_DIRECTIONS)
-                && !hasLinksWithAnyDirection(Direction.VERTICAL_DIRECTIONS);
+        return hasLinksWithAllDirection(HORIZONTAL_DIRECTIONS)
+                && !hasLinksWithAnyDirection(VERTICAL_DIRECTIONS);
     }
 
     @Override
