@@ -83,3 +83,20 @@ actions.record(x::doSomething1);
 actions.record((x::doSomething2);
 actions.run();
 ```
+
+```java
+public interface Logger {
+  void log(String message);
+
+  default Logger filter(Predicate<String> filter) {
+    return message -> {
+      if (filter.test(message)) {
+        log(message);
+      }
+    };
+  }
+}
+
+Logger logger = msg -> System.out::println;
+Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
+```

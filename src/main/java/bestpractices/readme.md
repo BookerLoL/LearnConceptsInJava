@@ -1,28 +1,15 @@
 # Best Practices in Java
 
+# (WIP) Work in progress!!!
+
 ## Best Overall techniques
 
 - Should read guides / read books / watch vidoes / etc from experts to learn whats best practice
-- Abstract classes are harmful, inheritance tree propagated changes
-  - Avoid abstract classes as much as possible
+- Interfaces over abstract classes
+  - If using abstract class, ensure it's shallow and not many classes rely on it
 - Composition over inheritance
-
-```java
-public interface Logger {
-  void log(String message);
-
-  default Logger filter(Predicate<String> filter) {
-    return message -> {
-      if (filter.test(message)) {
-        log(message);
-      }
-    };
-  }
-}
-
-Logger logger = msg -> System.out::println;
-Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
-```
+- Readable code over optimized code
+  - Need to benchmark and see if you really need optimization
 
 ## TODO organize the notes
 
@@ -147,10 +134,6 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
   - Use optional for domain model
 - Always initialize collection fields with empty one
 
-## SneakThrows Lombok
-
-- Great if don't intend to selectiviely catch
-- otherwise, wrap checked exceptions in runtime exceptions that you throw
 
 ## Exceptions
 
@@ -164,26 +147,29 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
 - Avoid displaying the exact error cause to your users unless they can do something to fix it.
 
 ## Code Review
-
-- Have person sitting down to review code
-  - give suggestions and see what they think
-    - "what do you think fo extracting this part into a separate function?"
-- Before commiting changes, **revert all improvements and them make those changes themselves**
-  - **So they learn to do it themselves**
-- It's fine to allow flawed code to pass reviews
-  - encourage people to do their best and make conscious decisions
+- Pair Programming / Code Reviewing someones code
+  - Have person sitting down to review code
+    - give suggestions and see what they think
+      - "what do you think of extracting this part into a separate function?"
+  - Before committing changes, **revert all improvements and make the person make those changes themselves**
+    - **So they learn to do it themselves**
+- It's fine to allow minor flawed code to pass reviews
+  - Encourage people to do their best and make conscious decisions
+    - Being overly critical on small things even with good intentions lead to people disliking your comments
   - Look for **their best designs**
-  - **if obvious error or bug**, fix it and explain problem
-  - **If design changes elaborate**, use code style above
+  - **If obvious error or bug**, fix it and explain problem
+  - **If design changes then elaborate as to why/what it does/etc**
   - If subtle / nuanced coding practices, **leave it your way**
-    - don't argue over small semantics
+    - Don't argue over small semantics
 - **Not all design flaws grow into real issues**
+  - Some parts of the system does not need to be perfect due to their usage and scope
 - Learn, don't blame
-  - **Be vareful with words, tones, and attitude you have in reviews**
+  - **Be careful with words, tones, and attitude you have in reviews**
   - Put effort into understanding the chosen solution, big picture
     - **Don't aim for apparent flaws and bugs**
 - Senior needs to learn **kindness, empathy, and teaching**
 - Consider team meeting if some issues arise in multiple code reviews
+  - If style is an issue, perhaps use a code formatter / linter that team agrees on
 - If inexperienced / unsure / poor day
   - Use more 'guided' teaching method and gently walk them through the significant issues, correcting and deeply explaining each one
 - Help the reviewer, If more experienced, must mind their time
@@ -199,8 +185,6 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
   - concentrate on facts, not opinions or style
   - accept imperfect solutions to preserve team spirit
   - submit reviewer friendly pull requests with explanatory, fine-grained commits
-- Pair programming is good alternative to code reviews
-
 ---
 
 - **Parameterized types are to be invariant**
@@ -208,3 +192,8 @@ Logger filteredLogger = logger.filter(msg -> !msg.isEmpty());
     - Thus **Invariant**
   - covariance: `List<Integer>` is subtype of `List<Number>`
   - contravariant: `List<Number>` is subtype of `List<Integer>`
+
+
+### Resources
+- [Victor Rentea](https://www.youtube.com/c/vrentea)
+- Personal Experience
