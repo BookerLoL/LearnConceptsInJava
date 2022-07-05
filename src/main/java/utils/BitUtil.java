@@ -23,7 +23,7 @@ public class BitUtil {
 		return left | right;
 	}
 
-	public static int exor(int left, int right) {
+	public static int xor(int left, int right) {
 		return left ^ right;
 	}
 
