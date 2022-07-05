@@ -1,4 +1,4 @@
-package designpatterns.intercepting_filter;
+package designpatterns.interceptingfilter;
 
 public interface Filter {
 	void execute(String request);

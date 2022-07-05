@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <excludeFromCompile>
-      <file url="file://$PROJECT_DIR$/src/main/java/datastructures/queue/LinkedListQueue.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/datastructures/tree/DiamondTree.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/bridge/BaseRepository.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/builder/generic/Generic.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/service_locator/InitialContext.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/proxy/virtual/ProxyImageViewer.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/proxy/protection/Tester.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/factory/factorymethod/ShapeFactory.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/composite/Tester.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/datastructures/ExtendibleHashTable.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/strategy/DistanceMapper.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/strategy/DFSPathFinder.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/strategy/PathFinder.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/strategy/BFSPathFinder.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/state/UnlockedDoorState.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/service_locator/ServiceLocator.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/proxy/virtual/BaseImageViewer.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/observer/Phone.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/observer/Observable.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/observer/Alert.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/mediator/Mediator.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/mediator/BooleanValue.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/FilterChain.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/DebugFilter.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/AuthenticationFilter.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/factory/factorymethod/Square.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/factory/factorymethod/Circle.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/facade/ByteLoaderFacade.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/composite/Numbers.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/composite/Number.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/command/JumpCommand.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/FileLogger.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/ErrorLogger.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/bridge/Student.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/bridge/FileRepository.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/bridge/DatabaseRepository.java" />
-      <file url="file://$PROJECT_DIR$/src/main/java/designpatterns/bridge/StorageRepository.java" />
-    </excludeFromCompile>
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />

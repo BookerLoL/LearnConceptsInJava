@@ -5,9 +5,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b42b4d-235e-4bc2-b7ff-143773c0cac4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bestpractices/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bestpractices/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/command/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/bounded_queue/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/boundedqueue/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/ConsoleLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chainofresponsibility/ConsoleLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/ErrorLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chainofresponsibility/ErrorLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/FileLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chainofresponsibility/FileLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chainofresponsibility/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/chain_of_responsibility/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/chainofresponsibility/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/client_server/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/clientserver/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/collecting_parameter/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/collectingparameter/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/collection_pipeline/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/collectionpipeline/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/crash_test_dummy/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/crashtestdummy/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/currying_functions/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/curryingfunctions/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/data_access_object/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/dataaccessobject/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/data_access_object/StudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/dataaccessobject/StudentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/data_access_object/StudentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/dataaccessobject/StudentDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/data_access_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/dataaccessobject/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/default_values/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/defaultvalues/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/double_checked_locking/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/doublecheckedlocking/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/event_driven/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/eventdriven/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/event_driven_communication/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/eventdrivencommunication/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/execute_around/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/executearound/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/extract_transform_load/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/extracttransformload/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/fail_fast/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/failfast/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/failure_handling/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/failurehandling/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/fan_out_quickest_reply/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/fanoutquickestreply/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/feature_flag/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/featureflag/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/fluent_interface/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/fluentinterface/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/forwarding_decorator/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/forwardingdecorator/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/interceptingfilter/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/DebugFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/interceptingfilter/DebugFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/interceptingfilter/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/FilterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/interceptingfilter/FilterChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/interceptingfilter/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/intercepting_filter/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/interceptingfilter/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/lazy_evaluation/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/lazyevaluation/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/map_reduce/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/mapreduce/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/master_slave/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/masterslave/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/method_chaining/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/methodchaining/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/naked_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/nakedobject/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/null_object/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/nullobject/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/null_object/NullCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/nullobject/NullCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/null_object/RealCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/nullobject/RealCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/null_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/nullobject/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/object_pool/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/objectpool/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/page_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/pageobject/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/parameter_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/parameterobject/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/partial_application/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/partialapplication/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/partial_response/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/partialresponse/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/private_class_design/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/privateclassdesign/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/publisher_subscriber/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/publishersubscriber/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/query_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/queryobject/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/resource_acquisition/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/resourceacquisition/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/self_containment/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/selfcontainment/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/self_shunt/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/selfshunt/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/service_layer/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servicelayer/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servicelocator/Cache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/InitialContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servicelocator/InitialContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servicelocator/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/Service1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servicelocator/Service1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/Service2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servicelocator/Service2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servicelocator/ServiceLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/service_locator/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/servicelocator/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/spatial_partition/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/spatialpartition/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/special_case/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/specialcase/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/subclass_sandbox/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/subclasssandbox/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/table_module/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/tablemodule/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/thread_local_storage/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/threadlocalstorage/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/transaction_script/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/transactionscript/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/transfer_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/transferobject/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/type_object/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/typeobject/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/unit_of_work/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/unitofwork/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/update_method/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/updatemethod/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/version_number/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/versionnumber/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/AdjacencyListGraph.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/AdjacencyMatrixGraph.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +164,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Users/Ethan/Documents/LearnConceptsInJava",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -98,13 +172,13 @@
       <recent name="designpatterns.builder.faceted" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.interview_prep.Tester">
-    <configuration name="RailFenceCipher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ciphers.RailFenceCipher" />
+  <component name="RunManager" selected="Application.Treap">
+    <configuration name="BinarySearchTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datastructures.tree.BinarySearchTree" />
       <module name="LearnConceptsInJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ciphers.*" />
+          <option name="PATTERN" value="datastructures.tree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,19 +186,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
-      <module name="LearnConceptsInJava" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="designpatterns.monad.Test" />
+    <configuration name="Genome2Bit" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="compression.Genome2Bit" />
       <module name="LearnConceptsInJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="designpatterns.monad.*" />
+          <option name="PATTERN" value="compression.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,11 +200,11 @@
       </method>
     </configuration>
     <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="interview_prep.Tester" />
+      <option name="MAIN_CLASS_NAME" value="designpatterns.bridge.Tester" />
       <module name="LearnConceptsInJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="interviewprep.*" />
+          <option name="PATTERN" value="designpatterns.bridge.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -145,20 +212,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TopologicalSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="interviewprep.algorithms.TopologicalSort" />
+    <configuration name="ThreadedBinarySearchTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datastructures.tree.ThreadedBinarySearchTree" />
       <module name="LearnConceptsInJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datastructures.tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Treap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datastructures.queue.Treap" />
+      <module name="LearnConceptsInJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datastructures.queue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.interview_prep.Tester" />
-        <item itemvalue="Application.interviewprep.algorithms.TopologicalSort" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.RailFenceCipher" />
+        <item itemvalue="Application.Treap" />
+        <item itemvalue="Application.ThreadedBinarySearchTree" />
+        <item itemvalue="Application.Tester" />
+        <item itemvalue="Application.BinarySearchTree" />
+        <item itemvalue="Application.Genome2Bit" />
       </list>
     </recent_temporary>
   </component>

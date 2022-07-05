@@ -1,4 +1,4 @@
-package designpatterns.proxy.virtual_proxy;
+package designpatterns.proxy.virtual;
 
 public class BaseImageViewer implements ImageViewer {
 	private Image image;

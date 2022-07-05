@@ -1,4 +1,4 @@
-package designpatterns.service_locator;
+package designpatterns.servicelocator;
 
 public class InitialContext {
 	public Object lookup(String name) {
