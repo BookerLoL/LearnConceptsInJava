@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * A utility class for {@link Math} to provide useful functionality that currently does not exist
@@ -53,7 +52,7 @@ public class MathUtil {
      *
      * @param number1      The first number for calculating lcm
      * @param number2      The second number for calculating lcm
-     * @param otherNumbers numbers to calculate the lcm of all, can be empty
+     * @param otherNumbers Additional numbers to calculate the lcm, can be empty
      * @return The lcm of all the numbers given, 0 if any number is 0 otherwise positive number (lcm)
      * @throws NullPointerException If otherNumbers is null.
      * @see MathUtil#lcm(int, int)
@@ -80,7 +79,7 @@ public class MathUtil {
      *
      * @param number1 The first number for calculating gcd
      * @param number2 The second number for calculating gcd
-     * @return The greatest common denominator (gcd) of num1 and number2 which is either 0 or a positive number.
+     * @return The greatest common denominator (gcd) of number1 and number2 which is either 0 or a positive number.
      * @apiNote Although the gcd(0, 0) should be undefined, we return 0 in this case
      * @implNote Implements the Euclidean algorithm to calculate the gcd
      * @see <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean Algorithm</a>
@@ -110,8 +109,8 @@ public class MathUtil {
      *
      * @param number1      The first number for calculating gcd
      * @param number2      The second number for calculating gcd
-     * @param otherNumbers The gcd of all the numbers given, 1 if any number is 0 otherwise num1 positive least common multiple
-     * @return The greatest common denominator (gcd) of num1, num2, and otherNumbers which can be 0 or a positive number.
+     * @param otherNumbers Additional numbers to calculate the gcd, can be empty
+     * @return The greatest common denominator (gcd) of all the numbers which can be 0 or a positive number.
      * @apiNote Although the gcd(0, 0) should be undefined, we return 0 in this case
      * @see MathUtil#gcd(int, int)
      */

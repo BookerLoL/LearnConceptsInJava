@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b42b4d-235e-4bc2-b7ff-143773c0cac4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ArraysUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ArraysUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/BitUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/BitUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CharacterUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CharacterUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/MathUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/MathUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/OptionalUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/OptionalUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
