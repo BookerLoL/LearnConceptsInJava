@@ -3,9 +3,14 @@ package utils;
 import java.util.List;
 import java.util.stream.IntStream;
 
+/**
+ * @apiNote This class is still a work in progress, subject to API breaking changes in the future
+ */
 public class CharacterUtil {
-    private CharacterUtil() {
-    }
+    /**
+     * Private constructor to prevent initialization
+     */
+    private CharacterUtil() {}
 
     /**
      * A helper class that handles American Standard Code for Information Interchange characters.
@@ -45,10 +50,6 @@ public class CharacterUtil {
 
         public static boolean isLowercaseLetter(char ch) {
             return MIN_LOWERCASE_ALPHABET <= ch && ch <= MAX_LOWERCASE_ALPHABET;
-        }
-
-        public static void main(String[] arsgs) {
-            System.out.println(LOWERCASE_ALPHABET);
         }
     }
 }

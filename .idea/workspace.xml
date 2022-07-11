@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="25b42b4d-235e-4bc2-b7ff-143773c0cac4" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/Tester.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/OptionalUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ArraysUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ArraysUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/BitUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/BitUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CharacterUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CharacterUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MathUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/MathUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/OptionalUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/OptionalUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +102,13 @@
       <recent name="designpatterns.builder.faceted" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Tester (1)">
-    <configuration name="BinarySearchTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="datastructures.tree.BinarySearchTree" />
+  <component name="RunManager" selected="Application.BitUtil">
+    <configuration name="BitUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="utils.BitUtil" />
       <module name="LearnConceptsInJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datastructures.tree.*" />
+          <option name="PATTERN" value="utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -161,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BitUtil" />
         <item itemvalue="Application.Tester (1)" />
         <item itemvalue="Application.Treap" />
         <item itemvalue="Application.ThreadedBinarySearchTree" />
         <item itemvalue="Application.Tester" />
-        <item itemvalue="Application.BinarySearchTree" />
       </list>
     </recent_temporary>
   </component>

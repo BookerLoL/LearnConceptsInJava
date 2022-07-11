@@ -3,7 +3,19 @@ package utils;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * A utility class for {@link Optional} to provide useful functionality that currently does not exist
+ *
+ * @author Ethan
+ * @version 1.0
+ * @since 2022-07-10
+ */
 public class OptionalUtil {
+    /**
+     * Private constructor to prevent initialization
+     */
+    private OptionalUtil() {}
+
     /**
      * Similar to {@link Math#min(int, int)} but for Optionals
      *

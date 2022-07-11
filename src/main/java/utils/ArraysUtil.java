@@ -2,9 +2,14 @@ package utils;
 
 import java.util.StringJoiner;
 
+/**
+ * @apiNote This class is still a work in progress, subject to API breaking changes in the future
+ */
 public class ArraysUtil {
-    private ArraysUtil() {
-    }
+    /**
+     * Private constructor to prevent initialization
+     */
+    private ArraysUtil() {}
 
     public static final String DEFAULT_ELEMENT_DELIMITER = ", ";
 
